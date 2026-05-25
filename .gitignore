@@ -1,0 +1,42 @@
+# ComfyUI generated outputs
+output/
+outputs/
+input/
+temp/
+tmp/
+
+# Model files and large weights
+*.ckpt
+*.safetensors
+*.pt
+*.pth
+*.bin
+*.onnx
+*.gguf
+
+# Generated media
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.webm
+*.png
+*.jpg
+*.jpeg
+*.webp
+*.gif
+*.wav
+*.mp3
+*.flac
+
+# Python and local tooling
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

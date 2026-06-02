@@ -4,6 +4,8 @@ These prompts support the LTX 2 camera-control LoRA YouTube video.
 
 **Workflow:** `../../../workflows/ltx-2-camera-control-loras/video_ltx2_3_ia2v_working.json`
 
+**LoRA source:** https://huggingface.co/collections/Lightricks/ltx-2
+
 | Camera Move | LoRA File | Prompt |
 | --- | --- | --- |
 | Jib Up | `LTX-2-19b-LoRA-Camera-Control-Jib-Up` | A Filipino Asian male content creator with a shaved head, wearing a navy blue blazer and white dress shirt, speaking directly to camera with natural mouth movement and subtle hand gestures. The camera starts at eye level framing the face and shoulders, then slowly jibs upward to reveal the full torso and upper body, ending in a medium shot showing the subject from the waist up against a smooth neutral grey studio backdrop. Soft diffused studio lighting. Professional YouTube talking head video. The subject maintains direct eye contact with the camera throughout. |

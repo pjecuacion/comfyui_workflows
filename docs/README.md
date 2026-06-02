@@ -13,6 +13,10 @@ The current focus is video and image-to-video workflows, especially LTX-based ex
 
 More details are listed in [workflows.md](workflows.md).
 
+The LTX 2 camera-control LoRA prompt table is here:
+
+- [LTX 2 camera-control LoRA prompts](videos/ltx-2-camera-control-loras/prompts.md)
+
 ## How to Use
 
 1. Download or clone this repo.
@@ -34,6 +38,10 @@ For example:
 
 - Workflow: `workflows/ltx-2-camera-control-loras/video_ltx2_3_ia2v_working.json`
 - Prompts: `docs/videos/ltx-2-camera-control-loras/prompts.md`
+
+## Repo Policy Exception
+
+This repo is a public workflow-sharing repo, not a packaged app. It does not use app-style version bumps, release changelogs, or generated changelog files for every workflow update.
 
 ## Requirements
 

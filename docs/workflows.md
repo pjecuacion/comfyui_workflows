@@ -12,6 +12,8 @@ This page tracks the workflows currently shared in this repo.
 
 **Purpose:** A ComfyUI workflow for testing LTX 2 camera-control LoRAs across jib and dolly camera moves.
 
+**LoRA source:** [Lightricks LTX-2 collection on Hugging Face](https://huggingface.co/collections/Lightricks/ltx-2)
+
 **Included prompt notes:**
 
 - `docs/videos/ltx-2-camera-control-loras/prompts.md`
@@ -20,6 +22,7 @@ This page tracks the workflows currently shared in this repo.
 
 - Install any missing custom nodes reported by ComfyUI.
 - Confirm the LTX model and LoRA files exist in your local ComfyUI model folders.
+- Download the camera-control LoRAs from the Lightricks LTX-2 Hugging Face collection.
 - Check prompt text, input image/video inputs, output path, and video settings before running.
 - Run a short test first because camera-control LoRA results can vary by prompt and seed.
 

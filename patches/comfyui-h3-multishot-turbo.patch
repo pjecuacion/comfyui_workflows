@@ -1,0 +1,52 @@
+diff --git a/h3_multishot_utils.py b/h3_multishot_utils.py
+index 7e489f6..30cf132 100644
+--- a/h3_multishot_utils.py
++++ b/h3_multishot_utils.py
+@@ -455,6 +455,12 @@ class H3MultishotSampler:
+                 "default": "simple",
+                 "tooltip": "Sigma schedule. simple is the default and what "
+                            "the docs measured."}),
++            "turbo_mode": ("BOOLEAN", {
++                "default": False, "label_on": "Turbo 4-step",
++                "label_off": "Standard",
++                "tooltip": "Requires MiniMaxH3TurboLoRA on the model input. "
++                           "Uses Turbo's separate video/audio flow schedule "
++                           "and forces four sampling steps."}),
+         }}
+ 
+     RETURN_TYPES = ("IMAGE", "AUDIO", "INT")
+@@ -465,7 +471,8 @@ class H3MultishotSampler:
+     def run(self, model, clip, video_vae, audio_vae, script, shot_count,
+             width, height, frames_per_shot, seed, steps,
+             seed_per_shot=False, start_image=None,
+-            sampler_name="res_multistep", scheduler="simple"):
++            sampler_name="res_multistep", scheduler="simple",
++            turbo_mode=False):
+         import torch
+         import node_helpers
+         from comfy_extras import nodes_custom_sampler as ncs
+@@ -484,8 +491,22 @@ class H3MultishotSampler:
+                   flush=True)
+             shots.append(shots[-1])
+ 
+-        sigmas = ncs.BasicScheduler().get_sigmas(model, scheduler, steps, 1.0)[0]
+-        sampler = ncs.KSamplerSelect().get_sampler(sampler_name)[0]
++        effective_steps = 4 if turbo_mode else steps
++        sigmas = ncs.BasicScheduler().get_sigmas(
++            model, scheduler, effective_steps, 1.0)[0]
++        if turbo_mode:
++            import nodes as core_nodes
++            turbo_cls = core_nodes.NODE_CLASS_MAPPINGS.get(
++                "MiniMaxH3TurboSampler")
++            if turbo_cls is None:
++                raise RuntimeError(
++                    "Turbo mode requires ComfyUI-MiniMax-H3-Turbo. "
++                    "Install/enable it and restart ComfyUI.")
++            sampler = turbo_cls().get_sampler()[0]
++            print("[H3Multishot] Turbo mode: 4-step dual AV sampler.",
++                  flush=True)
++        else:
++            sampler = ncs.KSamplerSelect().get_sampler(sampler_name)[0]
+ 
+         frames_parts, audio_parts = [], []
+         sr = None

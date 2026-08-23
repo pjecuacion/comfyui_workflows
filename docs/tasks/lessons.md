@@ -106,3 +106,21 @@ When editing `widgets_values` by index, include hidden or auxiliary control widg
 ### Correct Behavior
 
 For this sampler, index 6 remains `randomize` and index 7 contains the four Turbo sampling steps.
+
+## LESSON-006 - Validate Markdown Table Shape
+
+### What Went Wrong
+
+The README workflow table declared three columns but its separator row declared only two, so GitHub rendered the table incorrectly.
+
+### Why It Happened
+
+The table was reviewed as text without checking that every row had the same number of cells as the header.
+
+### New Rule
+
+When editing a Markdown table, validate the header, separator, and data rows have the same number of cells before sharing the change.
+
+### Correct Behavior
+
+The workflow table has three cells in every row: video bundle, workflow, and description.

@@ -7,7 +7,7 @@ The current focus is video and image-to-video workflows, especially LTX-based ex
 ## Workflows
 
 | Video bundle | Workflow | What it is |
-| --- | --- |
+| --- | --- | --- |
 | `ltx-2-camera-control-loras` | `workflows/ltx-2-camera-control-loras/video_ltx2_3_ia2v_working.json` | LTX 2 camera-control LoRA workflow for jib and dolly movement tests. |
 | `ltx-2-3-claymation-demo` | `workflows/ltx-2-3-claymation-demo/video_ltx2_3_it2v_prince-does-ai-claymation-demo.json` | LTX 2.3 image/text-to-video style workflow with video export through Video Helper Suite. |
 | `ltx-2-3-ia2v-start-frame` | `workflows/ltx-2-3-ia2v-start-frame/video_ltx2_3_ia2v_start_frame.json` | LTX 2.3 imported-audio workflow with a starting frame. |

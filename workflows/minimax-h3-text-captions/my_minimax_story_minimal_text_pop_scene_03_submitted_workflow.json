@@ -1,0 +1,458 @@
+{
+  "115": {
+    "inputs": {
+      "aspect_ratio": "16:9 (Widescreen)",
+      "megapixels": 1,
+      "multiple": 32
+    },
+    "class_type": "ResolutionSelector",
+    "_meta": {
+      "title": "Resolution Selector"
+    }
+  },
+  "119": {
+    "inputs": {
+      "vae_name": "minimax_h3_video_vae_fp16.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "Load Video VAE"
+    }
+  },
+  "120": {
+    "inputs": {
+      "vae_name": "minimax_h3_audio_vae_fp32.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "Load Audio VAE"
+    }
+  },
+  "121": {
+    "inputs": {
+      "samples": [
+        "178",
+        0
+      ],
+      "vae": [
+        "120",
+        0
+      ]
+    },
+    "class_type": "VAEDecodeAudio",
+    "_meta": {
+      "title": "Decode Audio"
+    }
+  },
+  "122": {
+    "inputs": {
+      "samples": [
+        "178",
+        0
+      ],
+      "vae": [
+        "119",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "Decode Video Frames"
+    }
+  },
+  "123": {
+    "inputs": {
+      "sampler_name": "res_multistep"
+    },
+    "class_type": "KSamplerSelect",
+    "_meta": {
+      "title": "Sampler"
+    }
+  },
+  "124": {
+    "inputs": {
+      "scheduler": "simple",
+      "steps": 8,
+      "denoise": 1,
+      "model": [
+        "story:live-preview",
+        0
+      ]
+    },
+    "class_type": "BasicScheduler",
+    "_meta": {
+      "title": "Sampling Steps"
+    }
+  },
+  "125": {
+    "inputs": {
+      "noise": [
+        "129",
+        0
+      ],
+      "guider": [
+        "126",
+        0
+      ],
+      "sampler": [
+        "123",
+        0
+      ],
+      "sigmas": [
+        "124",
+        0
+      ],
+      "latent_image": [
+        "136",
+        1
+      ]
+    },
+    "class_type": "SamplerCustomAdvanced",
+    "_meta": {
+      "title": "Advanced Sampler"
+    }
+  },
+  "126": {
+    "inputs": {
+      "model": [
+        "story:live-preview",
+        0
+      ],
+      "conditioning": [
+        "177",
+        0
+      ]
+    },
+    "class_type": "BasicGuider",
+    "_meta": {
+      "title": "Basic Guider"
+    }
+  },
+  "127": {
+    "inputs": {
+      "unet_name": "minimax_h3_ref2va_pruned_fp8_scaled.safetensors",
+      "weight_dtype": "default"
+    },
+    "class_type": "UNETLoader",
+    "_meta": {
+      "title": "Load Proven FP8 Reference Model"
+    }
+  },
+  "128": {
+    "inputs": {
+      "clip_name": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+      "type": "minimax",
+      "device": "default"
+    },
+    "class_type": "CLIPLoader",
+    "_meta": {
+      "title": "Load Text Encoder"
+    }
+  },
+  "129": {
+    "inputs": {
+      "noise_seed": 191607868516603
+    },
+    "class_type": "RandomNoise",
+    "_meta": {
+      "title": "Seed"
+    }
+  },
+  "131": {
+    "inputs": {
+      "expression": "max(5, round(a * 24)) + (5 - (max(5, round(a * 24)) % 17)) % 17",
+      "values.a": [
+        "132",
+        0
+      ]
+    },
+    "class_type": "ComfyMathExpression",
+    "_meta": {
+      "title": "Duration to 17k+5 Frames"
+    }
+  },
+  "132": {
+    "inputs": {
+      "value": 7
+    },
+    "class_type": "PrimitiveFloat",
+    "_meta": {
+      "title": "Duration"
+    }
+  },
+  "136": {
+    "inputs": {
+      "prompt": [
+        "143",
+        0
+      ],
+      "width": [
+        "115",
+        0
+      ],
+      "height": [
+        "115",
+        1
+      ],
+      "length": [
+        "131",
+        1
+      ],
+      "ref_image_size": "match",
+      "clip": [
+        "128",
+        0
+      ],
+      "vae": [
+        "119",
+        0
+      ],
+      "audio_vae": [
+        "120",
+        0
+      ],
+      "ref_images.ref_image_0": [
+        "137",
+        0
+      ],
+      "ref_audios.ref_audio_0": [
+        "142",
+        0
+      ],
+      "ref_images.ref_image_1": [
+        "story:studio_reference",
+        0
+      ]
+    },
+    "class_type": "MiniMaxH3ReferenceToVideo",
+    "_meta": {
+      "title": "MiniMax H3 Reference to Video"
+    }
+  },
+  "137": {
+    "inputs": {
+      "image": "story-studio/006ed1596abf_006ed1596abf5986c85fb2227ce389335e08bb21ee22cce5dfdc43516f0754bb.png"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Reference Image"
+    }
+  },
+  "142": {
+    "inputs": {
+      "audio": "story-studio/2adfeb37c1cc_2adfeb37c1cc550086473645b6a6f927d88bced25569d7adc3bff4a7b1752fec.mp3"
+    },
+    "class_type": "LoadAudio",
+    "_meta": {
+      "title": "Reference Audio"
+    }
+  },
+  "143": {
+    "inputs": {
+      "value": "r34l1sm, subject_definitions:\n<Subject 1> is the presenter from <Picture 1>, preserving identity, face, hair, eyes, body proportions, and distinctive appearance. <Subject 1> wears red and black checkered shirt.\n<Picture 2> is the studio-only visual reference. It defines the same physical studio shown across scenes; preserve its identity, design, furniture, materials, lighting style, desk, microphone setup, shelving, monitors, and recognizable spatial relationships. It has no authority over presenter identity or attire.\n<Audio 1> is used only as a voice-timbre and delivery reference for <Subject 1> (S1). Do not reuse, repeat, continue, or paraphrase words from <Audio 1>.\n\n\nsummary:\n[reference generation + audio reference] One continuous 7-second realistic YouTube creator clip of <Subject 1> addressing the audience directly in the same creator studio shown in <Picture 2>. Single shot, no cuts, stable identity, synchronized natural speech.\n\nretention_analysis:\n<Subject 1>: partially_preserved - Preserve identity-critical face, hair, eyes, proportions, and distinctive appearance from <Picture 1>; change only the specified attire; use <Picture 2> for the studio.\nCamera motion: Use reference-led dynamic coverage. Preserve identity and the recognizable setting. The camera viewpoint, perspective, visible surfaces, object overlap, foreground/background relationships, and framing may change naturally throughout the shot.\n<Audio 1>: reference - Transfer voice timbre and delivery only; copy none of its spoken content or boundary behavior.\n<Picture 2>: partially_preserved - Preserve the studio's identity, design, furniture, materials, lighting style, desk, microphone setup, shelving, monitors, and recognizable spatial relationships. Preserve the studio identity and major object placement while allowing the camera viewpoint, perspective, visible surfaces, object overlap, foreground/background relationships, framing, and apparent object positions to change naturally throughout the shot.\n\n\ndetailed_description:\n[Shot 1] Eye-level medium shot. Frame the presenter from mid-torso upward, with both forearms and natural two-handed gestures able to enter frame. Camera motion policy (authoritative): begin from the selected reference-led camera angle, then allow organic, somewhat unpredictable camera travel and reframing throughout this clip. Let the reference composition guide the movement instead of assigning a fixed named move. Camera angle plan (required): Start from an eye-level straight-on medium view with room for natural gestures. Camera choreography: let viewpoint and framing evolve naturally with gentle organic drift, reframing, and camera travel when they suit the performance. Keep the result coherent; no whip-pans, violent shake, abrupt reframing, extreme zooms, or chaotic orbiting. No microphone is visible anywhere in the shot. Soft neutral diffused key and fill light the presenter with natural skin exposure. Recreate the same physical studio from <Picture 2>, viewed from the requested camera position. Preserve its identity and major object placement. Allow the camera viewpoint, perspective, visible surfaces, object overlap, foreground/background relationships, framing, and apparent object positions to change naturally throughout the shot while preserving the studio identity and major object placement. Preserve its lighting arrangement. The attire, body, and room share physically consistent contact shadows, edge transitions, and depth so the presenter looks naturally photographed in the studio rather than composited onto it. Preserve realistic camera capture and shallow background depth. The presenter in a black and red shirt delivers the script with natural emphasis-matched facial expressions and relaxed hand gestures. Keep the presenter slightly left of center, leaving clean negative space on the right. At approximately 2.0 seconds, display exactly one text element on the RIGHT SIDE OF THE FRAME ONLY, centered at approximately 78% frame width and 50% frame height, reading exactly: \"CLEAN TYPOGRAPHY\". Use clean bold white sans-serif text with a subtle dark shadow and a very subtle quick pop-in appearance. At the exact moment \"CLEAN TYPOGRAPHY\" first appears, play exactly one short clean soft pop sound. Keep the text stable and fixed for the rest of the scene. Render exactly one text element total: \"CLEAN TYPOGRAPHY\". No other text. No subtitles. No captions. No logos. No watermarks. No duplicate or mirrored text. No text on the left side. No second pop sound. Do not animate individual letters. Do not move, warp, flicker, rotate, bounce, or distort the text after it appears. Do not render readable screen text.\n\n<Subject 1> maintains a confident, engaging presence with natural posture. No microphone is visible anywhere in the shot, including on the desk, podium, clothing, or in their hands. Emotional performance: Natural, clear, and conversational delivery with subtle expressions appropriate to the dialogue. Highly expressive but realistic facial animation, precise speech motion, natural body language, and restrained hand gestures that respond only to the meaning and emphasis of the current words. Do not invent topic-specific miming or unrelated actions.\n\nLighting constraints: no lens flare, bloom, glow halo, light streaks, god rays, volumetric beams, haze, overexposure, coloured light spill on the face or clothing, rim-light halo, cut-out edges, or composited look.\n\n<Subject 1> (S1) says exactly once, <d>[English] No jitter, no warping, no weird edge artifacts — just clean typography that feels like it was hand‑keyframed.</d>\n\nThe tagged dialogue above is the complete script. Add no greeting, filler, repeated words, closing phrase, singing, or other vocalization. Speech and mouth movement begin only with that dialogue and stop exactly when it ends.\n\noverall_soundscape:\nDialogue only. Absolute digital silence before and after the tagged dialogue; no ambience, sound effects, background voices, or music.\n\nnon_diegetic_music:\nNo non-diegetic music."
+    },
+    "class_type": "PrimitiveStringMultiline",
+    "_meta": {
+      "title": "Input Text Prompt"
+    }
+  },
+  "170": {
+    "inputs": {
+      "PowerLoraLoaderHeaderWidget": {
+        "type": "PowerLoraLoaderHeaderWidget"
+      },
+      "lora_1": {
+        "on": true,
+        "lora": "h3-realism-people-t2v-i2v-r2v.safetensors",
+        "strength": 0.75
+      },
+      "lora_2": {
+        "on": true,
+        "lora": "minimax_h3_ref2v_turbo_4step_v0.1_comfyui_bf16.safetensors",
+        "strength": 0.75
+      },
+      "➕ Add Lora": "",
+      "model": [
+        "127",
+        0
+      ]
+    },
+    "class_type": "Power Lora Loader (rgthree)",
+    "_meta": {
+      "title": "Ordered Two-LoRA Stack"
+    }
+  },
+  "171": {
+    "inputs": {
+      "filename_prefix": "video/my_minimax_story_minimal_text_pop_03",
+      "format": "auto",
+      "codec": "auto",
+      "video": [
+        "175",
+        0
+      ]
+    },
+    "class_type": "SaveVideo",
+    "_meta": {
+      "title": "Save Video"
+    }
+  },
+  "172": {
+    "inputs": {
+      "value": 48
+    },
+    "class_type": "PrimitiveFloat",
+    "_meta": {
+      "title": "Delivery FPS"
+    }
+  },
+  "173": {
+    "inputs": {
+      "clear_cache_after_n_frames": 100,
+      "multiplier": 2,
+      "frames": [
+        "122",
+        0
+      ],
+      "rife_trt_model": [
+        "174",
+        0
+      ]
+    },
+    "class_type": "RifeTensorrt",
+    "_meta": {
+      "title": "RIFE 2x Before Upscale"
+    }
+  },
+  "174": {
+    "inputs": {
+      "model": "rife49_ensemble_True_scale_1_sim",
+      "precision": "fp16"
+    },
+    "class_type": "LoadRifeTensorrtModel",
+    "_meta": {
+      "title": "Load RIFE TensorRT Model"
+    }
+  },
+  "175": {
+    "inputs": {
+      "fps": [
+        "172",
+        0
+      ],
+      "bit_depth": 8,
+      "images": [
+        "176",
+        0
+      ],
+      "audio": [
+        "121",
+        0
+      ]
+    },
+    "class_type": "CreateVideo",
+    "_meta": {
+      "title": "Create 48 FPS Video"
+    }
+  },
+  "176": {
+    "inputs": {
+      "resize_type": "scale by multiplier",
+      "resize_type.scale": 2,
+      "quality": "ULTRA",
+      "images": [
+        "173",
+        0
+      ]
+    },
+    "class_type": "RTXVideoSuperResolution",
+    "_meta": {
+      "title": "RTX Video Super Resolution"
+    }
+  },
+  "177": {
+    "inputs": {
+      "offload_model": true,
+      "offload_cache": false,
+      "anything": [
+        "136",
+        0
+      ]
+    },
+    "class_type": "VRAMCleanup",
+    "_meta": {
+      "title": "Conditioning VRAM Cleanup"
+    }
+  },
+  "178": {
+    "inputs": {
+      "offload_model": true,
+      "offload_cache": false,
+      "anything": [
+        "story:audio_refine",
+        0
+      ]
+    },
+    "class_type": "VRAMCleanup",
+    "_meta": {
+      "title": "Post-sampling VRAM Cleanup"
+    }
+  },
+  "story:live-preview": {
+    "inputs": {
+      "model": [
+        "170",
+        0
+      ],
+      "max_resolution": 512,
+      "jpeg_quality": 60,
+      "suppress_default_preview": true,
+      "preview_frames": 24,
+      "preview_fps": 12
+    },
+    "class_type": "ModelPreviewOverrideKJ",
+    "_meta": {
+      "title": "Story Studio Live Preview"
+    }
+  },
+  "story:studio_reference": {
+    "inputs": {
+      "image": "story-studio/54121338c5fb_54121338c5fb981dbfd5d9cf7ad6d0aa4c96fea40b1b741ebf4bc38d8dbb0ea5.png"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Studio Reference Image"
+    }
+  },
+  "story:audio_refine": {
+    "inputs": {
+      "model": [
+        "story:live-preview",
+        0
+      ],
+      "positive": [
+        "177",
+        0
+      ],
+      "negative": [
+        "177",
+        0
+      ],
+      "latent": [
+        "125",
+        0
+      ],
+      "seed": 191607868516603,
+      "steps": 6,
+      "cfg": 1,
+      "sampler_name": "euler",
+      "scheduler": "simple",
+      "audio_denoise": 0.5,
+      "video_denoise": 0
+    },
+    "class_type": "H3AudioRefineSampler",
+    "_meta": {
+      "title": "Story Studio Audio Refinement"
+    }
+  }
+}

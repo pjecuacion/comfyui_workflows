@@ -11,7 +11,7 @@ $files = Get-ChildItem (Join-Path $root 'workflows') -Recurse -Filter '*.json' |
 $custom = @($files | Where-Object { $_.FullName -notmatch '\\upstream\\' })
 $upstream = @($files | Where-Object { $_.FullName -match '\\upstream\\' })
 
-if ($custom.Count -ne 6) { throw "Expected 6 custom MiniMax workflows; found $($custom.Count)." }
+if ($custom.Count -eq 0) { throw 'No custom MiniMax workflows were found.' }
 foreach ($file in $custom) {
     $workflow = Get-Content -Raw -LiteralPath $file.FullName | ConvertFrom-Json
     $matches = @($workflow.nodes | Where-Object {
@@ -24,4 +24,4 @@ foreach ($file in $upstream) {
         throw "Upstream reference was modified: $($file.FullName)"
     }
 }
-Write-Output 'PASS: all six custom MiniMax workflows contain the shared frame note.'
+Write-Output "PASS: all $($custom.Count) custom MiniMax workflows contain the shared frame note."

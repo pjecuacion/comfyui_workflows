@@ -24,6 +24,14 @@ $files = Get-ChildItem -Path $workflowRoot -Recurse -Filter '*.json' |
 
 foreach ($file in $files) {
     $workflow = Get-Content -Raw -LiteralPath $file.FullName | ConvertFrom-Json
+    $existing = @($workflow.nodes | Where-Object {
+        $_.type -eq 'MarkdownNote' -and $_.widgets_values[0].Contains($marker)
+    })
+    if ($existing.Count -eq 1) {
+        Write-Output $file.FullName
+        continue
+    }
+    if ($existing.Count -gt 1) { throw "Multiple frame-count notes found: $($file.FullName)" }
     $target = $workflow.nodes | Where-Object {
         $_.type -eq 'MarkdownNote' -and $_.title -eq 'Note: Size Settings Reference'
     } | Select-Object -First 1

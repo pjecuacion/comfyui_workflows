@@ -328,3 +328,201 @@
 - Included the Multishot rule that the listed duration applies to each shot.
 - Kept all downloaded upstream reference workflows unchanged.
 - The shared-note test and Multishot Turbo graph test pass.
+
+## 2026-08-10 - MiniMax H3 Prompting Skill
+
+### Scope
+
+- Convert the supplied MiniMax H3 prompting document into an auto-discovered Codex skill.
+- Keep the core skill instructions concise and preserve the complete prompting guide as a reference.
+- Install the skill under `C:\Users\pjecu\.codex\skills` without modifying workflow JSON files.
+
+### Plan
+
+- [x] Inspect the supplied document, repository lessons, and skill-creator requirements.
+- [x] Initialize `minimax-h3-prompting` with standard Codex skill metadata.
+- [x] Add focused operating instructions and the complete H3 reference guide.
+- [x] Validate the skill structure and metadata.
+- [x] Forward-test a representative H3 prompt request without generating media.
+
+### Test Strategy
+
+- Run the skill creator's deterministic `quick_validate.py` check.
+- Confirm `SKILL.md`, `agents/openai.yaml`, and the reference file exist.
+- Use an isolated agent to invoke the installed skill on a representative Full-Reference prompt task and inspect its result.
+
+### Review
+
+- Installed `minimax-h3-prompting` under the user's auto-discovered Codex skills directory.
+- Preserved the supplied guide byte-for-byte as `references/complete-guide.md` and kept `SKILL.md` focused on routing and execution.
+- `quick_validate.py` reports `Skill is valid!`.
+- The isolated Full-Reference test correctly used `reference generation + audio reuse`, stable subject/speaker IDs, `fully_copy`, audio-master timing, a locked medium close-up, exact dialogue, and `N/A` music.
+
+## 2026-08-13 - LTX 2.3 and LTX 2.5 IA2V Workflow Variants
+
+### Scope
+
+- Create a dedicated LTX 2.3 start-frame-only IA2V workflow from the existing proven start-only graph.
+- Create a dedicated LTX 2.3 start-middle-last-frame IA2V workflow from the existing proven middle-frame graph.
+- Create an LTX 2.5 start-frame IA2V workflow from the supplied working LTX 2.5 I2V workflow.
+- Create an LTX 2.5 first-and-last-frame IA2V sibling.
+- Keep the supplied LTX 2.5 upscale, RTX, RIFE, synchronized output, and 2x FPS path.
+- Add imported-audio conditioning instead of relying on LTX 2.5's empty generated-audio latent.
+
+### Assumptions
+
+- "New workflows" means both a start-frame and a first-and-last-frame LTX 2.5 IA2V variant.
+- The requested LTX 2.3 middle-frame workflow means the existing start+middle+last topology, copied into its own clearly named bundle.
+- The LTX 2.3 dedicated copies will preserve their proven source graphs and current defaults; changing generation timing is outside this organizational task.
+- New variants will live in dedicated hyphenated workflow bundles; existing workflow files and the Downloads source remain unchanged.
+- The installed native LTX 2.5 transformer, Gemma 4 encoder, video/audio VAEs, and latent upscaler remain the selected models.
+- Prompt enhancement will default to off because neither optional enhancer encoder named by the attached workflow/template is installed; the main LTX 2.5 prompt encoder is installed.
+
+### Non-Goals
+
+- Do not modify or move existing LTX 2.3 workflows.
+- Do not overwrite the supplied Downloads workflow.
+- Do not add a middle-frame LTX 2.5 variant in this task.
+- Do not claim a successful GPU generation unless a real ComfyUI render is run.
+
+### Plan
+
+- [x] Create `workflows/ltx-2-3-ia2v-start-frame/` with a dedicated start-only workflow.
+- [x] Create `workflows/ltx-2-3-ia2v-start-middle-last-frame/` with a dedicated three-frame workflow.
+- [x] Create `workflows/ltx-2-5-ia2v/` with start-only and first/last-frame IA2V workflows.
+- [x] Add external audio load, duration trim, LTX 2.5 audio-VAE encode, frozen audio-latent conditioning, and decoded output audio.
+- [x] Preserve the attached workflow's latent upscale, RTX 2x, RIFE 2x, and `fps * 2` output wiring.
+- [x] Replace the leftover `video/H3MULTI/MASTER` output prefix with an LTX 2.5-specific prefix.
+- [x] Add simple viewer notes and update the workflow catalogs.
+- [x] Add deterministic integration tests for JSON validity, graph links, models, audio conditioning, frame guides, and FPS/interpolation wiring.
+- [x] Run the LTX tests plus the existing workflow test suite and record verified results.
+
+### Test Strategy
+
+- Parse each new workflow as JSON and require unique node and link IDs within every graph.
+- Confirm the LTX 2.3 variant has one start image and no middle/last-frame guides.
+- Confirm the LTX 2.3 middle variant has start, middle, and last image inputs, with middle guides at the selected middle frame and last guides at frame index `-1`.
+- Confirm both LTX 2.5 IA2V variants load external audio, trim it to the requested duration, encode it with the LTX 2.5 audio VAE, and do not use `LTXVEmptyLatentAudio`.
+- Confirm the first/last variant applies frame guides at frame indices `0` and `-1` in both generation passes.
+- Confirm both LTX 2.5 outputs keep RTX 2x before RIFE 2x, preserve audio, and encode at twice the model FPS.
+- Confirm all selected LTX 2.5 model names use the native split model folders/loaders.
+- Treat a short real ComfyUI generation as the final runtime smoke test; structural tests alone are not runtime proof.
+
+### Review
+
+- Added dedicated start-only and start+middle+last LTX 2.3 files. Canonical JSON comparison confirms both are graph-identical to their existing proven sources.
+- Added LTX 2.5 start-only and first/last IA2V variants without changing the supplied Downloads workflow; its SHA-256 remains `76D9B0406B418CB1F5E4F0BEB8FFB1F1D2C6BAB9FB717763A060B354712A1708`.
+- Replaced only the empty generated-audio latent with imported-audio trim, LTX 2.5 audio-VAE encoding, and a zero noise mask. The second-pass audio carry and final mux connection remain intact.
+- Preserved the native LTX 2.5 transformer, Gemma 4 encoder, separate video/audio VAEs, latent spatial upscaler, two samplers, tiled decode, RTX 2x, RIFE 2x, and doubled output FPS.
+- The LTX 2.5 first/last variant applies the last image at frame index `-1` in both passes and uses `LTXVCropGuides` to carry guide-aware conditioning from the low-resolution pass into the high-resolution pass.
+- The focused integration test passes, all other existing integration/bug tests pass, and `git diff --check` passes.
+- The pre-existing `minimax-frame-notes.test.ps1` still fails because it hard-codes six custom MiniMax workflows while seven tracked custom files now exist. This task did not change MiniMax workflows or that unrelated test.
+- The running ComfyUI instance exposes every required LTX, audio, guide, RTX, and RIFE node type. A real GPU render was not run, so first-use runtime generation remains the smoke test.
+
+## 2026-08-13 - Add Crisp Enhance LoRA to All LTX 2.5 Workflows
+
+### Scope
+
+- Copy the LoRA model path from the updated Downloads workflow into both repository LTX 2.5 IA2V workflows.
+- Use `Power Lora Loader (rgthree)` with `LTX2.3_Crisp_Enhance.safetensors`, enabled at strength `1`.
+- Feed the LoRA-adjusted model to both low-resolution and high-resolution sampling guiders.
+- Preserve each workflow's existing prompt, inputs, timing, imported-audio path, guides, upscale, interpolation, and output settings.
+
+### Assumptions
+
+- "All the LTX 2.5 workflows" means the two JSON files under `workflows/ltx-2-5-ia2v/`; no other repository workflow contains LTX 2.5 model markers.
+- The four-node routing shown in the updated Downloads workflow is intentional: LoRA loader, one named model setter, and two named model getters.
+- The unrelated Downloads changes to prompt, image, duration, frame rate, resolution, preview nodes, layout, and audio-trim schema are not part of this request.
+
+### Non-Goals
+
+- Do not modify any LTX 2.3 workflow or the Downloads source file.
+- Do not replace the first/last-frame subgraph with the start-frame subgraph.
+- Do not change the selected LoRA filename or strength beyond the supplied values.
+- Do not claim GPU runtime success without a real ComfyUI render.
+
+### Plan
+
+- [x] Add collision-free LoRA loader, setter, and getter nodes to both LTX 2.5 subgraphs.
+- [x] Replace direct transformer-to-guider links with the shared LoRA-adjusted model path.
+- [x] Document the required LoRA and custom-node dependencies.
+- [x] Extend the LTX integration test with exact LoRA and no-bypass assertions.
+- [x] Parse both JSON files and verify nodes, links, metadata, focused tests, existing tests, and diff scope.
+
+### Test Strategy
+
+- Require exactly one enabled `Power Lora Loader (rgthree)` in each LTX 2.5 subgraph.
+- Require the exact `LTX2.3_Crisp_Enhance.safetensors` filename and strength `1`.
+- Confirm the transformer feeds the LoRA loader, its model output feeds the named setter, and both guiders receive the corresponding named getter output.
+- Confirm neither guider remains directly connected to the base transformer.
+- Re-run global node/link integrity checks and all deterministic repository PowerShell tests.
+- Keep a short real ComfyUI generation as the final runtime smoke test.
+
+### Review
+
+- Updated both and only the two repository workflows containing the native LTX 2.5 transformer marker.
+- Added the supplied model-only `Power Lora Loader (rgthree)` configuration with `LTX2.3_Crisp_Enhance.safetensors`, enabled at strength `1`; CLIP remains disconnected.
+- Routed the adjusted model through one KJNodes setter and two getters so the low-resolution and high-resolution guiders both use the same LoRA-adjusted transformer.
+- Used nodes `426`-`429` and links `810`-`813` in the start-frame graph. Used collision-free nodes `432`-`435` and links `834`-`837` in the first/last graph.
+- Updated both root and embedded-subgraph ID counters to their true maxima to prevent future ComfyUI ID reuse.
+- Preserved the first/last-frame guide path exactly, including links `811`-`833`, both frame indices at `-1`, and the crop between sampling passes.
+- Preserved the repository workflows' existing prompts, images, audio, duration, frame rate, resolution, upscaling, interpolation, and output settings instead of copying unrelated Downloads changes.
+- The updated Downloads source remains unchanged at SHA-256 `0512347EC46F71CB547041F41BE2ED35431E118070ADC13040A8CA26A9F29258`.
+- The focused LTX integration test passes and now checks exact loader/KJNodes metadata, LoRA settings, global IDs, bidirectional link metadata, no base-model bypass, and the complete first/last guide route.
+- The local LoRA file exists and hashes to `020529377CE07B1235D8050505DD38ADC3BC9DC49A191F318A7CCF3921354053`. The installed rgthree commit matches the workflow metadata, KJNodes provides the frontend Set/Get nodes, and the running ComfyUI API exposes the Power LoRA loader and the selected LoRA filename.
+- The repository suite remains at seven passing tests and one pre-existing unrelated MiniMax frame-note count failure. `git diff --check` and touched-file whitespace checks pass.
+- A real GPU render was not run. Because the selected filename identifies an LTX 2.3 LoRA while the workflows use LTX 2.5, a short render remains required to verify runtime model compatibility and visual quality.
+
+## 2026-08-15 - Add MiniMax H3 Face Refine Variant
+
+### Scope
+
+- Preserve the Downloads source and create a separately named workflow variant under `workflows/`.
+- Insert a complete rectangular-mask H3 face-refine pass between the native MiniMax H3 image output and RTX/RIFE post-processing.
+- Preserve the existing first/last image conditioning, prompt, LoRAs, duration, generated audio, RTX 2x, RIFE 2x, and 48 FPS output.
+- Add the required face detector, optional person fallback, identity model, and generated-audio lock to the portable ComfyUI runtime.
+
+### Assumptions
+
+- The first variant will refine one face per pass using a replaceable identity-reference image and InsightFace matching when detections are ambiguous.
+- The non-SAM stitch path is the safest initial setup because it has fewer dependencies and is the node pack's recommended starting point.
+- The second H3 pass will reuse the workflow's selected H3 model family and Turbo LoRA settings through an external refinement branch because the existing subgraph does not expose MODEL, CLIP, or VAE outputs.
+
+### Non-Goals
+
+- Do not overwrite the Downloads workflow or modify existing repository workflows.
+- Do not add a two-person chained refine pipeline in the first variant.
+- Do not enable SAM in the first variant.
+- Do not claim visual success until a short real render is inspected.
+
+### Plan
+
+- [x] Copy the supplied workflow into a dedicated sibling bundle with a clear face-refine filename.
+- [x] Add the face/person detector models, InsightFace identity model, and NativeAudioLock; verify exact paths and checksums.
+- [x] Add and wire Track/Crop, H3 img2img latent injection, per-frame denoise, second sampling/decode, and Stitch Back nodes.
+- [x] Wire tracker canvas dimensions and native batch length into the second H3 pass; preserve original generated audio for final muxing.
+- [x] Route stitched frames into RTX 2x, then RIFE 2x, then the existing 48 FPS video output.
+- [x] Add concise in-graph notes explaining reuse, single-face selection, timing, and detector limitations.
+- [x] Add deterministic integration tests for required nodes, complete link paths, model settings, frame/FPS preservation, and source-file preservation.
+- [ ] Load the variant through the running ComfyUI API and run a short native-frame smoke render before treating it as usable.
+
+### Test Strategy
+
+- Parse both the new variant and source as JSON and verify the source hash remains unchanged.
+- Require globally unique node/link IDs plus bidirectional link metadata at the root and embedded-subgraph levels.
+- Prove the active image path is `MiniMax H3 -> face refine -> RTX -> RIFE -> 48 FPS output` and that no crop batch is sent directly to the final video node.
+- Prove tracker `canvas_w` and `canvas_h` drive the refine H3 dimensions, and tracker `transform` drives both denoise and stitch.
+- Prove original native frames drive stitch `base_images`, decoded refined crops drive `refined_crops`, and original generated audio still drives the final muxer.
+- Verify all required node types are exposed by `/object_info`, then inspect encoded frame count, FPS, duration, audio duration, and representative face frames from a short render.
+
+### Review
+
+- Created `workflows/minimax-h3-fast-loras-face-refine/minimax_h3_fast_loras_face_refine.json` as a deterministic sibling of the Downloads source; the source remains unchanged at SHA-256 `79432A17B0A1BC619470F0493D22D73E85D7956A69CDC222A4C2F418FF92BD87`.
+- Added a dedicated replaceable identity/H3 reference image plus the complete native-frame route: Track/Crop -> ReferenceToVideo -> InjectVideoLatent -> NativeAudioLock -> PerFrameDenoise -> Sampler -> Decode -> Stitch -> RTX 2x -> RIFE 2x -> 48 FPS output.
+- Preserved original generated audio for the final mux while also feeding it into NativeAudioLock so the face pass can retain lip motion.
+- Installed `face_yolov8m.pt` (`717923C...943E5F`), `person_yolov8m-seg.pt` (`C8AB26...AE81E`), `insightface 0.7.3`, `buffalo_l`, and `ComfyUI-H3-NativeAudioLock` commit `11a95f6`.
+- A fresh ComfyUI instance on port 8190 exposes every required node, including NativeAudioLock. A tracker-only API smoke test succeeds on a photographic human face.
+- The local cartoon reference produces `No face detected in any frame`; both YOLO face detection and InsightFace miss it. The person fallback only fills gaps after at least one real face detection, so it cannot make an entirely undetected cartoon clip refinable.
+- The focused graph/asset test passes, the builder is deterministic, the shared frame-note test now covers all eight custom MiniMax workflows, and seven other repository tests pass.
+- The pre-existing Multishot Turbo test still fails because the installed `ComfyUI-H3-Multishot` source no longer contains its expected forced-four-step expression. This task did not modify that unrelated node pack.
+- A full face-refined H3 render was not run: the supplied workflow's first image `1024834.jpg` is absent from the ComfyUI input folder, and its available cartoon reference is not detected as a face.

@@ -2,6 +2,18 @@
 
 This page tracks the workflows currently shared in this repo.
 
+## LTX IA2V Frame Variants
+
+**LTX 2.3 start frame:** `workflows/ltx-2-3-ia2v-start-frame/video_ltx2_3_ia2v_start_frame.json`
+
+**LTX 2.3 start, middle, and last frames:** `workflows/ltx-2-3-ia2v-start-middle-last-frame/video_ltx2_3_ia2v_start_middle_last_frame.json`
+
+**LTX 2.5 start frame:** `workflows/ltx-2-5-ia2v/video_ltx2_5_ia2v_start_frame_upscaled_interpolated.json`
+
+**LTX 2.5 first and last frames:** `workflows/ltx-2-5-ia2v/video_ltx2_5_ia2v_first_last_frame_upscaled_interpolated.json`
+
+The LTX 2.5 variants use imported audio, native split LTX 2.5 model loaders, the enabled `LTX2.3_Crisp_Enhance.safetensors` LoRA at strength 1 for both sampling passes, latent spatial upscaling, RTX 2x super-resolution, and RIFE 2x interpolation.
+
 ## LTX 2 Camera-Control LoRAs
 
 **Folder:** `workflows/ltx-2-camera-control-loras/`

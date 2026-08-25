@@ -6,6 +6,10 @@
 
 This is a repository copy of the supplied reference-to-video latent-upscaler workflow. It keeps the original graph design, including two-stage latent upscaling, and uses the selected `LoadAudio` clip only as a voice reference.
 
+`workflows/minimax-h3-latent-upscaler/minimax_h3_r2v_latent_upscaler_voice_reference_audio_preserved.json`
+
+This diagnostic sibling preserves the same two-pass visual path but exports first-pass generated audio. Use it when the reference voice is lost after the upscale pass: the second sampler still improves the video, but it cannot replace the initial reference-conditioned audio result.
+
 ## Audio Path
 
 The selected `LoadAudio` output is connected to `ref_audio_0` on `MiniMaxH3ReferenceToVideo`.
@@ -28,3 +32,5 @@ The selected `LoadAudio` output is connected to `ref_audio_0` on `MiniMaxH3Refer
 ## Verification Status
 
 The graph has deterministic validation that proves the source audio only feeds H3 reference conditioning and that generated H3 audio is exported. A full GPU render was not performed as part of this documentation correction.
+
+The audio-preserved variant has separate graph validation. Its improvement to voice similarity is a testable hypothesis, not a claimed render result.

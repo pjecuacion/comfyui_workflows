@@ -27,6 +27,13 @@
 - Created the separate voice-reference workflow copy and retained the Downloads original unchanged.
 - Runtime rendering remains intentionally unverified because this repository import does not require a costly full generation to validate its graph contract.
 
+### Follow-up: Two-Pass Audio Preservation
+
+- [x] Verify that reference conditioning reaches both sampling guiders in the original two-pass graph.
+- [x] Add a sibling that retains first-pass generated audio while preserving second-pass latent-upscaled images.
+- [x] Add graph validation for the separated audio/video outputs.
+- [ ] Run a controlled render with the same image, prompt, seed, and voice reference to compare voice similarity against the original two-pass workflow.
+
 ## 2026-06-02 - Per-Video Workflow Restructure
 
 ### Scope

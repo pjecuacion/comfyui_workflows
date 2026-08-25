@@ -5,7 +5,7 @@
 
 $readmePath = Join-Path $PSScriptRoot '..\..\docs\README.md'
 $lines = Get-Content -LiteralPath $readmePath
-$tableStart = [array]::IndexOf($lines, '| Video bundle | Workflow | What it is |')
+$tableStart = [array]::IndexOf($lines, '| Bundle | Workflow | What it is |')
 
 if ($tableStart -lt 0) {
     throw 'Workflow table header was not found.'

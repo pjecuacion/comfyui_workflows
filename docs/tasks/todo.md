@@ -1,10 +1,10 @@
 # Task Plan
 
-## 2026-08-25 - MiniMax H3 Latent Upscaler Reference-Audio Repair
+## 2026-08-25 - MiniMax H3 Latent Upscaler Voice-Reference Import
 
 ### Scope
 
-- Preserve the supplied Downloads workflow and add a sibling variant that uses supplied audio as both H3 timing guidance and the exported soundtrack.
+- Preserve the supplied Downloads workflow and add a repository copy that keeps supplied audio as H3 voice-reference conditioning.
 
 ### Non-Goals
 
@@ -13,18 +13,19 @@
 ### Plan
 
 - [x] Trace the reference-audio, prompt, and output-audio paths against the installed H3 implementation.
-- [x] Add frame-zero audio guidance and route the supplied track to final video export.
-- [x] Add a deterministic regression test and validate the repaired JSON.
+- [x] Preserve the reference-only audio path and the generated-audio export path.
+- [x] Add deterministic regression coverage and validate the repository copy.
 
 ### Test Strategy
 
-- Assert that `LoadAudio` feeds `ref_audio_0`, `MiniMaxH3AddGuide`, and `CreateVideo`.
-- Assert the generated-audio decode branch is not the exported soundtrack.
+- Assert that `LoadAudio` feeds only `ref_audio_0`.
+- Assert that generated H3 audio feeds `CreateVideo`.
 
 ### Review
 
-- Created the separate exact-reference-audio variant and retained the Downloads original unchanged.
-- Runtime rendering remains intentionally unverified because this repair does not require a costly full generation to validate its graph contract.
+- Corrected the earlier misinterpretation: the source clip is a voice reference, not the final soundtrack.
+- Created the separate voice-reference workflow copy and retained the Downloads original unchanged.
+- Runtime rendering remains intentionally unverified because this repository import does not require a costly full generation to validate its graph contract.
 
 ## 2026-06-02 - Per-Video Workflow Restructure
 

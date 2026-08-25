@@ -39,7 +39,7 @@ will run in a different ComfyUI installation.
 | MiniMax H3 multishot upstream | `workflows/minimax-h3-multishot/upstream/H3_Keyframes.json` | Unmodified upstream keyframes workflow. |
 | MiniMax H3 multishot Turbo | `workflows/minimax-h3-multishot-turbo/H3_Multishot_Turbo_AIO_local-safetensors.json` | Local-safetensors multishot workflow with the opt-in Turbo sampling path. |
 | MiniMax H3 face refine | `workflows/minimax-h3-fast-loras-face-refine/minimax_h3_fast_loras_face_refine.json` | Fast LoRA reference-to-video sibling with a single-face refinement pass before RTX/RIFE processing. |
-| MiniMax H3 latent upscaler | `workflows/minimax-h3-latent-upscaler/minimax_h3_r2v_latent_upscaler_exact_ref_audio.json` | Reference-to-video latent-upscaler variant that uses the selected audio for H3 timing guidance and the final MP4 soundtrack. |
+| MiniMax H3 latent upscaler | `workflows/minimax-h3-latent-upscaler/minimax_h3_r2v_latent_upscaler_voice_reference_audio.json` | Reference-to-video latent-upscaler with the selected audio used as an H3 voice-timbre and delivery reference. |
 | MiniMax H3 T2V variants | `workflows/minimax-h3-t2v-11-variants/video_minimax_h3_t2v Prince Does AI Demo.json` | T2V demo graph containing multiple configured variants. |
 
 ## MiniMax H3 caption-scene exports

@@ -107,6 +107,24 @@ When editing `widgets_values` by index, include hidden or auxiliary control widg
 
 For this sampler, index 6 remains `randomize` and index 7 contains the four Turbo sampling steps.
 
+## LESSON-007 - Confirm Whether Reference Audio Is Conditioning or Deliverable Audio
+
+### What Went Wrong
+
+A MiniMax H3 voice-reference audio input was incorrectly rewired as the final MP4 soundtrack.
+
+### Why It Happened
+
+The phrase "ref audio" was interpreted as supplied dialogue without checking the workflow prompt, which explicitly defined `<Audio 1>` as voice-timbre and delivery reference only.
+
+### New Rule
+
+Before changing an audio connection, inspect both the H3 conditioning node and the prompt's stated role. Do not replace generated output audio with a reference clip unless the user explicitly requests exact supplied-audio playback.
+
+### Correct Behavior
+
+For voice cloning, route `LoadAudio` only to `MiniMaxH3ReferenceToVideo.ref_audio_0`, retain the prompt's timbre-only instruction, and export `VAEDecodeAudio` from H3's generated latent.
+
 ## LESSON-006 - Validate Markdown Table Shape
 
 ### What Went Wrong

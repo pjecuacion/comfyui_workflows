@@ -1,0 +1,384 @@
+{
+  "115": {
+    "inputs": {
+      "aspect_ratio": "16:9 (Widescreen)",
+      "megapixels": 2,
+      "multiple": 32
+    },
+    "class_type": "ResolutionSelector",
+    "_meta": {
+      "title": "Resolution Selector"
+    }
+  },
+  "119": {
+    "inputs": {
+      "vae_name": "minimax_h3_video_vae_int8_convrot.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "Load Video VAE"
+    }
+  },
+  "120": {
+    "inputs": {
+      "vae_name": "minimax_h3_audio_vae_fp32.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "Load Audio VAE"
+    }
+  },
+  "121": {
+    "inputs": {
+      "samples": [
+        "178",
+        0
+      ],
+      "vae": [
+        "120",
+        0
+      ]
+    },
+    "class_type": "VAEDecodeAudio",
+    "_meta": {
+      "title": "Decode Audio"
+    }
+  },
+  "122": {
+    "inputs": {
+      "samples": [
+        "178",
+        0
+      ],
+      "vae": [
+        "119",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "Decode Video Frames"
+    }
+  },
+  "123": {
+    "inputs": {
+      "sampler_name": "res_multistep"
+    },
+    "class_type": "KSamplerSelect",
+    "_meta": {
+      "title": "Sampler"
+    }
+  },
+  "124": {
+    "inputs": {
+      "scheduler": "simple",
+      "steps": 8,
+      "denoise": 1,
+      "model": [
+        "story:live-preview",
+        0
+      ]
+    },
+    "class_type": "BasicScheduler",
+    "_meta": {
+      "title": "Sampling Steps"
+    }
+  },
+  "125": {
+    "inputs": {
+      "noise": [
+        "129",
+        0
+      ],
+      "guider": [
+        "126",
+        0
+      ],
+      "sampler": [
+        "123",
+        0
+      ],
+      "sigmas": [
+        "124",
+        0
+      ],
+      "latent_image": [
+        "136",
+        1
+      ]
+    },
+    "class_type": "SamplerCustomAdvanced",
+    "_meta": {
+      "title": "Advanced Sampler"
+    }
+  },
+  "126": {
+    "inputs": {
+      "model": [
+        "story:live-preview",
+        0
+      ],
+      "conditioning": [
+        "177",
+        0
+      ]
+    },
+    "class_type": "BasicGuider",
+    "_meta": {
+      "title": "Basic Guider"
+    }
+  },
+  "127": {
+    "inputs": {
+      "unet_name": "minimax_h3_ref2va_pruned_fp8_scaled.safetensors",
+      "weight_dtype": "default"
+    },
+    "class_type": "UNETLoader",
+    "_meta": {
+      "title": "Load Proven FP8 Reference Model"
+    }
+  },
+  "128": {
+    "inputs": {
+      "clip_name": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+      "type": "minimax",
+      "device": "default"
+    },
+    "class_type": "CLIPLoader",
+    "_meta": {
+      "title": "Load Text Encoder"
+    }
+  },
+  "129": {
+    "inputs": {
+      "noise_seed": 138329996918134
+    },
+    "class_type": "RandomNoise",
+    "_meta": {
+      "title": "Seed"
+    }
+  },
+  "131": {
+    "inputs": {
+      "expression": "max(5, round(a * 24)) + (5 - (max(5, round(a * 24)) % 17)) % 17",
+      "values.a": [
+        "132",
+        0
+      ]
+    },
+    "class_type": "ComfyMathExpression",
+    "_meta": {
+      "title": "Duration to 17k+5 Frames"
+    }
+  },
+  "132": {
+    "inputs": {
+      "value": 4
+    },
+    "class_type": "PrimitiveFloat",
+    "_meta": {
+      "title": "Duration"
+    }
+  },
+  "136": {
+    "inputs": {
+      "prompt": [
+        "143",
+        0
+      ],
+      "width": [
+        "115",
+        0
+      ],
+      "height": [
+        "115",
+        1
+      ],
+      "length": [
+        "131",
+        1
+      ],
+      "ref_image_size": "match",
+      "clip": [
+        "128",
+        0
+      ],
+      "vae": [
+        "119",
+        0
+      ],
+      "audio_vae": [
+        "120",
+        0
+      ],
+      "ref_images.ref_image_0": [
+        "137",
+        0
+      ],
+      "ref_audios.ref_audio_0": [
+        "142",
+        0
+      ],
+      "ref_images.ref_image_1": [
+        "story:reference_attire",
+        0
+      ]
+    },
+    "class_type": "MiniMaxH3ReferenceToVideo",
+    "_meta": {
+      "title": "MiniMax H3 Reference to Video"
+    }
+  },
+  "137": {
+    "inputs": {
+      "image": "story-studio/1e4b5f0c378b_1e4b5f0c378b50cf657f40c78d0d54d6c1b9c2809bed51ce7ebedbe0a0a16f10.png"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Reference Image"
+    }
+  },
+  "142": {
+    "inputs": {
+      "audio": "story-studio/2adfeb37c1cc_2adfeb37c1cc550086473645b6a6f927d88bced25569d7adc3bff4a7b1752fec.mp3"
+    },
+    "class_type": "LoadAudio",
+    "_meta": {
+      "title": "Reference Audio"
+    }
+  },
+  "143": {
+    "inputs": {
+      "value": "r34l1sm, subject_definitions:\n<Subject 1> is the presenter from <Picture 1>, preserving identity, face, body proportions, and distinctive appearance. Clothing is controlled by its attire reference.\n<Audio 1> is used only as a voice-timbre and delivery reference for <Subject 1> (S1). Do not reuse, repeat, continue, or paraphrase words from <Audio 1>.\n\n<Picture 2> defines only Subject 1's attire design, colours, and materials; it does not define identity, body, pose, or background.\n\nsummary:\n[reference generation + audio reference] One continuous 4-second selfie-vlog presentation in Busy city street with morning light, forming scene 1 of A quick introduction to SWOT analysis, with a consistent photorealistic natural-light treatment. Preserve presenter, wardrobe, voice character, visual style, and story continuity.\n\nretention_analysis:\n<Subject 1>: fully_preserved - Preserve identity and wardrobe from <Picture 1>.\n<Audio 1>: reference - Transfer voice timbre and delivery only; copy none of its spoken content or boundary behavior.\n\nCamera motion: Follow the scene camera choreography with a controlled natural move. Preserve identity and the recognizable setting; no whip-pan, abrupt zoom, shaky handheld work, dramatic reframing, or chaotic orbiting.\n<Picture 2>: partially_preserved - Transfer only Person 1's attire design, colours, and materials. Do not reproduce its source image, layout, text, swatches, labels, or panels.\n\ndetailed_description:\nVisual treatment: Photorealistic live action, coherent natural lighting, neutral colour balance, realistic skin texture, and natural physical detail. Keep this treatment consistent with the other scenes in the project.\n[Shot 1] Emotional performance: Energetic and engaging Express it through vocal tone, pacing, emphasis, eyes, brows, and restrained facial movement without adding, changing, repeating, or paraphrasing any spoken word. <Picture 2> is an off-camera clothing-only reference. Transfer only the worn garment's design, colours, materials, and fit to <Subject 1>. Never render, display, reconstruct, or quote the source image or its layout, catalog or product sheet, garment flats, swatches, labels, text, logos, icons, callouts, thumbnails, borders, UI, cards, split screen, picture-in-picture, collage, cutaway, or overlay.\n[Shot 1] Use a handheld medium-close selfie composition at arm’s length. The presenter holds the camera, maintains direct eye contact with the lens, and moves naturally. Camera motion policy (authoritative): follow the scene camera choreography below. Use one deliberate, slow, continuous camera move unless this scene explicitly selects Locked for this scene. Camera angle plan (required): Start from a wide establishing view that keeps the presenter and setting readable. Camera choreography (required): Perform one slow, smooth push-in toward the subject. <Subject 1> (S1) says exactly once, <d>[English] Let’s break down SWOT analysis — quick, simple, and actually useful.</d>\n\nPresenter walks forward confidently. As the presenter says 'SWOT analysis', the standard on-screen text appears to the right of the presenter at chest height, reading exactly: \"SWOT ANALYSIS\". Any audible action sound must be part of the named soundscape below. Background people remain silent. The single <d> block is the complete speech script. Speech and mouth movement begin only when that block opens and stop exactly when it closes. Outside the single <d> block, no vocal sound occurs; only the explicitly named non-vocal background sound may continue.\n\noverall_soundscape:\nLight traffic hum and distant pedestrian chatter Keep it quieter than the presenter. No intelligible background voices or vocalizations.\n\nnon_diegetic_music:\nNo non-diegetic music."
+    },
+    "class_type": "PrimitiveStringMultiline",
+    "_meta": {
+      "title": "Input Text Prompt"
+    }
+  },
+  "170": {
+    "inputs": {
+      "PowerLoraLoaderHeaderWidget": {
+        "type": "PowerLoraLoaderHeaderWidget"
+      },
+      "lora_1": {
+        "on": true,
+        "lora": "minimax_h3_fl2v_turbo_8step_v1.0_768p_comfyui_bf16.safetensors",
+        "strength": 0.75
+      },
+      "lora_2": {
+        "on": true,
+        "lora": "h3-realism-people-t2v-i2v-r2v.safetensors",
+        "strength": 0.75
+      },
+      "➕ Add Lora": "",
+      "model": [
+        "127",
+        0
+      ]
+    },
+    "class_type": "Power Lora Loader (rgthree)",
+    "_meta": {
+      "title": "Ordered Two-LoRA Stack"
+    }
+  },
+  "171": {
+    "inputs": {
+      "filename_prefix": "video/swot_analysis_sample_fp8_01",
+      "format": "auto",
+      "codec": "auto",
+      "video": [
+        "175",
+        0
+      ]
+    },
+    "class_type": "SaveVideo",
+    "_meta": {
+      "title": "Save Video"
+    }
+  },
+  "172": {
+    "inputs": {
+      "value": 24
+    },
+    "class_type": "PrimitiveFloat",
+    "_meta": {
+      "title": "Delivery FPS"
+    }
+  },
+  "175": {
+    "inputs": {
+      "fps": [
+        "172",
+        0
+      ],
+      "bit_depth": 8,
+      "images": [
+        "122",
+        0
+      ],
+      "audio": [
+        "121",
+        0
+      ]
+    },
+    "class_type": "CreateVideo",
+    "_meta": {
+      "title": "Create 48 FPS Video"
+    }
+  },
+  "177": {
+    "inputs": {
+      "offload_model": true,
+      "offload_cache": false,
+      "anything": [
+        "136",
+        0
+      ]
+    },
+    "class_type": "VRAMCleanup",
+    "_meta": {
+      "title": "Conditioning VRAM Cleanup"
+    }
+  },
+  "178": {
+    "inputs": {
+      "offload_model": true,
+      "offload_cache": false,
+      "anything": [
+        "125",
+        0
+      ]
+    },
+    "class_type": "VRAMCleanup",
+    "_meta": {
+      "title": "Post-sampling VRAM Cleanup"
+    }
+  },
+  "story:live-preview": {
+    "inputs": {
+      "model": [
+        "170",
+        0
+      ],
+      "max_resolution": 512,
+      "jpeg_quality": 60,
+      "suppress_default_preview": true,
+      "preview_frames": 24,
+      "preview_fps": 12
+    },
+    "class_type": "ModelPreviewOverrideKJ",
+    "_meta": {
+      "title": "Story Studio Live Preview"
+    }
+  },
+  "story:reference_attire": {
+    "inputs": {
+      "image": "story-studio/39fc3e5661cb_39fc3e5661cb62adea23bbe333d2a9f969999a10c6a7ea293ef9611c182da892.png"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Person 1 Attire Reference"
+    }
+  }
+}

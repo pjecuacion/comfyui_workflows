@@ -686,4 +686,4 @@
 
 ### Review
 
-- `cfg` is now numeric `8.0`, sampler is `euler`, scheduler is `normal`, and the optional noise-mask feather value is retained.
+- The final array includes ComfyUI's generated `control_after_generate: fixed` slot. `cfg` is numeric `8.0`, sampler is `euler`, scheduler is `normal`, and the optional noise-mask feather value is retained.

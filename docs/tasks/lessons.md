@@ -176,4 +176,4 @@ When a node schema changes, rebuild its complete ordered widget array from the r
 
 ### Correct Behavior
 
-The detailer array is `[512, true, 768, 123456789, 6, 8.0, "euler", "normal", 0.3, 8, 0.0, 20]`.
+The detailer array is `[512, true, 768, 123456789, "fixed", 6, 8.0, "euler", "normal", 0.3, 8, 0.0, 20]`. The generated seed-control widget is included even though it is absent from the backend function signature.

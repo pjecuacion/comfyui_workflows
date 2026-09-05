@@ -28,7 +28,7 @@ foreach ($path in $paths) {
 
     $detailer = @($workflow.nodes | Where-Object { $_.type -eq 'DetailerForEachPipeForAnimateDiff' })
     if ($detailer.Count -ne 1) { throw "$path must contain exactly one video detailer node." }
-    $detailerExpected = @(512, $true, 768, 123456789, 6, 8.0, 'euler', 'normal', 0.3, 8, 0.0, 20)
+    $detailerExpected = @(512, $true, 768, 123456789, 'fixed', 6, 8.0, 'euler', 'normal', 0.3, 8, 0.0, 20)
     $detailerActual = @($detailer[0].widgets_values)
     if ($detailerActual.Count -ne $detailerExpected.Count) {
         throw "$path has the wrong number of video detailer widgets: $($detailerActual.Count)"

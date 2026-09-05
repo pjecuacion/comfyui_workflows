@@ -7,16 +7,17 @@ The workflow loads a video, reduces compression artifacts, analyzes motion, appl
 ## Requirements
 
 - ComfyUI on Windows with a supported NVIDIA GPU.
-- ComfyUI-AetherScale 0.7.2 or newer.
+- ComfyUI-AetherScale 0.8.0 or newer.
 - ComfyUI-VideoHelperSuite.
 - The AetherScale carrier runtime required by the Neural Rendering node.
 
 ## Use
 
 1. Import `workflows/aetherscale-video-enhance-2x/aetherscale_video_enhance_2x.json` into ComfyUI.
-2. Choose a video in **Load Video (Upload)**.
-3. Review the output filename and processing settings.
-4. Run the workflow.
+2. Use the **Get AetherScale** note if you need to download or update the custom node.
+3. Choose a video in **Load Video (Upload)**.
+4. Review the output filename and processing settings.
+5. Run the workflow.
 
 The default output is an NVIDIA H.264 MP4 under `output/AetherScale/`.
 

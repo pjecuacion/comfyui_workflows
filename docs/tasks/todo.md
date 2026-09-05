@@ -1,5 +1,32 @@
 # Task Plan
 
+## 2026-09-05 - Add AetherScale GitHub Link Note
+
+### Scope
+
+- Update the AetherScale bundle with the plugin source workflow's in-canvas GitHub link note.
+- Keep the repository workflow byte-identical to the verified plugin source.
+
+### Plan
+
+- [x] Wait for approval of the versioned plugin workflow plan.
+- [x] Replace the bundle JSON with the frontend-verified source.
+- [x] Mention the in-canvas source link in the viewer notes.
+- [x] Validate JSON, SHA-256 parity, repository structure, and the scoped diff.
+- [x] Commit the bundle update locally without pushing.
+
+### Test Strategy
+
+- Parse both workflow JSON files and compare SHA-256 hashes.
+- Confirm the `MarkdownNote` contains the exact repository URL and has no graph links.
+- Confirm no generated media, models, caches, or root Markdown files are added.
+
+### Review
+
+- Added the visible disconnected GitHub note from the frontend-verified AetherScale 0.8.0 source.
+- Updated the viewer instructions to point users to the in-canvas download/update link.
+- Source and bundle JSON files parse and match by SHA-256; no runtime assets or generated media were added.
+
 ## 2026-09-05 - AetherScale 2x Video Enhancement Bundle
 
 ### Scope

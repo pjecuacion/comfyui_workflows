@@ -7,7 +7,7 @@ The workflow loads a video, reduces compression artifacts, analyzes motion, appl
 ## Requirements
 
 - ComfyUI on Windows with a supported NVIDIA GPU.
-- ComfyUI-AetherScale 0.8.0 or newer.
+- ComfyUI-AetherScale 0.9.3 or newer. Large 2x HDR batches require the long-video storage fix in this version.
 - ComfyUI-VideoHelperSuite.
 - The AetherScale carrier runtime required by the Neural Rendering node.
 

@@ -142,3 +142,20 @@ When editing a Markdown table, validate the header, separator, and data rows hav
 ### Correct Behavior
 
 The workflow table has three cells in every row: video bundle, workflow, and description.
+## LESSON-007 - Include linked widgets in ordered serialization
+
+### What Went Wrong
+
+The face-detail workflow serialized `DualVideoPreview` widgets as a named object, then as an incomplete array. ComfyUI restored a null value and displayed `Cannot read properties of null (reading 'replace')`.
+
+### Why It Happened
+
+The frontend restores ordinary node widgets by position, and linked widgets such as `fps` still occupy a position in the serialized widget array.
+
+### New Rule
+
+For hand-authored ComfyUI workflows, serialize ordinary custom-node widgets as a complete ordered array, including values for widgets that also have links.
+
+### Correct Behavior
+
+`DualVideoPreview` uses `["", "", "Before", "After", 24, true]` for `video_1`, `video_2`, `label_1`, `label_2`, `fps`, and `loop`.

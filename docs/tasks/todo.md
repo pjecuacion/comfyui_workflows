@@ -652,3 +652,26 @@
 - The bundle matches the installed source at SHA-256 `4D10F40A32732CC7BB55CAB04E4F8436BA42675F31BCD2D6937C222522423D3C`.
 - The focused AetherScale test passes and the existing 2x bundle remains unchanged.
 - The repository suite has two unrelated pre-existing failures: a submitted MiniMax workflow has zero frame notes, and the installed Multishot node no longer exposes the expected forced-four-step expression.
+
+## 2026-09-05 - Repair face-detail workflow widget serialization
+
+### Scope
+
+- Repair only the face-detail workflow copies; do not change the AetherScale node implementation or the existing enhancement workflows.
+- Keep the dual-video compare wiring intact.
+
+### Plan
+
+- [x] Convert the DualVideoPreview widget state to the ordered array expected by the ComfyUI frontend.
+- [x] Run a deterministic JSON/widget serialization check against both copies.
+- [x] Review the diff and commit the workflow-only fix locally.
+
+### Test Strategy
+
+- Parse both workflow JSON files and require array serialization for DualVideoPreview widgets, with the expected order and values.
+- Confirm no graph links or node types change.
+
+### Review
+
+- The red node was caused by the compare node's object-form widget state, not by a missing detector file.
+- The six-value ordered array now includes the linked FPS widget; omitting it would shift `loop` into the wrong position.

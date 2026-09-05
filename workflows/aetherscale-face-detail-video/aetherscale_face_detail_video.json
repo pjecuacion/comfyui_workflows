@@ -194,7 +194,7 @@
       ],
       "outputs": [],
       "properties": {"Node name for S&R": "DualVideoPreview"},
-      "widgets_values": {"video_1": "", "video_2": "", "label_1": "Before", "label_2": "After", "fps": 24, "loop": true}
+      "widgets_values": ["", "", "Before", "After", 24, true]
     }
   ],
   "links": [

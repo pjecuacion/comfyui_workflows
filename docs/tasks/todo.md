@@ -1,5 +1,43 @@
 # Task Plan
 
+## 2026-09-05 - AetherScale 2x Video Enhancement Bundle
+
+### Scope
+
+- Import the repaired AetherScale 2x video-enhancement workflow as its own repository bundle.
+- Keep the plugin source workflow and repository copy byte-identical after repair.
+
+### Assumptions
+
+- `aetherscale-video-enhance-2x` is the bundle slug matching this repository's per-video/experiment structure.
+- The actual source path is `C:\ComfyUI_windows_portable\ComfyUI\custom_nodes\ComfyUI-AetherScale\workflows\aetherscale_video_enhance_2x.json`; the underscores in the pasted path were Markdown escapes.
+
+### Non-Goals
+
+- Do not copy AetherScale source code, runtime binaries, caches, models, or generated media.
+- Do not claim a full video render passed when this task verifies workflow import and graph settings only.
+
+### Plan
+
+- [x] Wait for approval of the cross-repository repair plan recorded in the AetherScale task file.
+- [x] Copy the repaired workflow to `workflows/aetherscale-video-enhance-2x/`.
+- [x] Add simple viewer-facing notes under `docs/videos/aetherscale-video-enhance-2x/`.
+- [x] Validate JSON parsing and confirm the copy matches the repaired source by SHA-256.
+- [x] Review the scoped diff and create one local commit without including unrelated files.
+
+### Test Strategy
+
+- Parse the source and repository workflow JSON files.
+- Compare SHA-256 hashes after the copy.
+- Confirm no generated media, runtime assets, or root-level Markdown files were added.
+
+### Review
+
+- Imported the frontend-verified AetherScale 0.7.2 workflow into its own bundle.
+- The repository copy matches the repaired plugin source byte-for-byte.
+- JSON parsing and repository structure checks pass; no runtime assets, generated media, models, or root Markdown files were added.
+- A full video render was not run and is not claimed.
+
 ## 2026-08-25 - MiniMax H3 Latent Upscaler Voice-Reference Import
 
 ### Scope

@@ -159,3 +159,21 @@ For hand-authored ComfyUI workflows, serialize ordinary custom-node widgets as a
 ### Correct Behavior
 
 `DualVideoPreview` uses `["", "", "Before", "After", 24, true]` for `video_1`, `video_2`, `label_1`, `label_2`, `fps`, and `loop`.
+
+## LESSON-008 - Keep detailer arrays aligned with live schemas
+
+### What Went Wrong
+
+The video detailer array omitted current widget positions, shifting sampler, scheduler, and CFG values and producing `NaN`.
+
+### Why It Happened
+
+The hand-authored workflow used an older assumed widget order instead of the live `/object_info` order.
+
+### New Rule
+
+When a node schema changes, rebuild its complete ordered widget array from the running server, including optional widgets that render by default.
+
+### Correct Behavior
+
+The detailer array is `[512, true, 768, 123456789, 6, 8.0, "euler", "normal", 0.3, 8, 0.0, 20]`.

@@ -17,8 +17,26 @@ foreach ($path in $paths) {
 
     $actual = @($node[0].widgets_values)
     $expected = @('', '', 'Before', 'After', 24, $true)
-    if (($actual | ConvertTo-Json -Compress) -ne ($expected | ConvertTo-Json -Compress)) {
-        throw "$path has invalid DualVideoPreview widget serialization: $($actual | ConvertTo-Json -Compress)"
+    if ($actual.Count -ne $expected.Count) {
+        throw "$path has the wrong number of DualVideoPreview widgets: $($actual.Count)"
+    }
+    for ($i = 0; $i -lt $expected.Count; $i++) {
+        if ($actual[$i] -ne $expected[$i]) {
+            throw "$path has invalid DualVideoPreview widget serialization: $($actual | ConvertTo-Json -Compress)"
+        }
+    }
+
+    $detailer = @($workflow.nodes | Where-Object { $_.type -eq 'DetailerForEachPipeForAnimateDiff' })
+    if ($detailer.Count -ne 1) { throw "$path must contain exactly one video detailer node." }
+    $detailerExpected = @(512, $true, 768, 123456789, 6, 8.0, 'euler', 'normal', 0.3, 8, 0.0, 20)
+    $detailerActual = @($detailer[0].widgets_values)
+    if ($detailerActual.Count -ne $detailerExpected.Count) {
+        throw "$path has the wrong number of video detailer widgets: $($detailerActual.Count)"
+    }
+    for ($i = 0; $i -lt $detailerExpected.Count; $i++) {
+        if ($detailerActual[$i] -ne $detailerExpected[$i]) {
+            throw "$path has invalid video detailer widget serialization: $($detailerActual | ConvertTo-Json -Compress)"
+        }
     }
 }
 

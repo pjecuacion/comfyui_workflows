@@ -151,7 +151,7 @@
         {"name": "cnet_images", "type": "IMAGE", "links": []}
       ],
       "properties": {"Node name for S&R": "DetailerForEachPipeForAnimateDiff"},
-      "widgets_values": [512, true, 768, 123456789, 10, 6.0, "euler", "normal", 0.3, 8, 0.0]
+      "widgets_values": [512, true, 768, 123456789, 6, 8.0, "euler", "normal", 0.3, 8, 0.0, 20]
     },
     {
       "id": 10,

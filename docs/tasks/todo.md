@@ -675,3 +675,15 @@
 
 - The red node was caused by the compare node's object-form widget state, not by a missing detector file.
 - The six-value ordered array now includes the linked FPS widget; omitting it would shift `loop` into the wrong position.
+
+## 2026-09-05 - Align face-detailer widget order with live Impact Pack
+
+### Plan
+
+- [x] Replace the stale detailer widget array with the current live schema order.
+- [x] Extend BUG-007 coverage to validate compare and detailer arrays in both copies.
+- [x] Commit the workflow and test/documentation repair locally.
+
+### Review
+
+- `cfg` is now numeric `8.0`, sampler is `euler`, scheduler is `normal`, and the optional noise-mask feather value is retained.

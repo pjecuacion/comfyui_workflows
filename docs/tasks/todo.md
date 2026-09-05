@@ -625,3 +625,30 @@
 - The focused graph/asset test passes, the builder is deterministic, the shared frame-note test now covers all eight custom MiniMax workflows, and seven other repository tests pass.
 - The pre-existing Multishot Turbo test still fails because the installed `ComfyUI-H3-Multishot` source no longer contains its expected forced-four-step expression. This task did not modify that unrelated node pack.
 - A full face-refined H3 render was not run: the supplied workflow's first image `1024834.jpg` is absent from the ComfyUI input folder, and its available cartoon reference is not detected as a face.
+## 2026-09-05 - Bundle minimal AetherScale Neural Rendering workflow
+
+### Scope
+
+- Add a separate `workflows/aetherscale-neural-render-video/` bundle copied from the verified installed AetherScale workflow.
+- Leave `workflows/aetherscale-video-enhance-2x/aetherscale_video_enhance_2x.json` unchanged.
+- Document the required AetherScale and Video Helper Suite nodes plus the experimental carrier limitation.
+
+### Plan
+
+- [x] Add the minimal Neural Rendering workflow bundle and focused notes under `docs/videos/`.
+- [x] Add deterministic integration coverage for its nodes, links, audio/FPS passthrough, and excluded enhancement stages.
+- [x] Prove source/bundle SHA-256 parity and preservation of the existing 2x workflow.
+- [x] Run the focused and repository test suites, review the diff, and commit locally.
+
+### Test Strategy
+
+- Parse the workflow JSON and require only VHS load/info/save, Motion Analysis, Neural Rendering, and a disconnected GitHub note.
+- Prove loaded frames feed both motion and rendering, motion feeds rendering, and rendered frames plus source audio/FPS feed the saver.
+- Reject Restoration, Super Resolution, and HDR nodes.
+
+### Review
+
+- Added the workflow, focused usage notes, and a deterministic bundle integration test.
+- The bundle matches the installed source at SHA-256 `4D10F40A32732CC7BB55CAB04E4F8436BA42675F31BCD2D6937C222522423D3C`.
+- The focused AetherScale test passes and the existing 2x bundle remains unchanged.
+- The repository suite has two unrelated pre-existing failures: a submitted MiniMax workflow has zero frame notes, and the installed Multishot node no longer exposes the expected forced-four-step expression.

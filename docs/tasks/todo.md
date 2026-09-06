@@ -735,3 +735,20 @@
 - Added one canvas variant for each source export: both have 26 nodes, 31 links, and five named canvas groups.
 - The submitted source files remain unchanged. The conversion preserves every node class/title, connection, prompt/widget value, model, LoRA configuration, and output setting.
 - The reusable builder retrieves the live ComfyUI node definitions so saved sockets retain their real type labels and colours.
+
+## 2026-09-06 - Remove submitted Prince quiz exports
+
+### Scope
+
+- Delete only the two original submitted/API workflow files at the user's request.
+- Retain the two grouped canvas workflows as the usable video-demo versions.
+
+### Plan
+
+- [x] Remove both `_submitted_workflow.json` files.
+- [x] Verify that both grouped canvas files remain, review the scoped diff, commit, and push.
+
+### Review
+
+- Removed `realistic_quiz_prince_scene_01_submitted_workflow.json` and `realistic_quiz_prince_scene_02_submitted_workflow.json`.
+- The only workflow files in the bundle are now the two grouped canvas variants.

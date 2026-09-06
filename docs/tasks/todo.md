@@ -711,3 +711,27 @@
 - Both JSON files parse successfully and are byte-for-byte copies of their Downloads sources.
 - `scene_01` SHA-256: `6407FF3F3470DD1C8A0ECCE489B09A2D77AFBF0ECF78400788FBAD91641B16D0`.
 - `scene_02` SHA-256: `19E77E4154B4F17E2D2BDEEF94F824FC1519C564EE83D530DC125BB495E28F71`.
+
+## 2026-09-06 - Make Prince realistic quiz workflows presentable
+
+### Scope
+
+- Keep the two submitted/API workflow JSON files intact as source exports.
+- Add tidy, editable ComfyUI canvas variants with named groups and a clear left-to-right layout.
+
+### Plan
+
+- [x] Convert both API graphs into canvas-workflow JSON without changing prompt, model, LoRA, or graph connections.
+- [x] Organize the canvas into Story Setup, Models and Look, H3 Conditioning, Sampling, and Decode and Output groups.
+- [ ] Validate workflow schema, graph connections, and API-equivalent node inputs; review, commit, and push.
+
+### Test Strategy
+
+- Parse source and canvas files and compare each API node's effective inputs after conversion.
+- Require unique node/link IDs, valid link endpoints, and the five named visual groups.
+
+### Review
+
+- Added one canvas variant for each source export: both have 26 nodes, 31 links, and five named canvas groups.
+- The submitted source files remain unchanged. The conversion preserves every node class/title, connection, prompt/widget value, model, LoRA configuration, and output setting.
+- The reusable builder retrieves the live ComfyUI node definitions so saved sockets retain their real type labels and colours.

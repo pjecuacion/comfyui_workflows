@@ -1,0 +1,1359 @@
+{
+  "id": "627ae34e-a2ba-41d0-ae9e-b0d8cd483fcd",
+  "revision": 0,
+  "last_node_id": 178,
+  "last_link_id": 31,
+  "nodes": [
+    {
+      "id": 115,
+      "type": "ResolutionSelector",
+      "pos": [
+        40,
+        90
+      ],
+      "size": [
+        300,
+        110
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "width",
+          "type": "INT",
+          "links": [
+            15
+          ]
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": [
+            16
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ResolutionSelector"
+      },
+      "widgets_values": [
+        "16:9 (Widescreen)",
+        1.5,
+        32
+      ],
+      "title": "Resolution Selector"
+    },
+    {
+      "id": 119,
+      "type": "VAELoader",
+      "pos": [
+        40,
+        1140
+      ],
+      "size": [
+        300,
+        110
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            4,
+            19
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "minimax_h3_video_vae_fp16.safetensors"
+      ],
+      "title": "Load Video VAE"
+    },
+    {
+      "id": 120,
+      "type": "VAELoader",
+      "pos": [
+        400,
+        1140
+      ],
+      "size": [
+        300,
+        110
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            2,
+            20
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "minimax_h3_audio_vae_fp32.safetensors"
+      ],
+      "title": "Load Audio VAE"
+    },
+    {
+      "id": 121,
+      "type": "VAEDecodeAudio",
+      "pos": [
+        3090,
+        100
+      ],
+      "size": [
+        300,
+        110
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "*",
+          "link": 1
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 2
+        }
+      ],
+      "outputs": [
+        {
+          "name": "AUDIO",
+          "type": "AUDIO",
+          "links": [
+            28
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecodeAudio"
+      },
+      "widgets_values": [],
+      "title": "Decode Audio"
+    },
+    {
+      "id": 122,
+      "type": "VAEDecode",
+      "pos": [
+        3440,
+        100
+      ],
+      "size": [
+        300,
+        110
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "*",
+          "link": 3
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 4
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            27
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      },
+      "widgets_values": [],
+      "title": "Decode Video Frames"
+    },
+    {
+      "id": 123,
+      "type": "KSamplerSelect",
+      "pos": [
+        2190,
+        100
+      ],
+      "size": [
+        300,
+        110
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "SAMPLER",
+          "type": "SAMPLER",
+          "links": [
+            8
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSamplerSelect"
+      },
+      "widgets_values": [
+        "res_multistep"
+      ],
+      "title": "Sampler"
+    },
+    {
+      "id": 124,
+      "type": "BasicScheduler",
+      "pos": [
+        2550,
+        100
+      ],
+      "size": [
+        300,
+        110
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 5
+        }
+      ],
+      "outputs": [
+        {
+          "name": "SIGMAS",
+          "type": "SIGMAS",
+          "links": [
+            9
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "BasicScheduler"
+      },
+      "widgets_values": [
+        "simple",
+        8,
+        1
+      ],
+      "title": "Sampling Steps"
+    },
+    {
+      "id": 125,
+      "type": "SamplerCustomAdvanced",
+      "pos": [
+        2190,
+        330
+      ],
+      "size": [
+        300,
+        110
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "noise",
+          "type": "NOISE",
+          "link": 6
+        },
+        {
+          "name": "guider",
+          "type": "GUIDER",
+          "link": 7
+        },
+        {
+          "name": "sampler",
+          "type": "SAMPLER",
+          "link": 8
+        },
+        {
+          "name": "sigmas",
+          "type": "SIGMAS",
+          "link": 9
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 10
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "LATENT",
+          "links": [
+            30
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SamplerCustomAdvanced"
+      },
+      "widgets_values": [],
+      "title": "Advanced Sampler"
+    },
+    {
+      "id": 126,
+      "type": "BasicGuider",
+      "pos": [
+        2550,
+        330
+      ],
+      "size": [
+        300,
+        110
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 11
+        },
+        {
+          "name": "conditioning",
+          "type": "*",
+          "link": 12
+        }
+      ],
+      "outputs": [
+        {
+          "name": "GUIDER",
+          "type": "GUIDER",
+          "links": [
+            7
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "BasicGuider"
+      },
+      "widgets_values": [],
+      "title": "Basic Guider"
+    },
+    {
+      "id": 127,
+      "type": "UNETLoader",
+      "pos": [
+        740,
+        1140
+      ],
+      "size": [
+        300,
+        110
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            24
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "UNETLoader"
+      },
+      "widgets_values": [
+        "minimax_h3_fastvideo_vsa_datafree_1300step_4step_int8_convrot.safetensors",
+        "default"
+      ],
+      "title": "Load Proven FP8 Reference Model"
+    },
+    {
+      "id": 128,
+      "type": "CLIPLoader",
+      "pos": [
+        40,
+        1410
+      ],
+      "size": [
+        300,
+        110
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            18
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPLoader"
+      },
+      "widgets_values": [
+        "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "minimax",
+        "default"
+      ],
+      "title": "Load Text Encoder"
+    },
+    {
+      "id": 129,
+      "type": "RandomNoise",
+      "pos": [
+        2190,
+        600
+      ],
+      "size": [
+        300,
+        110
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "NOISE",
+          "type": "NOISE",
+          "links": [
+            6
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "RandomNoise"
+      },
+      "widgets_values": [
+        873950857
+      ],
+      "title": "Seed"
+    },
+    {
+      "id": 131,
+      "type": "ComfyMathExpression",
+      "pos": [
+        390,
+        90
+      ],
+      "size": [
+        300,
+        110
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "values.a",
+          "type": "FLOAT",
+          "link": 13
+        }
+      ],
+      "outputs": [
+        {
+          "name": "FLOAT",
+          "type": "FLOAT",
+          "links": []
+        },
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            17
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ComfyMathExpression"
+      },
+      "widgets_values": [
+        "max(5, round(a * 24)) + (5 - (max(5, round(a * 24)) % 17)) % 17"
+      ],
+      "title": "Duration to 17k+5 Frames"
+    },
+    {
+      "id": 132,
+      "type": "PrimitiveFloat",
+      "pos": [
+        740,
+        90
+      ],
+      "size": [
+        300,
+        110
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "FLOAT",
+          "type": "FLOAT",
+          "links": [
+            13
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PrimitiveFloat"
+      },
+      "widgets_values": [
+        15
+      ],
+      "title": "Duration"
+    },
+    {
+      "id": 136,
+      "type": "MiniMaxH3ReferenceToVideo",
+      "pos": [
+        1290,
+        100
+      ],
+      "size": [
+        680,
+        300
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "link": 14
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "link": 15
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "link": 16
+        },
+        {
+          "name": "length",
+          "type": "INT",
+          "link": 17
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 18
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 19
+        },
+        {
+          "name": "audio_vae",
+          "type": "VAE",
+          "link": 20
+        },
+        {
+          "name": "ref_images.ref_image_0",
+          "type": "IMAGE",
+          "link": 21
+        },
+        {
+          "name": "ref_audios.ref_audio_0",
+          "type": "AUDIO",
+          "link": 22
+        },
+        {
+          "name": "ref_images.ref_image_1",
+          "type": "IMAGE",
+          "link": 23
+        }
+      ],
+      "outputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": [
+            29
+          ]
+        },
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            10
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MiniMaxH3ReferenceToVideo"
+      },
+      "widgets_values": [
+        "match"
+      ],
+      "title": "MiniMax H3 Reference to Video"
+    },
+    {
+      "id": 137,
+      "type": "LoadImage",
+      "pos": [
+        40,
+        330
+      ],
+      "size": [
+        300,
+        110
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            21
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "story-studio/1e4b5f0c378b_1e4b5f0c378b50cf657f40c78d0d54d6c1b9c2809bed51ce7ebedbe0a0a16f10.png"
+      ],
+      "title": "Reference Image"
+    },
+    {
+      "id": 142,
+      "type": "LoadAudio",
+      "pos": [
+        500,
+        330
+      ],
+      "size": [
+        300,
+        110
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "AUDIO",
+          "type": "AUDIO",
+          "links": [
+            22
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadAudio"
+      },
+      "widgets_values": [
+        "story-studio/2adfeb37c1cc_2adfeb37c1cc550086473645b6a6f927d88bced25569d7adc3bff4a7b1752fec.mp3"
+      ],
+      "title": "Reference Audio"
+    },
+    {
+      "id": 143,
+      "type": "PrimitiveStringMultiline",
+      "pos": [
+        40,
+        570
+      ],
+      "size": [
+        1000,
+        260
+      ],
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            14
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PrimitiveStringMultiline"
+      },
+      "widgets_values": [
+        "r34l1sm, SCENE 2 — QUESTION 2 (THE BLUE WHALE)\n\n\nAuthentic modern VLOG-style video featuring the same male character from <Picture 1>. Preserve exactly the same face, hairstyle, clothing, body proportions, and identity from Scene 1.\n\nNatural handheld smartphone-camera energy, realistic lighting, creator-style framing, expressive reactions, energetic pacing, and playful physical comedy.\n\nIMPORTANT VIEWER INTERACTION RULE:\nThe character speaks DIRECTLY TO THE VIEWER with the same natural MALE FILIPINO-ACCENTED ENGLISH VOICE from Scene 1.\n\nThe camera represents the viewer.\n\n[Shot 1 — 0:00–0:05]\n\nCONTINUITY FROM PREVIOUS SCENE:\n\nThe host flies sideways into the frame exactly as if the giant wind gust from Scene 1 has thrown him into this location.\n\nHe lands awkwardly on a wooden seaside boardwalk.\n\n[AUDIO: Heavy THUD]\n\nThe handheld camera quickly swings downward to find him.\n\nThe host immediately gets back onto his feet, brushes dust from his shirt, looks straight into the camera, and pretends nothing happened.\n\nBehind him is a bright blue ocean.\n\nHe points directly at the viewer.\n\nHOST:\n<d>[English, Male Filipino Accent] Okay, next one! What is the largest animal known to have ever lived on Earth?</d>\n\nThe host immediately stops speaking and waits.\n\n[Shot 2 — 0:05–0:10]\n\nNo dialogue. Five-second viewer countdown.\n\nCamera becomes stable.\n\nPlace the host slightly RIGHT-OF-CENTER this time.\n\nReserve completely clean negative space in the UPPER-LEFT portion of the frame.\n\nMINIMAX H3 OPTIMIZED TIMER:\nDisplay exactly ONE enormous bold WHITE number in the upper-left negative space.\n\nNO box.\nNO circle.\nNO progress ring.\nNO progress bar.\nNO clock.\nNO timer icon.\nNO additional words.\nNO duplicated numbers.\n\nOnly ONE number exists on screen at any moment.\n\nPure bright white #FFFFFF.\n\nVery thick, heavy sans-serif font.\n\nThe number occupies approximately 20% of the frame height.\n\nEach number completely replaces the previous number using an instantaneous HARD CUT.\n\nExact sequence:\n\n5\nthen 4\nthen 3\nthen 2\nthen 1\n\nEach number remains visible for exactly one second.\n\nAUDIO SYNCHRONIZATION RULE:\nExactly ONE short mechanical \"CLICK\" occurs at the precise frame each number appears.\n\nTotal silence between clicks.\n\nNo spoken countdown.\nNo background music.\n\nTIMELINE:\n\nAt 5:\n[AUDIO: One sharp CLICK]\nHuge WHITE \"5\".\nHost puts both hands on his hips.\n\nAt 4:\n[AUDIO: One sharp CLICK]\nThe \"5\" disappears completely.\nHuge WHITE \"4\" replaces it.\nHost looks toward the ocean thoughtfully.\n\nAt 3:\n[AUDIO: One sharp CLICK]\nThe \"4\" disappears completely.\nHuge WHITE \"3\" replaces it.\nHost scratches his chin.\n\nAt 2:\n[AUDIO: One sharp CLICK]\nThe \"3\" disappears completely.\nHuge WHITE \"2\" replaces it.\nHost points toward the viewer as if asking, \"You sure?\"\n\nAt 1:\n[AUDIO: One sharp CLICK]\nThe \"2\" disappears completely.\nHuge WHITE \"1\" replaces it.\nHost nods confidently and gives the camera a thumbs-up.\n\nNO SPOKEN COUNTDOWN.\n\n[Shot 3 — 0:10–0:13]\n\nThe countdown disappears completely.\n\nThe handheld camera rapidly swings around toward the ocean.\n\nA gigantic blue whale dramatically breaches from the water behind the host.\n\nA massive wall of ocean spray explodes upward.\n\nThe camera quickly swings back toward the host.\n\nA dark charcoal rectangular answer card appears beside him.\n\nExactly ONE line of enormous bold WHITE uppercase text:\n\nBLUE WHALE!\n\nHOST:\n<d>[English, Male Filipino Accent] The blue whale! It's the largest animal known to have ever lived!</d>\n\n[Shot 4 — 0:13–0:15]\n\nThe host proudly points toward the enormous whale behind him.\n\nHe looks back at the camera with a huge grin.\n\nThen the delayed wall of water from the whale breach crashes directly over him.\n\n[AUDIO: Massive SPLASH]\n\nThe camera lens becomes completely covered in water.\n\nThe host is barely visible through the wet lens, standing completely soaked and staring silently at the camera with an annoyed expression.\n\nHe slowly wipes the lens with his hand.\n\nHard cut."
+      ],
+      "title": "Input Text Prompt"
+    },
+    {
+      "id": 170,
+      "type": "Power Lora Loader (rgthree)",
+      "pos": [
+        460,
+        1410
+      ],
+      "size": [
+        600,
+        260
+      ],
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 24
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            31
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Power Lora Loader (rgthree)"
+      },
+      "widgets_values": [
+        {},
+        {
+          "type": "PowerLoraLoaderHeaderWidget"
+        },
+        {
+          "on": true,
+          "lora": "minimax_h3_ref2v_turbo_8step_v1.0_768p_comfyui_bf16.safetensors",
+          "strength": 0.75
+        },
+        {
+          "on": true,
+          "lora": "h3-realism-people-t2v-i2v-r2v.safetensors",
+          "strength": 0.75
+        },
+        {},
+        ""
+      ],
+      "title": "Ordered Two-LoRA Stack"
+    },
+    {
+      "id": 171,
+      "type": "SaveVideo",
+      "pos": [
+        3090,
+        360
+      ],
+      "size": [
+        300,
+        110
+      ],
+      "flags": {},
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "link": 25
+        }
+      ],
+      "outputs": [
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SaveVideo"
+      },
+      "widgets_values": [
+        "video/realistic_quiz_prince_02",
+        "auto",
+        "auto"
+      ],
+      "title": "Save Video"
+    },
+    {
+      "id": 172,
+      "type": "PrimitiveFloat",
+      "pos": [
+        3440,
+        360
+      ],
+      "size": [
+        300,
+        110
+      ],
+      "flags": {},
+      "order": 20,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "FLOAT",
+          "type": "FLOAT",
+          "links": [
+            26
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PrimitiveFloat"
+      },
+      "widgets_values": [
+        24
+      ],
+      "title": "Delivery FPS"
+    },
+    {
+      "id": 175,
+      "type": "CreateVideo",
+      "pos": [
+        3090,
+        620
+      ],
+      "size": [
+        300,
+        110
+      ],
+      "flags": {},
+      "order": 21,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "fps",
+          "type": "FLOAT",
+          "link": 26
+        },
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 27
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 28
+        }
+      ],
+      "outputs": [
+        {
+          "name": "VIDEO",
+          "type": "VIDEO",
+          "links": [
+            25
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CreateVideo"
+      },
+      "widgets_values": [
+        8
+      ],
+      "title": "Create 48 FPS Video"
+    },
+    {
+      "id": 177,
+      "type": "VRAMCleanup",
+      "pos": [
+        1290,
+        430
+      ],
+      "size": [
+        300,
+        110
+      ],
+      "flags": {},
+      "order": 22,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "anything",
+          "type": "CONDITIONING",
+          "link": 29
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "*",
+          "links": [
+            12
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VRAMCleanup"
+      },
+      "widgets_values": [
+        true,
+        false
+      ],
+      "title": "Conditioning VRAM Cleanup"
+    },
+    {
+      "id": 178,
+      "type": "VRAMCleanup",
+      "pos": [
+        2550,
+        600
+      ],
+      "size": [
+        300,
+        110
+      ],
+      "flags": {},
+      "order": 23,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "anything",
+          "type": "LATENT",
+          "link": 30
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "*",
+          "links": [
+            1,
+            3
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VRAMCleanup"
+      },
+      "widgets_values": [
+        true,
+        false
+      ],
+      "title": "Post-sampling VRAM Cleanup"
+    },
+    {
+      "id": "story:live-preview",
+      "type": "ModelPreviewOverrideKJ",
+      "pos": [
+        1290,
+        690
+      ],
+      "size": [
+        300,
+        110
+      ],
+      "flags": {},
+      "order": 24,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 31
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "ModelPreviewOverrideKJ"
+      },
+      "widgets_values": [
+        512,
+        60,
+        true,
+        24,
+        12
+      ],
+      "title": "Story Studio Live Preview"
+    },
+    {
+      "id": "story:reference_attire",
+      "type": "LoadImage",
+      "pos": [
+        40,
+        760
+      ],
+      "size": [
+        300,
+        110
+      ],
+      "flags": {},
+      "order": 25,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "story-studio/39fc3e5661cb_39fc3e5661cb62adea23bbe333d2a9f969999a10c6a7ea293ef9611c182da892.png"
+      ],
+      "title": "Person 1 Attire Reference"
+    }
+  ],
+  "links": [
+    [
+      1,
+      178,
+      0,
+      121,
+      0,
+      "*"
+    ],
+    [
+      2,
+      120,
+      0,
+      121,
+      1,
+      "*"
+    ],
+    [
+      3,
+      178,
+      0,
+      122,
+      0,
+      "*"
+    ],
+    [
+      4,
+      119,
+      0,
+      122,
+      1,
+      "*"
+    ],
+    [
+      5,
+      "story:live-preview",
+      0,
+      124,
+      0,
+      "*"
+    ],
+    [
+      6,
+      129,
+      0,
+      125,
+      0,
+      "*"
+    ],
+    [
+      7,
+      126,
+      0,
+      125,
+      1,
+      "*"
+    ],
+    [
+      8,
+      123,
+      0,
+      125,
+      2,
+      "*"
+    ],
+    [
+      9,
+      124,
+      0,
+      125,
+      3,
+      "*"
+    ],
+    [
+      10,
+      136,
+      1,
+      125,
+      4,
+      "*"
+    ],
+    [
+      11,
+      "story:live-preview",
+      0,
+      126,
+      0,
+      "*"
+    ],
+    [
+      12,
+      177,
+      0,
+      126,
+      1,
+      "*"
+    ],
+    [
+      13,
+      132,
+      0,
+      131,
+      0,
+      "*"
+    ],
+    [
+      14,
+      143,
+      0,
+      136,
+      0,
+      "*"
+    ],
+    [
+      15,
+      115,
+      0,
+      136,
+      1,
+      "*"
+    ],
+    [
+      16,
+      115,
+      1,
+      136,
+      2,
+      "*"
+    ],
+    [
+      17,
+      131,
+      1,
+      136,
+      3,
+      "*"
+    ],
+    [
+      18,
+      128,
+      0,
+      136,
+      4,
+      "*"
+    ],
+    [
+      19,
+      119,
+      0,
+      136,
+      5,
+      "*"
+    ],
+    [
+      20,
+      120,
+      0,
+      136,
+      6,
+      "*"
+    ],
+    [
+      21,
+      137,
+      0,
+      136,
+      7,
+      "*"
+    ],
+    [
+      22,
+      142,
+      0,
+      136,
+      8,
+      "*"
+    ],
+    [
+      23,
+      "story:reference_attire",
+      0,
+      136,
+      9,
+      "*"
+    ],
+    [
+      24,
+      127,
+      0,
+      170,
+      0,
+      "*"
+    ],
+    [
+      25,
+      175,
+      0,
+      171,
+      0,
+      "*"
+    ],
+    [
+      26,
+      172,
+      0,
+      175,
+      0,
+      "*"
+    ],
+    [
+      27,
+      122,
+      0,
+      175,
+      1,
+      "*"
+    ],
+    [
+      28,
+      121,
+      0,
+      175,
+      2,
+      "*"
+    ],
+    [
+      29,
+      136,
+      0,
+      177,
+      0,
+      "*"
+    ],
+    [
+      30,
+      125,
+      0,
+      178,
+      0,
+      "*"
+    ],
+    [
+      31,
+      170,
+      0,
+      "story:live-preview",
+      0,
+      "*"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "title": "Story Setup",
+      "bounding": [
+        0,
+        0,
+        1100,
+        960
+      ],
+      "color": "#4a6fa5",
+      "font_size": 26
+    },
+    {
+      "id": 2,
+      "title": "Models and Look",
+      "bounding": [
+        0,
+        1050,
+        1100,
+        850
+      ],
+      "color": "#6c5b7b",
+      "font_size": 26
+    },
+    {
+      "id": 3,
+      "title": "H3 Conditioning",
+      "bounding": [
+        1250,
+        0,
+        780,
+        960
+      ],
+      "color": "#2e8b8b",
+      "font_size": 26
+    },
+    {
+      "id": 4,
+      "title": "Sampling",
+      "bounding": [
+        2150,
+        0,
+        800,
+        960
+      ],
+      "color": "#b07035",
+      "font_size": 26
+    },
+    {
+      "id": 5,
+      "title": "Decode and Output",
+      "bounding": [
+        3050,
+        0,
+        800,
+        960
+      ],
+      "color": "#4c8c4a",
+      "font_size": 26
+    }
+  ],
+  "config": {},
+  "extra": {
+    "frontendVersion": "1.47.12",
+    "ds": {
+      "scale": 0.7,
+      "offset": [
+        120,
+        80
+      ]
+    },
+    "BlueprintDescription": "Grouped canvas version of realistic_quiz_prince_scene_02_submitted_workflow.json; source submitted workflow retained beside it."
+  },
+  "version": 0.4
+}

@@ -1,0 +1,384 @@
+{
+  "115": {
+    "inputs": {
+      "aspect_ratio": "16:9 (Widescreen)",
+      "megapixels": 1.5,
+      "multiple": 32
+    },
+    "class_type": "ResolutionSelector",
+    "_meta": {
+      "title": "Resolution Selector"
+    }
+  },
+  "119": {
+    "inputs": {
+      "vae_name": "minimax_h3_video_vae_fp16.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "Load Video VAE"
+    }
+  },
+  "120": {
+    "inputs": {
+      "vae_name": "minimax_h3_audio_vae_fp32.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "Load Audio VAE"
+    }
+  },
+  "121": {
+    "inputs": {
+      "samples": [
+        "178",
+        0
+      ],
+      "vae": [
+        "120",
+        0
+      ]
+    },
+    "class_type": "VAEDecodeAudio",
+    "_meta": {
+      "title": "Decode Audio"
+    }
+  },
+  "122": {
+    "inputs": {
+      "samples": [
+        "178",
+        0
+      ],
+      "vae": [
+        "119",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "Decode Video Frames"
+    }
+  },
+  "123": {
+    "inputs": {
+      "sampler_name": "res_multistep"
+    },
+    "class_type": "KSamplerSelect",
+    "_meta": {
+      "title": "Sampler"
+    }
+  },
+  "124": {
+    "inputs": {
+      "scheduler": "simple",
+      "steps": 8,
+      "denoise": 1,
+      "model": [
+        "story:live-preview",
+        0
+      ]
+    },
+    "class_type": "BasicScheduler",
+    "_meta": {
+      "title": "Sampling Steps"
+    }
+  },
+  "125": {
+    "inputs": {
+      "noise": [
+        "129",
+        0
+      ],
+      "guider": [
+        "126",
+        0
+      ],
+      "sampler": [
+        "123",
+        0
+      ],
+      "sigmas": [
+        "124",
+        0
+      ],
+      "latent_image": [
+        "136",
+        1
+      ]
+    },
+    "class_type": "SamplerCustomAdvanced",
+    "_meta": {
+      "title": "Advanced Sampler"
+    }
+  },
+  "126": {
+    "inputs": {
+      "model": [
+        "story:live-preview",
+        0
+      ],
+      "conditioning": [
+        "177",
+        0
+      ]
+    },
+    "class_type": "BasicGuider",
+    "_meta": {
+      "title": "Basic Guider"
+    }
+  },
+  "127": {
+    "inputs": {
+      "unet_name": "minimax_h3_fastvideo_vsa_datafree_1300step_4step_int8_convrot.safetensors",
+      "weight_dtype": "default"
+    },
+    "class_type": "UNETLoader",
+    "_meta": {
+      "title": "Load Proven FP8 Reference Model"
+    }
+  },
+  "128": {
+    "inputs": {
+      "clip_name": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+      "type": "minimax",
+      "device": "default"
+    },
+    "class_type": "CLIPLoader",
+    "_meta": {
+      "title": "Load Text Encoder"
+    }
+  },
+  "129": {
+    "inputs": {
+      "noise_seed": 873950857
+    },
+    "class_type": "RandomNoise",
+    "_meta": {
+      "title": "Seed"
+    }
+  },
+  "131": {
+    "inputs": {
+      "expression": "max(5, round(a * 24)) + (5 - (max(5, round(a * 24)) % 17)) % 17",
+      "values.a": [
+        "132",
+        0
+      ]
+    },
+    "class_type": "ComfyMathExpression",
+    "_meta": {
+      "title": "Duration to 17k+5 Frames"
+    }
+  },
+  "132": {
+    "inputs": {
+      "value": 15
+    },
+    "class_type": "PrimitiveFloat",
+    "_meta": {
+      "title": "Duration"
+    }
+  },
+  "136": {
+    "inputs": {
+      "prompt": [
+        "143",
+        0
+      ],
+      "width": [
+        "115",
+        0
+      ],
+      "height": [
+        "115",
+        1
+      ],
+      "length": [
+        "131",
+        1
+      ],
+      "ref_image_size": "match",
+      "clip": [
+        "128",
+        0
+      ],
+      "vae": [
+        "119",
+        0
+      ],
+      "audio_vae": [
+        "120",
+        0
+      ],
+      "ref_images.ref_image_0": [
+        "137",
+        0
+      ],
+      "ref_audios.ref_audio_0": [
+        "142",
+        0
+      ],
+      "ref_images.ref_image_1": [
+        "story:reference_attire",
+        0
+      ]
+    },
+    "class_type": "MiniMaxH3ReferenceToVideo",
+    "_meta": {
+      "title": "MiniMax H3 Reference to Video"
+    }
+  },
+  "137": {
+    "inputs": {
+      "image": "story-studio/1e4b5f0c378b_1e4b5f0c378b50cf657f40c78d0d54d6c1b9c2809bed51ce7ebedbe0a0a16f10.png"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Reference Image"
+    }
+  },
+  "142": {
+    "inputs": {
+      "audio": "story-studio/2adfeb37c1cc_2adfeb37c1cc550086473645b6a6f927d88bced25569d7adc3bff4a7b1752fec.mp3"
+    },
+    "class_type": "LoadAudio",
+    "_meta": {
+      "title": "Reference Audio"
+    }
+  },
+  "143": {
+    "inputs": {
+      "value": "r34l1sm, SCENE 2 — QUESTION 2 (THE BLUE WHALE)\n\n\nAuthentic modern VLOG-style video featuring the same male character from <Picture 1>. Preserve exactly the same face, hairstyle, clothing, body proportions, and identity from Scene 1.\n\nNatural handheld smartphone-camera energy, realistic lighting, creator-style framing, expressive reactions, energetic pacing, and playful physical comedy.\n\nIMPORTANT VIEWER INTERACTION RULE:\nThe character speaks DIRECTLY TO THE VIEWER with the same natural MALE FILIPINO-ACCENTED ENGLISH VOICE from Scene 1.\n\nThe camera represents the viewer.\n\n[Shot 1 — 0:00–0:05]\n\nCONTINUITY FROM PREVIOUS SCENE:\n\nThe host flies sideways into the frame exactly as if the giant wind gust from Scene 1 has thrown him into this location.\n\nHe lands awkwardly on a wooden seaside boardwalk.\n\n[AUDIO: Heavy THUD]\n\nThe handheld camera quickly swings downward to find him.\n\nThe host immediately gets back onto his feet, brushes dust from his shirt, looks straight into the camera, and pretends nothing happened.\n\nBehind him is a bright blue ocean.\n\nHe points directly at the viewer.\n\nHOST:\n<d>[English, Male Filipino Accent] Okay, next one! What is the largest animal known to have ever lived on Earth?</d>\n\nThe host immediately stops speaking and waits.\n\n[Shot 2 — 0:05–0:10]\n\nNo dialogue. Five-second viewer countdown.\n\nCamera becomes stable.\n\nPlace the host slightly RIGHT-OF-CENTER this time.\n\nReserve completely clean negative space in the UPPER-LEFT portion of the frame.\n\nMINIMAX H3 OPTIMIZED TIMER:\nDisplay exactly ONE enormous bold WHITE number in the upper-left negative space.\n\nNO box.\nNO circle.\nNO progress ring.\nNO progress bar.\nNO clock.\nNO timer icon.\nNO additional words.\nNO duplicated numbers.\n\nOnly ONE number exists on screen at any moment.\n\nPure bright white #FFFFFF.\n\nVery thick, heavy sans-serif font.\n\nThe number occupies approximately 20% of the frame height.\n\nEach number completely replaces the previous number using an instantaneous HARD CUT.\n\nExact sequence:\n\n5\nthen 4\nthen 3\nthen 2\nthen 1\n\nEach number remains visible for exactly one second.\n\nAUDIO SYNCHRONIZATION RULE:\nExactly ONE short mechanical \"CLICK\" occurs at the precise frame each number appears.\n\nTotal silence between clicks.\n\nNo spoken countdown.\nNo background music.\n\nTIMELINE:\n\nAt 5:\n[AUDIO: One sharp CLICK]\nHuge WHITE \"5\".\nHost puts both hands on his hips.\n\nAt 4:\n[AUDIO: One sharp CLICK]\nThe \"5\" disappears completely.\nHuge WHITE \"4\" replaces it.\nHost looks toward the ocean thoughtfully.\n\nAt 3:\n[AUDIO: One sharp CLICK]\nThe \"4\" disappears completely.\nHuge WHITE \"3\" replaces it.\nHost scratches his chin.\n\nAt 2:\n[AUDIO: One sharp CLICK]\nThe \"3\" disappears completely.\nHuge WHITE \"2\" replaces it.\nHost points toward the viewer as if asking, \"You sure?\"\n\nAt 1:\n[AUDIO: One sharp CLICK]\nThe \"2\" disappears completely.\nHuge WHITE \"1\" replaces it.\nHost nods confidently and gives the camera a thumbs-up.\n\nNO SPOKEN COUNTDOWN.\n\n[Shot 3 — 0:10–0:13]\n\nThe countdown disappears completely.\n\nThe handheld camera rapidly swings around toward the ocean.\n\nA gigantic blue whale dramatically breaches from the water behind the host.\n\nA massive wall of ocean spray explodes upward.\n\nThe camera quickly swings back toward the host.\n\nA dark charcoal rectangular answer card appears beside him.\n\nExactly ONE line of enormous bold WHITE uppercase text:\n\nBLUE WHALE!\n\nHOST:\n<d>[English, Male Filipino Accent] The blue whale! It's the largest animal known to have ever lived!</d>\n\n[Shot 4 — 0:13–0:15]\n\nThe host proudly points toward the enormous whale behind him.\n\nHe looks back at the camera with a huge grin.\n\nThen the delayed wall of water from the whale breach crashes directly over him.\n\n[AUDIO: Massive SPLASH]\n\nThe camera lens becomes completely covered in water.\n\nThe host is barely visible through the wet lens, standing completely soaked and staring silently at the camera with an annoyed expression.\n\nHe slowly wipes the lens with his hand.\n\nHard cut."
+    },
+    "class_type": "PrimitiveStringMultiline",
+    "_meta": {
+      "title": "Input Text Prompt"
+    }
+  },
+  "170": {
+    "inputs": {
+      "PowerLoraLoaderHeaderWidget": {
+        "type": "PowerLoraLoaderHeaderWidget"
+      },
+      "lora_1": {
+        "on": true,
+        "lora": "minimax_h3_ref2v_turbo_8step_v1.0_768p_comfyui_bf16.safetensors",
+        "strength": 0.75
+      },
+      "lora_2": {
+        "on": true,
+        "lora": "h3-realism-people-t2v-i2v-r2v.safetensors",
+        "strength": 0.75
+      },
+      "➕ Add Lora": "",
+      "model": [
+        "127",
+        0
+      ]
+    },
+    "class_type": "Power Lora Loader (rgthree)",
+    "_meta": {
+      "title": "Ordered Two-LoRA Stack"
+    }
+  },
+  "171": {
+    "inputs": {
+      "filename_prefix": "video/realistic_quiz_prince_02",
+      "format": "auto",
+      "codec": "auto",
+      "video": [
+        "175",
+        0
+      ]
+    },
+    "class_type": "SaveVideo",
+    "_meta": {
+      "title": "Save Video"
+    }
+  },
+  "172": {
+    "inputs": {
+      "value": 24
+    },
+    "class_type": "PrimitiveFloat",
+    "_meta": {
+      "title": "Delivery FPS"
+    }
+  },
+  "175": {
+    "inputs": {
+      "fps": [
+        "172",
+        0
+      ],
+      "bit_depth": 8,
+      "images": [
+        "122",
+        0
+      ],
+      "audio": [
+        "121",
+        0
+      ]
+    },
+    "class_type": "CreateVideo",
+    "_meta": {
+      "title": "Create 48 FPS Video"
+    }
+  },
+  "177": {
+    "inputs": {
+      "offload_model": true,
+      "offload_cache": false,
+      "anything": [
+        "136",
+        0
+      ]
+    },
+    "class_type": "VRAMCleanup",
+    "_meta": {
+      "title": "Conditioning VRAM Cleanup"
+    }
+  },
+  "178": {
+    "inputs": {
+      "offload_model": true,
+      "offload_cache": false,
+      "anything": [
+        "125",
+        0
+      ]
+    },
+    "class_type": "VRAMCleanup",
+    "_meta": {
+      "title": "Post-sampling VRAM Cleanup"
+    }
+  },
+  "story:live-preview": {
+    "inputs": {
+      "model": [
+        "170",
+        0
+      ],
+      "max_resolution": 512,
+      "jpeg_quality": 60,
+      "suppress_default_preview": true,
+      "preview_frames": 24,
+      "preview_fps": 12
+    },
+    "class_type": "ModelPreviewOverrideKJ",
+    "_meta": {
+      "title": "Story Studio Live Preview"
+    }
+  },
+  "story:reference_attire": {
+    "inputs": {
+      "image": "story-studio/39fc3e5661cb_39fc3e5661cb62adea23bbe333d2a9f969999a10c6a7ea293ef9611c182da892.png"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Person 1 Attire Reference"
+    }
+  }
+}

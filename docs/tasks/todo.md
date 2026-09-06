@@ -687,3 +687,27 @@
 ### Review
 
 - The final array includes ComfyUI's generated `control_after_generate: fixed` slot. `cfg` is numeric `8.0`, sampler is `euler`, scheduler is `normal`, and the optional noise-mask feather value is retained.
+
+## 2026-09-06 - Bundle Prince realistic quiz H3 workflows
+
+### Scope
+
+- Add one folder containing the two supplied, submitted MiniMax H3 quiz workflows.
+- Preserve the Downloads source files and existing workflow bundles.
+
+### Plan
+
+- [x] Copy both submitted JSON files into `workflows/minimax-h3-realistic-quiz-prince/` without modifying their contents.
+- [x] Verify JSON parsing and source-to-bundle SHA-256 parity.
+- [ ] Review the scoped diff, commit it, and push the committed `main` branch to `origin`.
+
+### Test Strategy
+
+- Parse each source and bundled JSON file.
+- Require byte-for-byte SHA-256 parity for each corresponding source/bundle pair.
+
+### Review
+
+- Both JSON files parse successfully and are byte-for-byte copies of their Downloads sources.
+- `scene_01` SHA-256: `6407FF3F3470DD1C8A0ECCE489B09A2D77AFBF0ECF78400788FBAD91641B16D0`.
+- `scene_02` SHA-256: `19E77E4154B4F17E2D2BDEEF94F824FC1519C564EE83D530DC125BB495E28F71`.

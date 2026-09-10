@@ -1,0 +1,384 @@
+{
+  "115": {
+    "inputs": {
+      "aspect_ratio": "16:9 (Widescreen)",
+      "megapixels": 0.5,
+      "multiple": 32
+    },
+    "class_type": "ResolutionSelector",
+    "_meta": {
+      "title": "Resolution Selector"
+    }
+  },
+  "119": {
+    "inputs": {
+      "vae_name": "minimax_h3_video_vae_fp16.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "Load Video VAE"
+    }
+  },
+  "120": {
+    "inputs": {
+      "vae_name": "minimax_h3_audio_vae_fp32.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "Load Audio VAE"
+    }
+  },
+  "121": {
+    "inputs": {
+      "samples": [
+        "178",
+        0
+      ],
+      "vae": [
+        "120",
+        0
+      ]
+    },
+    "class_type": "VAEDecodeAudio",
+    "_meta": {
+      "title": "Decode Audio"
+    }
+  },
+  "122": {
+    "inputs": {
+      "samples": [
+        "178",
+        0
+      ],
+      "vae": [
+        "119",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "Decode Video Frames"
+    }
+  },
+  "123": {
+    "inputs": {
+      "sampler_name": "res_multistep"
+    },
+    "class_type": "KSamplerSelect",
+    "_meta": {
+      "title": "Sampler"
+    }
+  },
+  "124": {
+    "inputs": {
+      "scheduler": "simple",
+      "steps": 8,
+      "denoise": 1,
+      "model": [
+        "story:live-preview",
+        0
+      ]
+    },
+    "class_type": "BasicScheduler",
+    "_meta": {
+      "title": "Sampling Steps"
+    }
+  },
+  "125": {
+    "inputs": {
+      "noise": [
+        "129",
+        0
+      ],
+      "guider": [
+        "126",
+        0
+      ],
+      "sampler": [
+        "123",
+        0
+      ],
+      "sigmas": [
+        "124",
+        0
+      ],
+      "latent_image": [
+        "136",
+        1
+      ]
+    },
+    "class_type": "SamplerCustomAdvanced",
+    "_meta": {
+      "title": "Advanced Sampler"
+    }
+  },
+  "126": {
+    "inputs": {
+      "model": [
+        "story:live-preview",
+        0
+      ],
+      "conditioning": [
+        "177",
+        0
+      ]
+    },
+    "class_type": "BasicGuider",
+    "_meta": {
+      "title": "Basic Guider"
+    }
+  },
+  "127": {
+    "inputs": {
+      "unet_name": "minimax_h3_fastvideo_vsa_datafree_1300step_4step_int8_convrot.safetensors",
+      "weight_dtype": "default"
+    },
+    "class_type": "UNETLoader",
+    "_meta": {
+      "title": "Load Proven FP8 Reference Model"
+    }
+  },
+  "128": {
+    "inputs": {
+      "clip_name": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+      "type": "minimax",
+      "device": "default"
+    },
+    "class_type": "CLIPLoader",
+    "_meta": {
+      "title": "Load Text Encoder"
+    }
+  },
+  "129": {
+    "inputs": {
+      "noise_seed": 20407898708284
+    },
+    "class_type": "RandomNoise",
+    "_meta": {
+      "title": "Seed"
+    }
+  },
+  "131": {
+    "inputs": {
+      "expression": "max(5, round(a * 24)) + (5 - (max(5, round(a * 24)) % 17)) % 17",
+      "values.a": [
+        "132",
+        0
+      ]
+    },
+    "class_type": "ComfyMathExpression",
+    "_meta": {
+      "title": "Duration to 17k+5 Frames"
+    }
+  },
+  "132": {
+    "inputs": {
+      "value": 10
+    },
+    "class_type": "PrimitiveFloat",
+    "_meta": {
+      "title": "Duration"
+    }
+  },
+  "136": {
+    "inputs": {
+      "prompt": [
+        "143",
+        0
+      ],
+      "width": [
+        "115",
+        0
+      ],
+      "height": [
+        "115",
+        1
+      ],
+      "length": [
+        "131",
+        1
+      ],
+      "ref_image_size": "max",
+      "clip": [
+        "128",
+        0
+      ],
+      "vae": [
+        "119",
+        0
+      ],
+      "audio_vae": [
+        "120",
+        0
+      ],
+      "ref_images.ref_image_0": [
+        "137",
+        0
+      ],
+      "ref_audios.ref_audio_0": [
+        "142",
+        0
+      ],
+      "ref_images.ref_image_1": [
+        "story:reference_attire",
+        0
+      ]
+    },
+    "class_type": "MiniMaxH3ReferenceToVideo",
+    "_meta": {
+      "title": "MiniMax H3 Reference to Video"
+    }
+  },
+  "137": {
+    "inputs": {
+      "image": "story-studio/8287e08d2970_8287e08d2970243bdff336703f1a21cd16e23d1ad38d49cb1204fc3de41cf78d.png"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Reference Image"
+    }
+  },
+  "142": {
+    "inputs": {
+      "audio": "story-studio/2adfeb37c1cc_2adfeb37c1cc550086473645b6a6f927d88bced25569d7adc3bff4a7b1752fec.mp3"
+    },
+    "class_type": "LoadAudio",
+    "_meta": {
+      "title": "Reference Audio"
+    }
+  },
+  "143": {
+    "inputs": {
+      "value": "SCENE 5 — JOIN TABLES\n\n<Picture 1> defines <Subject 1>. Preserve the same Prince character.\n\nSame flat nostalgic hand-drawn anime styling.\n\n0:00-0:03:\nThe card from the previous scene lands in the presenter’s LEFT hand.\n\nIt transforms into a floating table labelled exactly:\n\nCUSTOMERS\n\nA second floating table appears in his RIGHT hand labelled exactly:\n\nORDERS\n\nThe CUSTOMERS table contains the columns:\n\ncustomer_id\nname\n\nThe ORDERS table contains:\n\norder_id\ncustomer_id\ntotal\n\n<Subject 1> holds the two tables apart.\n\n<Subject 1> says:\n<d>[English, Neutral Filipino Male Voice] Sometimes the information you need lives in two different tables.</d>\n\n0:03-0:06:\nFast punch-in between both tables.\n\nThe customer_id column in CUSTOMERS lights up.\n\nThe customer_id column in ORDERS lights up.\n\nExactly THREE glowing hand-drawn connecting lines link matching customer IDs across the gap.\n\nA metallic CLICK sound plays each time a line connects.\n\nCLICK.\nCLICK.\nCLICK.\n\n<Subject 1> says:\n<d>[English, Neutral Filipino Male Voice] JOIN connects them using a value they share.</d>\n\n0:06-0:10:\nThe two tables slam together with a BANG.\n\nThey become one wider combined table.\n\nA bold white label appears above it:\n\nJOIN = CONNECT TABLES\n\nBelow the combined table, exact SQL text appears:\n\nJOIN orders\nON customers.customer_id = orders.customer_id\n\n<Subject 1> points directly at the matching customer_id fields.\n\n<Subject 1> says:\n<d>[English, Neutral Filipino Male Voice] Match customer ID to customer ID, and SQL combines the data.</d>\n\nThe combined table quickly shrinks into the presenter’s laptop screen.\n\nHard cut.Duration: 10\n\nSCENE 5 — JOIN TABLES\n\n<Picture 1> defines <Subject 1>. Preserve the same Prince character identity, clothing, proportions, hair style, half-lidded eyes, red-and-black checked shirt, dark trousers, and simplified hand-drawn anime appearance.\n\nRender the entire scene as simple nostalgic hand-drawn 2D Japanese family anime with thick clean black outlines, flat pastel colours, minimal cel shading, no realistic textures, no photorealism, no 3D graphics, and no mixed visual styles.\n\n0:00-0:03:\nContinue directly from the previous scene.\n\nThe filtered customer rows slide in from the LEFT side of the frame and transform into a floating table positioned on the LEFT side of <Subject 1>.\n\nThe table is labelled exactly:\n\nCUSTOMERS\n\nIt contains exactly THREE columns:\n\ncustomer_id\nname\ncity\n\nIt contains exactly FOUR rows:\n\n101 | Anna | Melbourne\n102 | Carlo | Melbourne\n103 | Faye | Melbourne\n104 | Hannah | Melbourne\n\nAt the same time, a second floating table slides in from the RIGHT side of the frame.\n\nThe second table is labelled exactly:\n\nORDERS\n\nIt contains exactly FOUR columns:\n\norder_id\ncustomer_id\nproduct\ntotal\n\nIt contains exactly FIVE rows:\n\n5001 | 101 | Laptop | $1800\n5002 | 103 | Mouse | $45\n5003 | 101 | Monitor | $420\n5004 | 104 | Keyboard | $120\n5005 | 999 | Headphones | $200\n\n<Subject 1> stands exactly between the two tables.\n\nHe points his LEFT hand toward the CUSTOMERS table and his RIGHT hand toward the ORDERS table.\n\n<Subject 1> says:\n<d>[English, Neutral Filipino Male Voice] Anna’s details are in one table, while her purchases are stored in another.</d>\n\n0:03-0:06:\nFast punch-in to the space between both tables.\n\nThe value:\n\n101\n\nin Anna’s customer_id cell on the CUSTOMERS table becomes surrounded by a thick glowing yellow circle.\n\nAt the same time, both occurrences of:\n\n101\n\nin the ORDERS table become surrounded by identical glowing yellow circles.\n\nThese are specifically:\n\n5001 | 101 | Laptop | $1800\n5003 | 101 | Monitor | $420\n\nExactly TWO thick hand-drawn yellow connecting lines animate from Anna’s customer_id value 101 on the LEFT table to the two matching customer_id values 101 on the RIGHT table.\n\nThe first connection lands on order 5001 with a sharp CLICK.\n\nThe second connection lands on order 5003 with another sharp CLICK.\n\nNo lines connect to customer_id 103, 104, or 999 during this example.\n\n<Subject 1> points directly at the matching number 101.\n\n<Subject 1> says:\n<d>[English, Neutral Filipino Male Voice] JOIN works because customer ID one-oh-one appears in both tables.</d>\n\n0:06-0:08:\nThe two matching order rows detach from the ORDERS table and slide toward Anna’s row.\n\nThe following three pieces of information visibly combine:\n\nAnna\nLaptop\n$1800\n\nand:\n\nAnna\nMonitor\n$420\n\nThe original tables fade slightly into the background.\n\nA new combined results table appears in the centre of the frame with exactly FOUR columns:\n\nname\nproduct\ntotal\ncustomer_id\n\nThe table contains exactly TWO rows:\n\nAnna | Laptop | $1800 | 101\nAnna | Monitor | $420 | 101\n\nA bold label appears above the combined table:\n\nMATCH ON customer_id = 101\n\n<Subject 1> says:\n<d>[English, Neutral Filipino Male Voice] SQL matches the shared ID and combines Anna with both of her orders.</d>\n\n0:08-0:10:\nHard punch-in to the combined result table.\n\nExact SQL text appears underneath it in four clearly readable lines:\n\nSELECT customers.name, orders.product, orders.total\nFROM customers\nJOIN orders\nON customers.customer_id = orders.customer_id;\n\nThe exact text:\n\ncustomers.customer_id = orders.customer_id\n\nbriefly enlarges to exactly 125 percent of its original size.\n\nA loud BASS HIT plays.\n\nA thick hand-drawn arrow points from:\n\n101\n\nin the CUSTOMERS table to:\n\n101\n\nin the ORDERS table.\n\nDirectly above the SQL query, large bold uppercase text appears:\n\nJOIN = MATCH SHARED VALUES\n\n<Subject 1> says:\n<d>[English, Neutral Filipino Male Voice] The shared customer ID is the bridge that connects the two tables.</d>\n\nAt exactly 0:10, the combined results table shrinks rapidly into the presenter’s laptop screen, creating a clean transition into the next scene.\n\nHard cut."
+    },
+    "class_type": "PrimitiveStringMultiline",
+    "_meta": {
+      "title": "Input Text Prompt"
+    }
+  },
+  "170": {
+    "inputs": {
+      "PowerLoraLoaderHeaderWidget": {
+        "type": "PowerLoraLoaderHeaderWidget"
+      },
+      "lora_1": {
+        "on": true,
+        "lora": "minimax_h3_ref2v_turbo_8step_v1.0_768p_comfyui_bf16.safetensors",
+        "strength": 0.75
+      },
+      "lora_2": {
+        "on": false,
+        "lora": "h3-realism-people-t2v-i2v-r2v.safetensors",
+        "strength": 0.75
+      },
+      "➕ Add Lora": "",
+      "model": [
+        "127",
+        0
+      ]
+    },
+    "class_type": "Power Lora Loader (rgthree)",
+    "_meta": {
+      "title": "Ordered Two-LoRA Stack"
+    }
+  },
+  "171": {
+    "inputs": {
+      "filename_prefix": "video/prince_does_ai_h3_youtuber_reference_examples_05",
+      "format": "auto",
+      "codec": "auto",
+      "video": [
+        "175",
+        0
+      ]
+    },
+    "class_type": "SaveVideo",
+    "_meta": {
+      "title": "Save Video"
+    }
+  },
+  "172": {
+    "inputs": {
+      "value": 24
+    },
+    "class_type": "PrimitiveFloat",
+    "_meta": {
+      "title": "Delivery FPS"
+    }
+  },
+  "175": {
+    "inputs": {
+      "fps": [
+        "172",
+        0
+      ],
+      "bit_depth": 8,
+      "images": [
+        "122",
+        0
+      ],
+      "audio": [
+        "121",
+        0
+      ]
+    },
+    "class_type": "CreateVideo",
+    "_meta": {
+      "title": "Create 48 FPS Video"
+    }
+  },
+  "177": {
+    "inputs": {
+      "offload_model": true,
+      "offload_cache": false,
+      "anything": [
+        "136",
+        0
+      ]
+    },
+    "class_type": "VRAMCleanup",
+    "_meta": {
+      "title": "Conditioning VRAM Cleanup"
+    }
+  },
+  "178": {
+    "inputs": {
+      "offload_model": true,
+      "offload_cache": false,
+      "anything": [
+        "125",
+        0
+      ]
+    },
+    "class_type": "VRAMCleanup",
+    "_meta": {
+      "title": "Post-sampling VRAM Cleanup"
+    }
+  },
+  "story:live-preview": {
+    "inputs": {
+      "model": [
+        "170",
+        0
+      ],
+      "max_resolution": 512,
+      "jpeg_quality": 60,
+      "suppress_default_preview": true,
+      "preview_frames": 24,
+      "preview_fps": 12
+    },
+    "class_type": "ModelPreviewOverrideKJ",
+    "_meta": {
+      "title": "Story Studio Live Preview"
+    }
+  },
+  "story:reference_attire": {
+    "inputs": {
+      "image": "story-studio/39fc3e5661cb_39fc3e5661cb62adea23bbe333d2a9f969999a10c6a7ea293ef9611c182da892.png"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Person 1 Attire Reference"
+    }
+  }
+}

@@ -1,0 +1,384 @@
+{
+  "115": {
+    "inputs": {
+      "aspect_ratio": "16:9 (Widescreen)",
+      "megapixels": 0.5,
+      "multiple": 32
+    },
+    "class_type": "ResolutionSelector",
+    "_meta": {
+      "title": "Resolution Selector"
+    }
+  },
+  "119": {
+    "inputs": {
+      "vae_name": "minimax_h3_video_vae_fp16.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "Load Video VAE"
+    }
+  },
+  "120": {
+    "inputs": {
+      "vae_name": "minimax_h3_audio_vae_fp32.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "Load Audio VAE"
+    }
+  },
+  "121": {
+    "inputs": {
+      "samples": [
+        "178",
+        0
+      ],
+      "vae": [
+        "120",
+        0
+      ]
+    },
+    "class_type": "VAEDecodeAudio",
+    "_meta": {
+      "title": "Decode Audio"
+    }
+  },
+  "122": {
+    "inputs": {
+      "samples": [
+        "178",
+        0
+      ],
+      "vae": [
+        "119",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "Decode Video Frames"
+    }
+  },
+  "123": {
+    "inputs": {
+      "sampler_name": "res_multistep"
+    },
+    "class_type": "KSamplerSelect",
+    "_meta": {
+      "title": "Sampler"
+    }
+  },
+  "124": {
+    "inputs": {
+      "scheduler": "simple",
+      "steps": 8,
+      "denoise": 1,
+      "model": [
+        "story:live-preview",
+        0
+      ]
+    },
+    "class_type": "BasicScheduler",
+    "_meta": {
+      "title": "Sampling Steps"
+    }
+  },
+  "125": {
+    "inputs": {
+      "noise": [
+        "129",
+        0
+      ],
+      "guider": [
+        "126",
+        0
+      ],
+      "sampler": [
+        "123",
+        0
+      ],
+      "sigmas": [
+        "124",
+        0
+      ],
+      "latent_image": [
+        "136",
+        1
+      ]
+    },
+    "class_type": "SamplerCustomAdvanced",
+    "_meta": {
+      "title": "Advanced Sampler"
+    }
+  },
+  "126": {
+    "inputs": {
+      "model": [
+        "story:live-preview",
+        0
+      ],
+      "conditioning": [
+        "177",
+        0
+      ]
+    },
+    "class_type": "BasicGuider",
+    "_meta": {
+      "title": "Basic Guider"
+    }
+  },
+  "127": {
+    "inputs": {
+      "unet_name": "minimax_h3_fastvideo_vsa_datafree_1300step_4step_int8_convrot.safetensors",
+      "weight_dtype": "default"
+    },
+    "class_type": "UNETLoader",
+    "_meta": {
+      "title": "Load Proven FP8 Reference Model"
+    }
+  },
+  "128": {
+    "inputs": {
+      "clip_name": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+      "type": "minimax",
+      "device": "default"
+    },
+    "class_type": "CLIPLoader",
+    "_meta": {
+      "title": "Load Text Encoder"
+    }
+  },
+  "129": {
+    "inputs": {
+      "noise_seed": 145096994054458
+    },
+    "class_type": "RandomNoise",
+    "_meta": {
+      "title": "Seed"
+    }
+  },
+  "131": {
+    "inputs": {
+      "expression": "max(5, round(a * 24)) + (5 - (max(5, round(a * 24)) % 17)) % 17",
+      "values.a": [
+        "132",
+        0
+      ]
+    },
+    "class_type": "ComfyMathExpression",
+    "_meta": {
+      "title": "Duration to 17k+5 Frames"
+    }
+  },
+  "132": {
+    "inputs": {
+      "value": 10
+    },
+    "class_type": "PrimitiveFloat",
+    "_meta": {
+      "title": "Duration"
+    }
+  },
+  "136": {
+    "inputs": {
+      "prompt": [
+        "143",
+        0
+      ],
+      "width": [
+        "115",
+        0
+      ],
+      "height": [
+        "115",
+        1
+      ],
+      "length": [
+        "131",
+        1
+      ],
+      "ref_image_size": "max",
+      "clip": [
+        "128",
+        0
+      ],
+      "vae": [
+        "119",
+        0
+      ],
+      "audio_vae": [
+        "120",
+        0
+      ],
+      "ref_images.ref_image_0": [
+        "137",
+        0
+      ],
+      "ref_audios.ref_audio_0": [
+        "142",
+        0
+      ],
+      "ref_images.ref_image_1": [
+        "story:reference_attire",
+        0
+      ]
+    },
+    "class_type": "MiniMaxH3ReferenceToVideo",
+    "_meta": {
+      "title": "MiniMax H3 Reference to Video"
+    }
+  },
+  "137": {
+    "inputs": {
+      "image": "story-studio/8287e08d2970_8287e08d2970243bdff336703f1a21cd16e23d1ad38d49cb1204fc3de41cf78d.png"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Reference Image"
+    }
+  },
+  "142": {
+    "inputs": {
+      "audio": "story-studio/2adfeb37c1cc_2adfeb37c1cc550086473645b6a6f927d88bced25569d7adc3bff4a7b1752fec.mp3"
+    },
+    "class_type": "LoadAudio",
+    "_meta": {
+      "title": "Reference Audio"
+    }
+  },
+  "143": {
+    "inputs": {
+      "value": "SCENE 1 — SQL IS JUST ASKING QUESTIONS\n\n<Picture 1> is the absolute authority for the presenter’s identity and character design. Preserve the supplied Prince character’s bald head, head shape, half-lidded eyes, eyebrows, nose, small mouth, skin tone, compact simplified proportions, red-and-black checked shirt, dark trousers, and recognizable facial expressions.\n\n<Picture 2> is the supplied home-studio reference. Reinterpret the entire studio as a simple nostalgic hand-drawn 2D Japanese family-anime environment: thick clean black outlines, flat pastel colours, rounded simplified shapes, minimal cel shading, almost no gradients, and slightly imperfect hand-drawn linework.\n\nEverything in the scene — presenter, desk, microphone, monitor, database graphics, text, icons, transitions, and effects — must use the same flat hand-drawn 2D anime style.\n\nNo photorealism.\nNo live action.\nNo realistic skin.\nNo 3D objects.\nNo glossy CGI.\nNo mixed visual styles.\n\n0:00-0:03:\nMedium-wide shot of <Subject 1> sitting at the studio desk.\n\nHe suddenly leans forward and points directly at the viewer with his right index finger.\n\nThe camera performs a fast digital punch-in toward his face.\n\n<Subject 1> says:\n<d>[English, Neutral Filipino Male Voice] SQL looks complicated, but the basic idea is actually simple.</d>\n\n0:03-0:06:\nHard cut to a side angle.\n\nA large hand-drawn cylindrical database appears floating to the presenter’s LEFT.\n\nThe database consists of exactly THREE stacked pastel-blue cylinders with thick black outlines.\n\nThe presenter turns toward it and gestures with both hands.\n\n<Subject 1> says:\n<d>[English, Neutral Filipino Male Voice] You are basically asking a database questions.</d>\n\n0:06-0:10:\nThe presenter snaps his fingers.\n\nA loud WHOOSH plays.\n\nThe studio instantly disappears.\n\nA solid black background replaces everything.\n\nExactly TWO lines of thick white uppercase text slam into the centre:\n\nSELECT = WHAT\nFROM = WHERE\n\nThe first line sits approximately 45 percent down the screen.\nThe second line sits approximately 58 percent down the screen.\nBoth lines use large bold condensed block lettering.\n\n<Subject 1> says:\n<d>[English, Neutral Filipino Male Voice] SELECT means what you want. FROM means where to get it.</d>\n\nHard cut."
+    },
+    "class_type": "PrimitiveStringMultiline",
+    "_meta": {
+      "title": "Input Text Prompt"
+    }
+  },
+  "170": {
+    "inputs": {
+      "PowerLoraLoaderHeaderWidget": {
+        "type": "PowerLoraLoaderHeaderWidget"
+      },
+      "lora_1": {
+        "on": true,
+        "lora": "minimax_h3_ref2v_turbo_8step_v1.0_768p_comfyui_bf16.safetensors",
+        "strength": 0.75
+      },
+      "lora_2": {
+        "on": false,
+        "lora": "h3-realism-people-t2v-i2v-r2v.safetensors",
+        "strength": 0.75
+      },
+      "➕ Add Lora": "",
+      "model": [
+        "127",
+        0
+      ]
+    },
+    "class_type": "Power Lora Loader (rgthree)",
+    "_meta": {
+      "title": "Ordered Two-LoRA Stack"
+    }
+  },
+  "171": {
+    "inputs": {
+      "filename_prefix": "video/prince_does_ai_h3_youtuber_reference_examples_01",
+      "format": "auto",
+      "codec": "auto",
+      "video": [
+        "175",
+        0
+      ]
+    },
+    "class_type": "SaveVideo",
+    "_meta": {
+      "title": "Save Video"
+    }
+  },
+  "172": {
+    "inputs": {
+      "value": 24
+    },
+    "class_type": "PrimitiveFloat",
+    "_meta": {
+      "title": "Delivery FPS"
+    }
+  },
+  "175": {
+    "inputs": {
+      "fps": [
+        "172",
+        0
+      ],
+      "bit_depth": 8,
+      "images": [
+        "122",
+        0
+      ],
+      "audio": [
+        "121",
+        0
+      ]
+    },
+    "class_type": "CreateVideo",
+    "_meta": {
+      "title": "Create 48 FPS Video"
+    }
+  },
+  "177": {
+    "inputs": {
+      "offload_model": true,
+      "offload_cache": false,
+      "anything": [
+        "136",
+        0
+      ]
+    },
+    "class_type": "VRAMCleanup",
+    "_meta": {
+      "title": "Conditioning VRAM Cleanup"
+    }
+  },
+  "178": {
+    "inputs": {
+      "offload_model": true,
+      "offload_cache": false,
+      "anything": [
+        "125",
+        0
+      ]
+    },
+    "class_type": "VRAMCleanup",
+    "_meta": {
+      "title": "Post-sampling VRAM Cleanup"
+    }
+  },
+  "story:live-preview": {
+    "inputs": {
+      "model": [
+        "170",
+        0
+      ],
+      "max_resolution": 512,
+      "jpeg_quality": 60,
+      "suppress_default_preview": true,
+      "preview_frames": 24,
+      "preview_fps": 12
+    },
+    "class_type": "ModelPreviewOverrideKJ",
+    "_meta": {
+      "title": "Story Studio Live Preview"
+    }
+  },
+  "story:reference_attire": {
+    "inputs": {
+      "image": "story-studio/39fc3e5661cb_39fc3e5661cb62adea23bbe333d2a9f969999a10c6a7ea293ef9611c182da892.png"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Person 1 Attire Reference"
+    }
+  }
+}

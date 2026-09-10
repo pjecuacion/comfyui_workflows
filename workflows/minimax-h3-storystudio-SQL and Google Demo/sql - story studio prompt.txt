@@ -1,0 +1,425 @@
+Duration: 10
+
+SCENE 1 — SQL IS JUST ASKING QUESTIONS
+
+<Picture 1> is the absolute authority for the presenter’s identity and character design. Preserve the supplied Prince character’s bald head, head shape, half-lidded eyes, eyebrows, nose, small mouth, skin tone, compact simplified proportions, red-and-black checked shirt, dark trousers, and recognizable facial expressions.
+
+<Picture 2> is the supplied home-studio reference. Reinterpret the entire studio as a simple nostalgic hand-drawn 2D Japanese family-anime environment: thick clean black outlines, flat pastel colours, rounded simplified shapes, minimal cel shading, almost no gradients, and slightly imperfect hand-drawn linework.
+
+Everything in the scene — presenter, desk, microphone, monitor, database graphics, text, icons, transitions, and effects — must use the same flat hand-drawn 2D anime style.
+
+No photorealism.
+No live action.
+No realistic skin.
+No 3D objects.
+No glossy CGI.
+No mixed visual styles.
+
+0:00-0:03:
+Medium-wide shot of <Subject 1> sitting at the studio desk.
+
+He suddenly leans forward and points directly at the viewer with his right index finger.
+
+The camera performs a fast digital punch-in toward his face.
+
+<Subject 1> says:
+<d>[English, Neutral Filipino Male Voice] SQL looks complicated, but the basic idea is actually simple.</d>
+
+0:03-0:06:
+Hard cut to a side angle.
+
+A large hand-drawn cylindrical database appears floating to the presenter’s LEFT.
+
+The database consists of exactly THREE stacked pastel-blue cylinders with thick black outlines.
+
+The presenter turns toward it and gestures with both hands.
+
+<Subject 1> says:
+<d>[English, Neutral Filipino Male Voice] You are basically asking a database questions.</d>
+
+0:06-0:10:
+The presenter snaps his fingers.
+
+A loud WHOOSH plays.
+
+The studio instantly disappears.
+
+A solid black background replaces everything.
+
+Exactly TWO lines of thick white uppercase text slam into the centre:
+
+SELECT = WHAT
+FROM = WHERE
+
+The first line sits approximately 45 percent down the screen.
+The second line sits approximately 58 percent down the screen.
+Both lines use large bold condensed block lettering.
+
+<Subject 1> says:
+<d>[English, Neutral Filipino Male Voice] SELECT means what you want. FROM means where to get it.</d>
+
+Hard cut.
+
+---
+
+Duration: 10
+
+SCENE 2 — SELECT AND FROM
+
+<Picture 1> defines <Subject 1>. Preserve the same Prince character design exactly.
+
+Render the complete scene in the same simple nostalgic hand-drawn 2D Japanese family-anime style.
+
+No photorealism.
+No 3D graphics.
+No realistic computer interface.
+No mixed visual styles.
+
+0:00-0:03:
+Hard cut from the previous black screen back into the anime studio.
+
+A large illustrated database table floats beside the presenter.
+
+The table contains exactly FOUR columns.
+
+Column headers from left to right:
+
+ID
+NAME
+CITY
+AGE
+
+There are exactly FIVE horizontal data rows beneath the header.
+
+The cell contents can be simple abstract marks except for the column headers, which must be clearly readable.
+
+<Subject 1> points specifically at the NAME and CITY columns.
+
+<Subject 1> says:
+<d>[English, Neutral Filipino Male Voice] Suppose I only want each customer’s name and city.</d>
+
+0:03-0:06:
+Fast punch-in toward the floating table.
+
+The NAME column glows with a pale yellow outline.
+
+The CITY column glows with a pale yellow outline.
+
+The ID and AGE columns become slightly faded.
+
+Directly beneath the table, exact white text appears:
+
+SELECT name, city
+
+<Subject 1> says:
+<d>[English, Neutral Filipino Male Voice] SELECT tells SQL exactly which columns I want.</d>
+
+0:06-0:10:
+The table slides upward.
+
+A second exact line appears directly underneath the first:
+
+FROM customers;
+
+The final two-line query must read exactly:
+
+SELECT name, city
+FROM customers;
+
+A small hand-drawn arrow travels from the words FROM customers toward the database table.
+
+<Subject 1> says:
+<d>[English, Neutral Filipino Male Voice] And FROM tells SQL that the data lives in the customers table.</d>
+
+The camera quickly pushes toward the table to transition into the next scene.
+
+---
+
+Duration: 10
+
+SCENE 3 — FILTER WITH WHERE
+
+<Picture 1> defines <Subject 1>. Preserve the same character identity and clothing.
+
+Render all visuals as flat hand-drawn 2D family anime with thick black outlines and pastel colours.
+
+0:00-0:03:
+Continue from the previous push toward the table.
+
+The camera arrives at a full-screen view of the same illustrated customer table.
+
+The table now contains exactly TEN horizontal customer rows.
+
+Five rows contain the word Melbourne in the CITY column.
+The other five contain different city names.
+
+A small version of <Subject 1> stands beside the table.
+
+He looks at the ten rows and raises one eyebrow.
+
+<Subject 1> says:
+<d>[English, Neutral Filipino Male Voice] But what if I only want customers from Melbourne?</d>
+
+0:03-0:06:
+A large hand-drawn funnel drops vertically from the top of the screen.
+
+The funnel is centred above the table.
+
+The word WHERE appears across the funnel in large bold white uppercase letters.
+
+The ten rows begin moving upward through the funnel.
+
+Five non-Melbourne rows fly sideways off-screen.
+
+Exactly FIVE Melbourne rows remain beneath the funnel.
+
+<Subject 1> says:
+<d>[English, Neutral Filipino Male Voice] That is where WHERE comes in. It filters your rows.</d>
+
+0:06-0:10:
+Hard punch-in to the lower half of the screen.
+
+Exact SQL text appears in three clearly separated lines:
+
+SELECT name, city
+FROM customers
+WHERE city = 'Melbourne';
+
+The word WHERE briefly enlarges to approximately 130 percent of its original size with a POP sound, then returns to normal.
+
+<Subject 1> points at the final line.
+
+<Subject 1> says:
+<d>[English, Neutral Filipino Male Voice] Now SQL returns only customers whose city equals Melbourne.</d>
+
+The five remaining rows slide toward the RIGHT edge of the frame, leading into the next scene.
+
+---
+
+Duration: 10
+
+SCENE 4 — SORT WITH ORDER BY
+
+<Picture 1> defines <Subject 1>. Preserve the same character design.
+
+Keep the same hand-drawn 2D anime world.
+
+0:00-0:03:
+The five Melbourne rows from the previous scene slide in from the LEFT and stop in the middle of the studio.
+
+Each row contains a clearly visible AGE value.
+
+From top to bottom, the exact ages are:
+
+42
+25
+37
+31
+29
+
+The presenter looks at the messy order and shakes his head.
+
+<Subject 1> says:
+<d>[English, Neutral Filipino Male Voice] The right rows are here, but the order is messy.</d>
+
+0:03-0:06:
+A large hand-drawn downward arrow appears above the rows.
+
+Exact uppercase text appears above the arrow:
+
+ORDER BY AGE ASC
+
+The rows physically rearrange themselves.
+
+After sorting, the ages must appear from top to bottom exactly as:
+
+25
+29
+31
+37
+42
+
+Each row lands into position with a soft CLICK sound.
+
+<Subject 1> says:
+<d>[English, Neutral Filipino Male Voice] ORDER BY can sort the results for you.</d>
+
+0:06-0:10:
+Fast cut back to <Subject 1>.
+
+He sweeps his right hand from left to right.
+
+Beside him, exact SQL text appears:
+
+ORDER BY age ASC;
+
+Directly underneath, a small horizontal label appears:
+
+ASC = LOW TO HIGH
+
+The presenter points downward at the five sorted ages.
+
+<Subject 1> says:
+<d>[English, Neutral Filipino Male Voice] ASC means ascending, so twenty-five comes before forty-two.</d>
+
+The final sorted row transforms into a small illustrated card that flies toward the presenter’s opposite hand, setting up the next scene.
+
+---
+
+Duration: 10
+
+SCENE 5 — JOIN TABLES
+
+<Picture 1> defines <Subject 1>. Preserve the same Prince character.
+
+Same flat nostalgic hand-drawn anime styling.
+
+0:00-0:03:
+The card from the previous scene lands in the presenter’s LEFT hand.
+
+It transforms into a floating table labelled exactly:
+
+CUSTOMERS
+
+A second floating table appears in his RIGHT hand labelled exactly:
+
+ORDERS
+
+The CUSTOMERS table contains the columns:
+
+customer_id
+name
+
+The ORDERS table contains:
+
+order_id
+customer_id
+total
+
+<Subject 1> holds the two tables apart.
+
+<Subject 1> says:
+<d>[English, Neutral Filipino Male Voice] Sometimes the information you need lives in two different tables.</d>
+
+0:03-0:06:
+Fast punch-in between both tables.
+
+The customer_id column in CUSTOMERS lights up.
+
+The customer_id column in ORDERS lights up.
+
+Exactly THREE glowing hand-drawn connecting lines link matching customer IDs across the gap.
+
+A metallic CLICK sound plays each time a line connects.
+
+CLICK.
+CLICK.
+CLICK.
+
+<Subject 1> says:
+<d>[English, Neutral Filipino Male Voice] JOIN connects them using a value they share.</d>
+
+0:06-0:10:
+The two tables slam together with a BANG.
+
+They become one wider combined table.
+
+A bold white label appears above it:
+
+JOIN = CONNECT TABLES
+
+Below the combined table, exact SQL text appears:
+
+JOIN orders
+ON customers.customer_id = orders.customer_id
+
+<Subject 1> points directly at the matching customer_id fields.
+
+<Subject 1> says:
+<d>[English, Neutral Filipino Male Voice] Match customer ID to customer ID, and SQL combines the data.</d>
+
+The combined table quickly shrinks into the presenter’s laptop screen.
+
+Hard cut.
+
+---
+
+Duration: 10
+
+SCENE 6 — SQL IS A CONVERSATION WITH DATA
+
+<Picture 1> defines <Subject 1>. Preserve the exact same anime character identity.
+
+<Picture 2> defines the studio layout, reinterpreted completely as simple flat hand-drawn 2D anime.
+
+No photorealism.
+No 3D objects.
+No realistic interface elements.
+
+0:00-0:03:
+Medium-wide shot.
+
+The presenter sits at the desk with the laptop directly in front of him.
+
+Four illustrated cards rapidly pop into the air around him.
+
+The cards contain EXACTLY these words:
+
+SELECT
+FROM
+WHERE
+JOIN
+
+Their positions are:
+
+SELECT — upper left
+FROM — upper right
+WHERE — lower left
+JOIN — lower right
+
+Each card appears with a separate POP sound.
+
+<Subject 1> says:
+<d>[English, Neutral Filipino Male Voice] SELECT chooses. FROM finds. WHERE filters. JOIN connects.</d>
+
+0:03-0:06:
+Hard cut to a tight close-up of the presenter.
+
+He points directly into the camera.
+
+Behind him, the four cards orbit clockwise once and then stop.
+
+<Subject 1> says:
+<d>[English, Neutral Filipino Male Voice] Once you understand those ideas, SQL stops feeling like mysterious code.</d>
+
+0:06-0:08:
+The presenter snaps his fingers.
+
+A loud WHOOSH plays.
+
+The presenter, studio, cards, laptop, desk, microphone, bookshelf, and every background object disappear completely.
+
+The screen becomes pure black.
+
+0:08-0:10:
+A heavy BASS HIT plays.
+
+Large white uppercase text slams into the exact centre of the black screen:
+
+SQL = ASK BETTER QUESTIONS
+
+The text uses thick condensed block lettering.
+
+SQL is on the first line.
+
+= ASK BETTER QUESTIONS is on the second line.
+
+Both lines are horizontally centred.
+
+The second line is approximately 80 percent the font size of the first line.
+
+No other readable text appears.
+
+Hold until exactly 0:10.
+
+Hard cut.

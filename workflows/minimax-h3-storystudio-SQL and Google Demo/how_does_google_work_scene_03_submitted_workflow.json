@@ -1,0 +1,380 @@
+{
+  "115": {
+    "inputs": {
+      "aspect_ratio": "16:9 (Widescreen)",
+      "megapixels": 0.2,
+      "multiple": 32
+    },
+    "class_type": "ResolutionSelector",
+    "_meta": {
+      "title": "Resolution Selector"
+    }
+  },
+  "119": {
+    "inputs": {
+      "vae_name": "minimax_h3_video_vae_fp16.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "Load Video VAE"
+    }
+  },
+  "120": {
+    "inputs": {
+      "vae_name": "minimax_h3_audio_vae_fp32.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "Load Audio VAE"
+    }
+  },
+  "121": {
+    "inputs": {
+      "samples": [
+        "178",
+        0
+      ],
+      "vae": [
+        "120",
+        0
+      ]
+    },
+    "class_type": "VAEDecodeAudio",
+    "_meta": {
+      "title": "Decode Audio"
+    }
+  },
+  "122": {
+    "inputs": {
+      "samples": [
+        "178",
+        0
+      ],
+      "vae": [
+        "119",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "Decode Video Frames"
+    }
+  },
+  "123": {
+    "inputs": {
+      "sampler_name": "res_multistep"
+    },
+    "class_type": "KSamplerSelect",
+    "_meta": {
+      "title": "Sampler"
+    }
+  },
+  "124": {
+    "inputs": {
+      "scheduler": "simple",
+      "steps": 8,
+      "denoise": 1,
+      "model": [
+        "story:live-preview",
+        0
+      ]
+    },
+    "class_type": "BasicScheduler",
+    "_meta": {
+      "title": "Sampling Steps"
+    }
+  },
+  "125": {
+    "inputs": {
+      "noise": [
+        "129",
+        0
+      ],
+      "guider": [
+        "126",
+        0
+      ],
+      "sampler": [
+        "123",
+        0
+      ],
+      "sigmas": [
+        "124",
+        0
+      ],
+      "latent_image": [
+        "136",
+        1
+      ]
+    },
+    "class_type": "SamplerCustomAdvanced",
+    "_meta": {
+      "title": "Advanced Sampler"
+    }
+  },
+  "126": {
+    "inputs": {
+      "model": [
+        "story:live-preview",
+        0
+      ],
+      "conditioning": [
+        "177",
+        0
+      ]
+    },
+    "class_type": "BasicGuider",
+    "_meta": {
+      "title": "Basic Guider"
+    }
+  },
+  "127": {
+    "inputs": {
+      "unet_name": "minimax_h3_fastvideo_vsa_datafree_1300step_4step_int8_convrot.safetensors",
+      "weight_dtype": "default"
+    },
+    "class_type": "UNETLoader",
+    "_meta": {
+      "title": "Load Proven FP8 Reference Model"
+    }
+  },
+  "128": {
+    "inputs": {
+      "clip_name": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+      "type": "minimax",
+      "device": "default"
+    },
+    "class_type": "CLIPLoader",
+    "_meta": {
+      "title": "Load Text Encoder"
+    }
+  },
+  "129": {
+    "inputs": {
+      "noise_seed": 84874406214767
+    },
+    "class_type": "RandomNoise",
+    "_meta": {
+      "title": "Seed"
+    }
+  },
+  "131": {
+    "inputs": {
+      "expression": "max(5, round(a * 24)) + (5 - (max(5, round(a * 24)) % 17)) % 17",
+      "values.a": [
+        "132",
+        0
+      ]
+    },
+    "class_type": "ComfyMathExpression",
+    "_meta": {
+      "title": "Duration to 17k+5 Frames"
+    }
+  },
+  "132": {
+    "inputs": {
+      "value": 10
+    },
+    "class_type": "PrimitiveFloat",
+    "_meta": {
+      "title": "Duration"
+    }
+  },
+  "136": {
+    "inputs": {
+      "prompt": [
+        "143",
+        0
+      ],
+      "width": [
+        "115",
+        0
+      ],
+      "height": [
+        "115",
+        1
+      ],
+      "length": [
+        "131",
+        1
+      ],
+      "ref_image_size": "match",
+      "clip": [
+        "128",
+        0
+      ],
+      "vae": [
+        "119",
+        0
+      ],
+      "audio_vae": [
+        "120",
+        0
+      ],
+      "ref_images.ref_image_0": [
+        "137",
+        0
+      ],
+      "ref_images.ref_image_1": [
+        "story:reference_attire",
+        0
+      ]
+    },
+    "class_type": "MiniMaxH3ReferenceToVideo",
+    "_meta": {
+      "title": "MiniMax H3 Reference to Video"
+    }
+  },
+  "137": {
+    "inputs": {
+      "image": "story-studio/d6a4df4c6bc9_d6a4df4c6bc96f7244c5c4eb164c4a2256657ac177f6c980bf8bace1b227894d.png"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Reference Image"
+    }
+  },
+  "142": {
+    "inputs": {
+      "audio": "prince id lora.MP3"
+    },
+    "class_type": "LoadAudio",
+    "_meta": {
+      "title": "Reference Audio"
+    }
+  },
+  "143": {
+    "inputs": {
+      "value": "SCENE 3 — FILTERING THE INDEX\n\n<Picture 1> defines <Subject 1>. Preserve the same female character identity, clothing, proportions, face, eyes, and simplified hand-drawn anime appearance. \n\nRender the complete scene as simple nostalgic hand-drawn 2D Japanese family anime with thick clean black outlines, flat pastel colours, minimal cel shading, no realistic textures, no photorealism, no 3D graphics, and no mixed visual styles.\n\n0:00-0:03:\nContinue directly from the previous scene’s push toward the database.\n\nThe camera arrives at a full-screen view of one large illustrated table with exactly TWO columns:\n\nWORD\nPAGE ID\n\nThe table contains exactly FIVE rows in this exact order:\n\nApples | Page 1\nApples | Page 2\nPhones | Page 3\nBaking | Page 4\nApples | Page 5\n\nAll words and page IDs must be clearly readable.\n\nA small version of <Subject 1> stands on the RIGHT side of the table, looking across all five rows.\n\nShe raises one eyebrow and points toward the WORD column.\n\n<Subject 1> says:\n<d>[English, Neutral British Female Voice] When you search, the engine doesn't scan the whole web.</d>\n\n0:03-0:06:\nA large flat hand-drawn magnifying glass drops vertically from the top-centre of the screen.\n\nThe magnifying glass is pastel yellow with a thick black outline.\n\nAcross the glass, exact bold uppercase text reads:\n\nMATCH\n\nAll five rows move upward toward the magnifying glass.\n\nThe rows for these exact words are rejected and fly quickly off-screen to the LEFT:\n\nPhones | Page 3\nBaking | Page 4\n\nThe rows for these exact words pass through the glass and remain neatly stacked underneath it:\n\nApples | Page 1\nApples | Page 2\nApples | Page 5\n\nExactly THREE rows remain.\n\n<Subject 1> says:\n<d>[English, Neutral British Female Voice] It simply matches your word against its massive index.</d>\n\n0:06-0:10:\nHard punch-in to the three remaining Apple rows.\n\nThe exact search text appears on the LEFT side of the screen:\n\nQUERY: \"Apples\"\n\nThe text briefly grows to exactly 130 percent of its original size with a sharp POP sound, then returns to normal size.\n\nAt the same time, each of the three remaining Apple cells receives a small green check mark directly beside the word Apples.\n\n<Subject 1> points directly at the MATCH line and says:\n<d>[English, Neutral British Female Voice] Now it instantly knows that pages one, two, and five have exactly what you want.</d>\n\nAt the end of the scene, the three filtered rows slide together toward the RIGHT edge of the frame to transition into the next scene.\n\nHard cut."
+    },
+    "class_type": "PrimitiveStringMultiline",
+    "_meta": {
+      "title": "Input Text Prompt"
+    }
+  },
+  "170": {
+    "inputs": {
+      "PowerLoraLoaderHeaderWidget": {
+        "type": "PowerLoraLoaderHeaderWidget"
+      },
+      "lora_1": {
+        "on": true,
+        "lora": "minimax_h3_ref2v_turbo_8step_v1.0_768p_comfyui_bf16.safetensors",
+        "strength": 0.75
+      },
+      "lora_2": {
+        "on": false,
+        "lora": "h3-realism-people-t2v-i2v-r2v.safetensors",
+        "strength": 0.75
+      },
+      "➕ Add Lora": "",
+      "model": [
+        "127",
+        0
+      ]
+    },
+    "class_type": "Power Lora Loader (rgthree)",
+    "_meta": {
+      "title": "Ordered Two-LoRA Stack"
+    }
+  },
+  "171": {
+    "inputs": {
+      "filename_prefix": "video/my_minimax_story_03",
+      "format": "auto",
+      "codec": "auto",
+      "video": [
+        "175",
+        0
+      ]
+    },
+    "class_type": "SaveVideo",
+    "_meta": {
+      "title": "Save Video"
+    }
+  },
+  "172": {
+    "inputs": {
+      "value": 24
+    },
+    "class_type": "PrimitiveFloat",
+    "_meta": {
+      "title": "Delivery FPS"
+    }
+  },
+  "175": {
+    "inputs": {
+      "fps": [
+        "172",
+        0
+      ],
+      "bit_depth": 8,
+      "images": [
+        "122",
+        0
+      ],
+      "audio": [
+        "121",
+        0
+      ]
+    },
+    "class_type": "CreateVideo",
+    "_meta": {
+      "title": "Create 48 FPS Video"
+    }
+  },
+  "177": {
+    "inputs": {
+      "offload_model": true,
+      "offload_cache": false,
+      "anything": [
+        "136",
+        0
+      ]
+    },
+    "class_type": "VRAMCleanup",
+    "_meta": {
+      "title": "Conditioning VRAM Cleanup"
+    }
+  },
+  "178": {
+    "inputs": {
+      "offload_model": true,
+      "offload_cache": false,
+      "anything": [
+        "125",
+        0
+      ]
+    },
+    "class_type": "VRAMCleanup",
+    "_meta": {
+      "title": "Post-sampling VRAM Cleanup"
+    }
+  },
+  "story:live-preview": {
+    "inputs": {
+      "model": [
+        "170",
+        0
+      ],
+      "max_resolution": 512,
+      "jpeg_quality": 60,
+      "suppress_default_preview": true,
+      "preview_frames": 24,
+      "preview_fps": 12
+    },
+    "class_type": "ModelPreviewOverrideKJ",
+    "_meta": {
+      "title": "Story Studio Live Preview"
+    }
+  },
+  "story:reference_attire": {
+    "inputs": {
+      "image": "story-studio/4ee8a3152291_4ee8a3152291a4509f03b08dce7fcbc9812540ec806a4a0cd05cf56153747a17.png"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Person 1 Attire Reference"
+    }
+  }
+}

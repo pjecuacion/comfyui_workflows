@@ -1,0 +1,432 @@
+Duration: 10
+
+SCENE 1 — SEARCH ENGINES ARE JUST LIBRARIANS
+
+<Picture 1> is the absolute authority for the presenter’s identity and character design. Preserve the supplied female character’s head shape, eyes, eyebrows, nose, mouth, skin tone, compact simplified proportions, clothing, and recognizable facial expressions. Preserve the exact hairstyle or hair state shown in <Picture 1>. Do not add, remove, shorten, lengthen, recolor, or redesign the hair.
+
+<Picture 2> is the supplied home-studio reference. Reinterpret the entire studio as a simple nostalgic hand-drawn 2D Japanese family-anime environment: thick clean black outlines, flat pastel colours, rounded simplified shapes, minimal cel shading, almost no gradients, and slightly imperfect hand-drawn linework.
+
+Everything in the scene — presenter, desk, microphone, monitor, graphics, text, icons, transitions, and effects — must use the same flat hand-drawn 2D anime style.
+
+No photorealism.
+No live action.
+No realistic skin.
+No 3D objects.
+No glossy CGI.
+No mixed visual styles.
+
+0:00-0:03:
+Medium-wide shot of <Subject 1> sitting at the studio desk.
+
+She suddenly leans forward and points directly at the viewer with her right index finger.
+
+The camera performs a fast digital punch-in toward her face.
+
+<Subject 1> says:
+<d>[English, Neutral British Female Voice] Google looks like magic, but the basic idea is actually very simple.</d>
+
+0:03-0:06:
+Hard cut to a side angle.
+
+A large hand-drawn filing cabinet appears floating to the presenter’s LEFT.
+
+The cabinet consists of exactly THREE stacked pastel-blue drawers with thick black outlines.
+
+The presenter turns toward it and gestures with both hands.
+
+<Subject 1> says:
+<d>[English, Neutral British Female Voice] You are basically asking a giant library a question.</d>
+
+0:06-0:10:
+The presenter snaps her fingers.
+
+A loud WHOOSH plays.
+
+The studio instantly disappears.
+
+A solid black background replaces everything.
+
+Exactly TWO lines of thick white uppercase text slam into the centre:
+
+WEB = MESSY
+INDEX = ORGANIZED
+
+The first line sits approximately 45 percent down the screen.
+The second line sits approximately 58 percent down the screen.
+Both lines use large bold condensed block lettering.
+
+<Subject 1> says:
+<d>[English, Neutral British Female Voice] The web is a messy place. An index makes it organized.</d>
+
+Hard cut.
+
+---
+Duration: 10
+
+SCENE 2 — CRAWLING THE WEB
+
+<Picture 1> defines <Subject 1> and is the absolute authority for identity and character design. Preserve the same female character design exactly. Preserve the exact hairstyle or hair state shown in <Picture 1>. Do not add, remove, shorten, lengthen, recolor, or redesign the hair.
+
+Render the complete scene in the same simple nostalgic hand-drawn 2D Japanese family-anime style.
+
+No photorealism.
+No 3D graphics.
+No realistic computer interface.
+No mixed visual styles.
+
+0:00-0:03:
+Hard cut from the previous black screen back into the anime studio.
+
+A large illustrated web page floats beside the presenter.
+
+The web page contains exactly THREE distinct text blocks.
+
+Text blocks from top to bottom:
+
+APPLE PIE
+SMART PHONES
+FRESH APPLES
+
+There are exactly THREE horizontal document icons beneath the text.
+
+<Subject 1> points specifically at the APPLE PIE and FRESH APPLES blocks.
+
+<Subject 1> says:
+<d>[English, Neutral British Female Voice] Suppose you only want to find web pages about apples.</d>
+
+0:03-0:06:
+Fast punch-in toward the floating page.
+
+The APPLE PIE block glows with a pale yellow outline.
+
+The FRESH APPLES block glows with a pale yellow outline.
+
+The SMART PHONES block becomes slightly faded.
+
+Directly beneath the page, exact white text appears:
+
+FIND "Apples"
+
+<Subject 1> says:
+<d>[English, Neutral British Female Voice] A crawler reads billions of pages to find your exact word.</d>
+
+0:06-0:10:
+The page slides upward.
+
+A second exact line appears directly underneath the first:
+
+SAVE TO INDEX;
+
+The final two-line query must read exactly:
+
+FIND "Apples"
+SAVE TO INDEX;
+
+A small hand-drawn arrow travels from the text toward a database icon.
+
+<Subject 1> says:
+<d>[English, Neutral British Female Voice] It then saves the exact location of that word into a database.</d>
+
+The camera quickly pushes toward the database to transition into the next scene.
+
+---
+Duration: 10
+
+SCENE 3 — FILTERING THE INDEX
+
+<Picture 1> defines <Subject 1>. Preserve the same female character identity, clothing, proportions, face, eyes, and simplified hand-drawn anime appearance. 
+
+Render the complete scene as simple nostalgic hand-drawn 2D Japanese family anime with thick clean black outlines, flat pastel colours, minimal cel shading, no realistic textures, no photorealism, no 3D graphics, and no mixed visual styles.
+
+0:00-0:03:
+Continue directly from the previous scene’s push toward the database.
+
+The camera arrives at a full-screen view of one large illustrated table with exactly TWO columns:
+
+WORD
+PAGE ID
+
+The table contains exactly FIVE rows in this exact order:
+
+Apples | Page 1
+Apples | Page 2
+Phones | Page 3
+Baking | Page 4
+Apples | Page 5
+
+All words and page IDs must be clearly readable.
+
+A small version of <Subject 1> stands on the RIGHT side of the table, looking across all five rows.
+
+She raises one eyebrow and points toward the WORD column.
+
+<Subject 1> says:
+<d>[English, Neutral British Female Voice] When you search, the engine doesn't scan the whole web.</d>
+
+0:03-0:06:
+A large flat hand-drawn magnifying glass drops vertically from the top-centre of the screen.
+
+The magnifying glass is pastel yellow with a thick black outline.
+
+Across the glass, exact bold uppercase text reads:
+
+MATCH
+
+All five rows move upward toward the magnifying glass.
+
+The rows for these exact words are rejected and fly quickly off-screen to the LEFT:
+
+Phones | Page 3
+Baking | Page 4
+
+The rows for these exact words pass through the glass and remain neatly stacked underneath it:
+
+Apples | Page 1
+Apples | Page 2
+Apples | Page 5
+
+Exactly THREE rows remain.
+
+<Subject 1> says:
+<d>[English, Neutral British Female Voice] It simply matches your word against its massive index.</d>
+
+0:06-0:10:
+Hard punch-in to the three remaining Apple rows.
+
+The exact search text appears on the LEFT side of the screen:
+
+QUERY: "Apples"
+
+The text briefly grows to exactly 130 percent of its original size with a sharp POP sound, then returns to normal size.
+
+At the same time, each of the three remaining Apple cells receives a small green check mark directly beside the word Apples.
+
+<Subject 1> points directly at the MATCH line and says:
+<d>[English, Neutral British Female Voice] Now it instantly knows that pages one, two, and five have exactly what you want.</d>
+
+At the end of the scene, the three filtered rows slide together toward the RIGHT edge of the frame to transition into the next scene.
+
+Hard cut.
+
+---
+Duration: 10
+
+SCENE 4 — SORTING WITH RANKING
+
+<Picture 1> defines <Subject 1> and is the absolute authority for identity and character design. Preserve the exact hairstyle or hair state shown in <Picture 1>. 
+
+Keep the same hand-drawn 2D anime world.
+
+0:00-0:03:
+The three Apple rows from the previous scene slide in from the LEFT and stop in the middle of the studio.
+
+Each row contains a clearly visible QUALITY SCORE value.
+
+From top to bottom, the exact scores are:
+
+45
+12
+98
+
+The presenter looks at the messy order and shakes her head.
+
+<Subject 1> says:
+<d>[English, Neutral British Female Voice] The pages are here, but the best one is at the bottom.</d>
+
+0:03-0:06:
+A large hand-drawn downward arrow appears above the rows.
+
+Exact uppercase text appears above the arrow:
+
+RANK BY SCORE
+
+The rows physically rearrange themselves.
+
+After sorting, the scores must appear from top to bottom exactly as:
+
+98
+45
+12
+
+Each row lands into position with a soft CLICK sound.
+
+<Subject 1> says:
+<d>[English, Neutral British Female Voice] The engine ranks the results by usefulness.</d>
+
+0:06-0:10:
+Fast cut back to <Subject 1>.
+
+She sweeps her right hand from left to right.
+
+Beside her, exact text appears:
+
+SORTING: HIGH TO LOW
+
+The presenter points downward at the three sorted scores.
+
+<Subject 1> says:
+<d>[English, Neutral British Female Voice] Highest quality on top, so you see the ninety-eight score first.</d>
+
+The final sorted row transforms into a small illustrated card that flies toward the presenter’s opposite hand, setting up the next scene.
+
+---
+Duration: 10
+
+SCENE 5 — SERVING THE RESULTS
+
+<Picture 1> defines <Subject 1>. Preserve the same female character identity, clothing, proportions, face, eyes, and simplified hand-drawn anime appearance. 
+
+Render the entire scene as simple nostalgic hand-drawn 2D Japanese family anime with thick clean black outlines, flat pastel colours, minimal cel shading, no realistic textures.
+
+0:00-0:03:
+Continue directly from the previous scene.
+
+The sorted page rows slide in from the LEFT side of the frame and transform into a floating table positioned on the LEFT side of <Subject 1>.
+
+The table is labelled exactly:
+
+INDEX
+
+It contains exactly THREE rows:
+
+Page 5 | 98
+Page 1 | 45
+Page 2 | 12
+
+At the same time, a second floating table slides in from the RIGHT side of the frame.
+
+The second table is labelled exactly:
+
+WEB TITLES
+
+It contains exactly THREE rows:
+
+Page 1 | "Baking Apples"
+Page 2 | "Green Apples"
+Page 5 | "The Best Apples"
+
+<Subject 1> stands exactly between the two tables.
+
+She points her LEFT hand toward the INDEX table and her RIGHT hand toward the WEB TITLES table.
+
+<Subject 1> says:
+<d>[English, Neutral British Female Voice] The engine has the IDs, but you need to read the actual titles.</d>
+
+0:03-0:06:
+Fast punch-in to the space between both tables.
+
+The value:
+
+Page 5
+
+in the INDEX table becomes surrounded by a thick glowing yellow circle.
+
+At the same time, the occurrence of:
+
+Page 5
+
+in the WEB TITLES table becomes surrounded by an identical glowing yellow circle.
+
+A thick hand-drawn yellow connecting line animates from Page 5 on the LEFT table to the matching Page 5 on the RIGHT table with a sharp CLICK.
+
+<Subject 1> points directly at the matching line.
+
+<Subject 1> says:
+<d>[English, Neutral British Female Voice] It joins the ID to its title to build your final list.</d>
+
+0:06-0:10:
+The two matching rows detach and slide together.
+
+The original tables fade slightly into the background.
+
+A new combined results page appears in the centre of the frame. It looks exactly like a search engine result.
+
+The text reads:
+
+1. The Best Apples
+2. Baking Apples
+3. Green Apples
+
+<Subject 1> says:
+<d>[English, Neutral British Female Voice] And in milliseconds, your search results are ready to read.</d>
+
+At exactly 0:10, the combined results page shrinks rapidly into the presenter’s laptop screen, creating a clean transition into the next scene.
+
+Hard cut.
+
+---
+Duration: 10
+
+SCENE 6 — THE MAGIC REVEALED
+
+<Picture 1> defines <Subject 1> and is the absolute authority for identity and character design. Preserve the exact same anime character identity. 
+
+<Picture 2> defines the studio layout, reinterpreted completely as simple flat hand-drawn 2D anime.
+
+0:00-0:03:
+Medium-wide shot.
+
+The presenter sits at the desk with the laptop directly in front of her.
+
+Four illustrated cards rapidly pop into the air around her.
+
+The cards contain EXACTLY these words:
+
+CRAWL
+INDEX
+MATCH
+RANK
+
+Their positions are:
+
+CRAWL — upper left
+INDEX — upper right
+MATCH — lower left
+RANK — lower right
+
+Each card appears with a separate POP sound.
+
+<Subject 1> says:
+<d>[English, Neutral British Female Voice] Crawl the web. Build an index. Match the words. Rank the best.</d>
+
+0:03-0:06:
+Hard cut to a tight close-up of the presenter.
+
+She points directly into the camera.
+
+Behind her, the four cards orbit clockwise once and then stop.
+
+<Subject 1> says:
+<d>[English, Neutral British Female Voice] Once you know the steps, the magic is just brilliant organization.</d>
+
+0:06-0:08:
+The presenter snaps her fingers.
+
+A loud WHOOSH plays.
+
+The presenter, studio, cards, laptop, desk, microphone, bookshelf, and every background object disappear completely.
+
+The screen becomes pure black.
+
+0:08-0:10:
+A heavy BASS HIT plays.
+
+Large white uppercase text slams into the exact centre of the black screen:
+
+SEARCH = SORTING THE WORLD
+
+The text uses thick condensed block lettering.
+
+SEARCH is on the first line.
+
+= SORTING THE WORLD is on the second line.
+
+Both lines are horizontally centred.
+
+The second line is approximately 80 percent the font size of the first line.
+
+No other readable text appears.
+
+Hold until exactly 0:10.
+
+Hard cut.

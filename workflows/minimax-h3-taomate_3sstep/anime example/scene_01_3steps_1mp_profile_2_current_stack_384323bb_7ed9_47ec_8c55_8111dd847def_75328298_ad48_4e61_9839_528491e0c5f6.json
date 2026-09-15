@@ -1,0 +1,332 @@
+{
+  "92": {
+    "inputs": {
+      "filename_prefix": "video/my_minimax_story_01",
+      "format": "auto",
+      "codec": "auto",
+      "video": [
+        "133",
+        0
+      ]
+    },
+    "class_type": "SaveVideo",
+    "_meta": {
+      "title": "Save Video"
+    }
+  },
+  "115": {
+    "inputs": {
+      "aspect_ratio": "16:9 (Widescreen)",
+      "megapixels": 1,
+      "multiple": 32
+    },
+    "class_type": "ResolutionSelector",
+    "_meta": {
+      "title": "Resolution Selector"
+    }
+  },
+  "133": {
+    "inputs": {
+      "fps": [
+        "134",
+        0
+      ],
+      "bit_depth": 8,
+      "images": [
+        "105:10",
+        0
+      ],
+      "audio": [
+        "105:23",
+        0
+      ]
+    },
+    "class_type": "CreateVideo",
+    "_meta": {
+      "title": "Create 48 FPS Video"
+    }
+  },
+  "134": {
+    "inputs": {
+      "value": 24
+    },
+    "class_type": "PrimitiveFloat",
+    "_meta": {
+      "title": "Delivery FPS"
+    }
+  },
+  "105:11": {
+    "inputs": {
+      "vae_name": "minimax_h3_video_vae_fp16.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "Load Video VAE"
+    }
+  },
+  "105:24": {
+    "inputs": {
+      "vae_name": "minimax_h3_audio_vae_fp32.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "Load Audio VAE"
+    }
+  },
+  "105:17": {
+    "inputs": {
+      "sampler_name": "res_multistep"
+    },
+    "class_type": "KSamplerSelect",
+    "_meta": {
+      "title": "Sampler"
+    }
+  },
+  "105:16": {
+    "inputs": {
+      "model": [
+        "story:live-preview",
+        0
+      ],
+      "conditioning": [
+        "105:149",
+        0
+      ]
+    },
+    "class_type": "BasicGuider",
+    "_meta": {
+      "title": "Basic Guider"
+    }
+  },
+  "105:111": {
+    "inputs": {
+      "value": 10
+    },
+    "class_type": "PrimitiveFloat",
+    "_meta": {
+      "title": "Duration"
+    }
+  },
+  "105:13": {
+    "inputs": {
+      "clip_name": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+      "type": "minimax",
+      "device": "default"
+    },
+    "class_type": "CLIPLoader",
+    "_meta": {
+      "title": "Load Text Encoder"
+    }
+  },
+  "105:14": {
+    "inputs": {
+      "noise": [
+        "105:130",
+        0
+      ],
+      "guider": [
+        "105:16",
+        0
+      ],
+      "sampler": [
+        "105:17",
+        0
+      ],
+      "sigmas": [
+        "105:9",
+        0
+      ],
+      "latent_image": [
+        "105:104",
+        1
+      ]
+    },
+    "class_type": "SamplerCustomAdvanced",
+    "_meta": {
+      "title": "Advanced Sampler"
+    }
+  },
+  "105:130": {
+    "inputs": {
+      "noise_seed": 2559304542315
+    },
+    "class_type": "RandomNoise",
+    "_meta": {
+      "title": "Seed"
+    }
+  },
+  "105:23": {
+    "inputs": {
+      "samples": [
+        "105:139",
+        0
+      ],
+      "vae": [
+        "105:24",
+        0
+      ]
+    },
+    "class_type": "VAEDecodeAudio",
+    "_meta": {
+      "title": "Decode Audio"
+    }
+  },
+  "105:149": {
+    "inputs": {
+      "offload_model": true,
+      "offload_cache": false,
+      "anything": [
+        "105:104",
+        0
+      ]
+    },
+    "class_type": "VRAMCleanup",
+    "_meta": {
+      "title": "Conditioning VRAM Cleanup"
+    }
+  },
+  "105:128": {
+    "inputs": {
+      "model_name": "minimax_h3_fl2va_int8_convrot.safetensors",
+      "weight_dtype": "default",
+      "compute_dtype": "default",
+      "patch_cublaslinear": false,
+      "sage_attention": "auto",
+      "enable_fp16_accumulation": true
+    },
+    "class_type": "DiffusionModelLoaderKJ",
+    "_meta": {
+      "title": "Load Fast FP8 Model"
+    }
+  },
+  "105:104": {
+    "inputs": {
+      "prompt": "Cinematic Japanese anime scene. A young woman with long black hair and a red jacket stands on a busy Tokyo street at night during light rain.\n\nStatic eye-level medium shot. Locked tripod camera. No zoom, no pan, no camera movement, no cuts.\n\nShe looks directly toward the camera and speaks naturally:\n\n<d>[English] Okay, photorealism was surprisingly good at only three steps. But anime is a completely different test. Let's see if it can keep the character clean when everything starts moving.</d>\n\nWhile speaking, she makes natural two-handed gestures. Her long hair and jacket move gently in the wind. She blinks naturally and changes expression subtly while maintaining accurate lip synchronization.\n\nBehind her, pedestrians carrying umbrellas walk slowly in both directions. Neon shop signs reflect across the wet pavement. Light rain falls continuously. A car passes slowly through the distant background, creating moving reflections across the street.\n\nDetailed modern Japanese anime aesthetic. Clean expressive face, crisp linework, detailed eyes, consistent character proportions, natural anime shading, detailed hair strands, cinematic nighttime lighting, saturated neon reflections, physically coherent motion.\n\nThe character must remain visually consistent throughout the entire shot. No face morphing, no changing clothing, no extra fingers, no disappearing hands.\n\nSound: clear female dialogue, gentle rainfall, distant city ambience and quiet traffic. No music.\n\nContinuous single shot.",
+      "width": [
+        "115",
+        0
+      ],
+      "height": [
+        "115",
+        1
+      ],
+      "length": [
+        "105:107",
+        1
+      ],
+      "clip": [
+        "105:13",
+        0
+      ],
+      "vae": [
+        "105:11",
+        0
+      ]
+    },
+    "class_type": "MiniMaxH3ImageToVideo",
+    "_meta": {
+      "title": "MiniMax H3 Text or Image to Video"
+    }
+  },
+  "105:107": {
+    "inputs": {
+      "expression": "max(5, round(a * 24)) + (5 - (max(5, round(a * 24)) % 17)) % 17",
+      "values.a": [
+        "105:111",
+        0
+      ]
+    },
+    "class_type": "ComfyMathExpression",
+    "_meta": {
+      "title": "Duration to 17k+5 Frames"
+    }
+  },
+  "105:139": {
+    "inputs": {
+      "offload_model": true,
+      "offload_cache": false,
+      "anything": [
+        "105:14",
+        0
+      ]
+    },
+    "class_type": "VRAMCleanup",
+    "_meta": {
+      "title": "Post-sampling VRAM Cleanup"
+    }
+  },
+  "105:10": {
+    "inputs": {
+      "samples": [
+        "105:139",
+        0
+      ],
+      "vae": [
+        "105:11",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "Decode Video Frames"
+    }
+  },
+  "105:9": {
+    "inputs": {
+      "scheduler": "simple",
+      "steps": 3,
+      "denoise": 1,
+      "model": [
+        "story:live-preview",
+        0
+      ]
+    },
+    "class_type": "BasicScheduler",
+    "_meta": {
+      "title": "8-Step Scheduler"
+    }
+  },
+  "105:152": {
+    "inputs": {
+      "PowerLoraLoaderHeaderWidget": {
+        "type": "PowerLoraLoaderHeaderWidget"
+      },
+      "lora_1": {
+        "on": true,
+        "lora": "minimax_h3_taomate_3step_lora_avg_rank_19_bf16.safetensors",
+        "strength": 1
+      },
+      "lora_2": {
+        "on": false,
+        "lora": "h3-realism-people-t2v-i2v-r2v.safetensors",
+        "strength": 1
+      },
+      "➕ Add Lora": "",
+      "model": [
+        "105:128",
+        0
+      ]
+    },
+    "class_type": "Power Lora Loader (rgthree)",
+    "_meta": {
+      "title": "Ordered Two-LoRA Stack"
+    }
+  },
+  "story:live-preview": {
+    "inputs": {
+      "model": [
+        "105:152",
+        0
+      ],
+      "max_resolution": 1024,
+      "jpeg_quality": 100,
+      "suppress_default_preview": true,
+      "preview_frames": 48,
+      "preview_fps": 30
+    },
+    "class_type": "ModelPreviewOverrideKJ",
+    "_meta": {
+      "title": "Story Studio Live Preview"
+    }
+  }
+}

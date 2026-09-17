@@ -1,0 +1,332 @@
+{
+  "92": {
+    "inputs": {
+      "filename_prefix": "video/rick_and_morty_fastvideo_04",
+      "format": "auto",
+      "codec": "auto",
+      "video": [
+        "133",
+        0
+      ]
+    },
+    "class_type": "SaveVideo",
+    "_meta": {
+      "title": "Save Video"
+    }
+  },
+  "115": {
+    "inputs": {
+      "aspect_ratio": "16:9 (Widescreen)",
+      "megapixels": 0.5,
+      "multiple": 32
+    },
+    "class_type": "ResolutionSelector",
+    "_meta": {
+      "title": "Resolution Selector"
+    }
+  },
+  "133": {
+    "inputs": {
+      "fps": [
+        "134",
+        0
+      ],
+      "bit_depth": 8,
+      "images": [
+        "105:10",
+        0
+      ],
+      "audio": [
+        "105:23",
+        0
+      ]
+    },
+    "class_type": "CreateVideo",
+    "_meta": {
+      "title": "Create 48 FPS Video"
+    }
+  },
+  "134": {
+    "inputs": {
+      "value": 24
+    },
+    "class_type": "PrimitiveFloat",
+    "_meta": {
+      "title": "Delivery FPS"
+    }
+  },
+  "105:11": {
+    "inputs": {
+      "vae_name": "minimax_h3_video_vae_fp16.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "Load Video VAE"
+    }
+  },
+  "105:24": {
+    "inputs": {
+      "vae_name": "minimax_h3_audio_vae_fp32.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "Load Audio VAE"
+    }
+  },
+  "105:17": {
+    "inputs": {
+      "sampler_name": "res_multistep"
+    },
+    "class_type": "KSamplerSelect",
+    "_meta": {
+      "title": "Sampler"
+    }
+  },
+  "105:16": {
+    "inputs": {
+      "model": [
+        "story:live-preview",
+        0
+      ],
+      "conditioning": [
+        "105:149",
+        0
+      ]
+    },
+    "class_type": "BasicGuider",
+    "_meta": {
+      "title": "Basic Guider"
+    }
+  },
+  "105:111": {
+    "inputs": {
+      "value": 8
+    },
+    "class_type": "PrimitiveFloat",
+    "_meta": {
+      "title": "Duration"
+    }
+  },
+  "105:13": {
+    "inputs": {
+      "clip_name": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+      "type": "minimax",
+      "device": "default"
+    },
+    "class_type": "CLIPLoader",
+    "_meta": {
+      "title": "Load Text Encoder"
+    }
+  },
+  "105:14": {
+    "inputs": {
+      "noise": [
+        "105:130",
+        0
+      ],
+      "guider": [
+        "105:16",
+        0
+      ],
+      "sampler": [
+        "105:17",
+        0
+      ],
+      "sigmas": [
+        "105:9",
+        0
+      ],
+      "latent_image": [
+        "105:104",
+        1
+      ]
+    },
+    "class_type": "SamplerCustomAdvanced",
+    "_meta": {
+      "title": "Advanced Sampler"
+    }
+  },
+  "105:130": {
+    "inputs": {
+      "noise_seed": 248906543245391
+    },
+    "class_type": "RandomNoise",
+    "_meta": {
+      "title": "Seed"
+    }
+  },
+  "105:23": {
+    "inputs": {
+      "samples": [
+        "105:139",
+        0
+      ],
+      "vae": [
+        "105:24",
+        0
+      ]
+    },
+    "class_type": "VAEDecodeAudio",
+    "_meta": {
+      "title": "Decode Audio"
+    }
+  },
+  "105:149": {
+    "inputs": {
+      "offload_model": true,
+      "offload_cache": false,
+      "anything": [
+        "105:104",
+        0
+      ]
+    },
+    "class_type": "VRAMCleanup",
+    "_meta": {
+      "title": "Conditioning VRAM Cleanup"
+    }
+  },
+  "105:128": {
+    "inputs": {
+      "model_name": "fastvideo_fasth3_8step_v2_pruned_int8_convrot-h3.safetensors",
+      "weight_dtype": "default",
+      "compute_dtype": "default",
+      "patch_cublaslinear": false,
+      "sage_attention": "auto",
+      "enable_fp16_accumulation": true
+    },
+    "class_type": "DiffusionModelLoaderKJ",
+    "_meta": {
+      "title": "Load Fast FP8 Model"
+    }
+  },
+  "105:104": {
+    "inputs": {
+      "prompt": "[Shot 1] Authentic Rick and Morty 2D animated TV-series style. Rick and Morty stand in the simple garage laboratory: plain grey concrete walls, one workbench, one wooden shelf with unlabeled boxes, one hanging bare lightbulb, no extra monitors, no background characters, no readable text. The metal box now projects a small flat glowing screen above the workbench. Wide static shot. Rick points at the floating screen while Morty leans in to look. Rick (S1) says: <d>[English] Watch. I type something in, it spits out a whole scene.</d> A soft electronic whir fills the garage.\n\n[Shot 2] At 00:03.000, the camera cuts to a close-up of the floating screen. A simple scene appears: a tiny cartoon dog running across a flat green field. Small synchronized barking sounds play from the box's speaker. Morty (S2), off-screen, says: <d>[English] Whoa. The sound matches the dog.</d> The electronic whir continues underneath.\n\n[Shot 3] At 00:05.000, the camera cuts to a medium shot of Rick and Morty. Rick (S1) nods and crosses his arms. He says: <d>[English] Video and audio. Same pass. No extra work.</d> The tiny cartoon dog on the screen barks once more. Morty watches with wide eyes as the screen fades to black.\n\nnon_diegetic_music: N/A. No background music, soundtrack, score, melody, or musical sting.",
+      "width": [
+        "115",
+        0
+      ],
+      "height": [
+        "115",
+        1
+      ],
+      "length": [
+        "105:107",
+        1
+      ],
+      "clip": [
+        "105:13",
+        0
+      ],
+      "vae": [
+        "105:11",
+        0
+      ]
+    },
+    "class_type": "MiniMaxH3ImageToVideo",
+    "_meta": {
+      "title": "MiniMax H3 Text or Image to Video"
+    }
+  },
+  "105:107": {
+    "inputs": {
+      "expression": "max(5, round(a * 24)) + (5 - (max(5, round(a * 24)) % 17)) % 17",
+      "values.a": [
+        "105:111",
+        0
+      ]
+    },
+    "class_type": "ComfyMathExpression",
+    "_meta": {
+      "title": "Duration to 17k+5 Frames"
+    }
+  },
+  "105:139": {
+    "inputs": {
+      "offload_model": true,
+      "offload_cache": false,
+      "anything": [
+        "105:14",
+        0
+      ]
+    },
+    "class_type": "VRAMCleanup",
+    "_meta": {
+      "title": "Post-sampling VRAM Cleanup"
+    }
+  },
+  "105:10": {
+    "inputs": {
+      "samples": [
+        "105:139",
+        0
+      ],
+      "vae": [
+        "105:11",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "Decode Video Frames"
+    }
+  },
+  "105:9": {
+    "inputs": {
+      "scheduler": "simple",
+      "steps": 8,
+      "denoise": 1,
+      "model": [
+        "story:live-preview",
+        0
+      ]
+    },
+    "class_type": "BasicScheduler",
+    "_meta": {
+      "title": "8-Step Scheduler"
+    }
+  },
+  "105:152": {
+    "inputs": {
+      "PowerLoraLoaderHeaderWidget": {
+        "type": "PowerLoraLoaderHeaderWidget"
+      },
+      "lora_1": {
+        "on": true,
+        "lora": "minimax_h3_fl2v_turbo_8step_v1.0_768p_comfyui_bf16.safetensors",
+        "strength": 1
+      },
+      "lora_2": {
+        "on": false,
+        "lora": "h3-realism-people-t2v-i2v-r2v.safetensors",
+        "strength": 1
+      },
+      "➕ Add Lora": "",
+      "model": [
+        "105:128",
+        0
+      ]
+    },
+    "class_type": "Power Lora Loader (rgthree)",
+    "_meta": {
+      "title": "Ordered Two-LoRA Stack"
+    }
+  },
+  "story:live-preview": {
+    "inputs": {
+      "model": [
+        "105:152",
+        0
+      ],
+      "max_resolution": 1024,
+      "jpeg_quality": 100,
+      "suppress_default_preview": true,
+      "preview_frames": 48,
+      "preview_fps": 30
+    },
+    "class_type": "ModelPreviewOverrideKJ",
+    "_meta": {
+      "title": "Story Studio Live Preview"
+    }
+  }
+}

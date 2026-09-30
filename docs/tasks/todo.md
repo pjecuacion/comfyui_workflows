@@ -752,3 +752,29 @@
 
 - Removed `realistic_quiz_prince_scene_01_submitted_workflow.json` and `realistic_quiz_prince_scene_02_submitted_workflow.json`.
 - The only workflow files in the bundle are now the two grouped canvas variants.
+## 2026-09-30 - Fix Windows clone failure (GitHub issue #1)
+
+### Scope
+
+- Shorten the ten Taomate example workflow filenames without changing their JSON content.
+- Update both workflow catalogs and prevent another path-length regression.
+- Leave unrelated workflow bundles unchanged.
+
+### Plan
+
+- [x] Add a regression test and confirm it fails on the current filenames.
+- [x] Rename the ten files and update all catalog references.
+- [x] Verify JSON content, references, path lengths, and relevant tests.
+- [x] Document the bug and result, then review the diff.
+
+### Test Strategy
+
+- `tests/bugs/BUG-008-windows-clone-path-length.test.ps1` will check a conservative tracked-path limit, all ten Taomate profile files, JSON parsing, and catalog references.
+- Compare each moved file's Git blob ID to its previous path to confirm a rename only.
+
+### Review
+
+- The regression test failed before the rename on all ten Taomate paths and passes afterward.
+- Git reports ten 100% identical renames; workflow JSON content is unchanged.
+- The longest tracked path is 130 characters, below the 140-character test limit.
+- The BUG-008 and BUG-005 tests pass, and `git diff --check` is clean.

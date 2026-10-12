@@ -92,6 +92,7 @@ Workflows behind the "Tests" videos (solo hard tests and versus matchups), one f
 | --- | --- | --- |
 | LTX 2.5 vs MiniMax H3: same start picture, 10 rounds | `workflows/tests-ltx25-vs-h3/` | Z-Image Turbo, LTX 2.5, MiniMax H3: workflows from this Tests video. |
 | One fox, 50 styles: Qwen Image 2.1 vs Krea 2 Turbo vs Ideogram 4 | `workflows/tests-styles-50/` | Qwen Image 2.1, Krea 2 Turbo, Ideogram 4: workflows from this Tests video. |
+| I Tested Ideogram 4: 20 Hard Text Tests | `workflows/tests-ideogram4-20-text-tests/` | Ideogram 4: workflows from this Tests video. |
 
 ## Related notes
 

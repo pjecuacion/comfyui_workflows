@@ -95,6 +95,7 @@ Workflows behind the "Tests" videos (solo hard tests and versus matchups), one f
 | I Tested Ideogram 4: 20 Hard Text Tests | `workflows/tests-ideogram4-20-text-tests/` | Ideogram 4: workflows from this Tests video. |
 | I Tested Krea 2 Turbo: 20 Hard Tests | `workflows/tests-krea2-20-hard-tests/` | Krea 2 Turbo: workflows from this Tests video. |
 | MiniMax H3: 15 hard video tests | `workflows/tests-h3-15-hard-tests/` | MiniMax H3: workflows from this Tests video. |
+| Z-Image Turbo vs Qwen Image 2.1 | `workflows/tests-zimage-vs-qwen/` | Z-Image Turbo, Qwen Image 2.1: workflows from this Tests video. |
 
 ## Related notes
 

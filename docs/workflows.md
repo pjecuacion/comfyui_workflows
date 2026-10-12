@@ -97,6 +97,7 @@ Workflows behind the "Tests" videos (solo hard tests and versus matchups), one f
 | MiniMax H3: 15 hard video tests | `workflows/tests-h3-15-hard-tests/` | MiniMax H3: workflows from this Tests video. |
 | Z-Image Turbo vs Qwen Image 2.1 | `workflows/tests-zimage-vs-qwen/` | Z-Image Turbo, Qwen Image 2.1: workflows from this Tests video. |
 | I Tested Qwen Image 2.1 Edit: 20 Hard Tests With Real Photos | `workflows/tests-qwen-edit-20-hard-tests/` | Qwen Image 2.1 Edit: workflows from this Tests video. |
+| Qwen Image 2.1 Edit: Same Character, 20 Hard Consistency Tests | `workflows/tests-qwen-edit-consistent-character/` | Qwen Image 2.1 Edit: workflows from this Tests video. |
 
 ## Related notes
 

@@ -100,6 +100,7 @@ Workflows behind the "Tests" videos (solo hard tests and versus matchups), one f
 | Qwen Image 2.1 Edit: Same Character, 20 Hard Consistency Tests | `workflows/tests-qwen-edit-consistent-character/` | Qwen Image 2.1 Edit: workflows from this Tests video. |
 | AI character sheets: Qwen Image 2.1 vs Krea 2 Turbo vs Z-Image Turbo | `workflows/tests-character-sheets-3-models/` | Qwen Image 2.1, Krea 2 Turbo, Z-Image Turbo: workflows from this Tests video. |
 | MiniMax H3 image-to-video: one character, 12 hard tests | `workflows/tests-minimax-h3-i2v-12-tests/` | MiniMax H3: workflows from this Tests video. |
+| LTX 2.5 image-to-video: 12 hard tests | `workflows/tests-ltx25-12-hard-tests/` | LTX 2.5: workflows from this Tests video. |
 
 ## Related notes
 

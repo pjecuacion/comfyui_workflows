@@ -103,6 +103,7 @@ Workflows behind the "Tests" videos (solo hard tests and versus matchups), one f
 | LTX 2.5 image-to-video: 12 hard tests | `workflows/tests-ltx25-12-hard-tests/` | LTX 2.5: workflows from this Tests video. |
 | I Tested Z-Image Turbo: 25 Hard Tests | `workflows/tests-zimage-turbo-25-hard-tests/` | Z-Image Turbo: workflows from this Tests video. |
 | 10 MiniMax H3 LoRAs: with vs without | `workflows/tests-h3-loras/` | MiniMax H3: workflows from this Tests video. |
+| Krea 2 vs Qwen Image 2.1 | `workflows/tests-krea2-vs-qwen/` | Krea 2 Turbo, Qwen Image 2.1, Qwen Image 2.1 Edit: workflows from this Tests video. |
 
 ## Related notes
 

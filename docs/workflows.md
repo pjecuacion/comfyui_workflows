@@ -110,6 +110,7 @@ Workflows behind the "Tests" videos (solo hard tests and versus matchups), one f
 | MiniMax H3: with vs without the AnimateDiff Style LoRA | `workflows/tests-h3-animatediff-lora/` | MiniMax H3: workflows from this Tests video. |
 | MiniMax H3: with vs without the Crayon Drawings LoRA | `workflows/tests-h3-crayon-lora/` | MiniMax H3: workflows from this Tests video. |
 | MiniMax H3: with vs without the 1980s Fantasy Movies LoRA | `workflows/tests-h3-80s-fantasy-lora/` | MiniMax H3: workflows from this Tests video. |
+| MiniMax H3: with vs without the Sketch IRL LoRA | `workflows/tests-h3-sketch-irl-lora/` | MiniMax H3: workflows from this Tests video. |
 
 ## Related notes
 

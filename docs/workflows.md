@@ -106,6 +106,7 @@ Workflows behind the "Tests" videos (solo hard tests and versus matchups), one f
 | Krea 2 vs Qwen Image 2.1 | `workflows/tests-krea2-vs-qwen/` | Krea 2 Turbo, Qwen Image 2.1, Qwen Image 2.1 Edit: workflows from this Tests video. |
 | MiniMax H3: with vs without the 1920s Silent Horror LoRA | `workflows/tests-h3-1920s-horror-lora/` | MiniMax H3: workflows from this Tests video. |
 | MiniMax H3: with vs without the 16-bit Pixel LoRA | `workflows/tests-h3-16bit-pixel-lora/` | MiniMax H3: workflows from this Tests video. |
+| MiniMax H3: with vs without the 70s Retro Toon LoRA | `workflows/tests-h3-70s-retro-toon-lora/` | MiniMax H3: workflows from this Tests video. |
 
 ## Related notes
 

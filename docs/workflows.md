@@ -113,6 +113,7 @@ Workflows behind the "Tests" videos (solo hard tests and versus matchups), one f
 | MiniMax H3: with vs without the Sketch IRL LoRA | `workflows/tests-h3-sketch-irl-lora/` | MiniMax H3: workflows from this Tests video. |
 | MiniMax H3: with vs without the Modern PS2 Style LoRA | `workflows/tests-h3-modern-ps2-lora/` | MiniMax H3: workflows from this Tests video. |
 | I Tested FLUX 3 Klein: 30 Hard Tests | `workflows/tests-flux3-klein-30-hard-tests/` | klein, klein-edit: workflows from this Tests video. |
+| FLUX 3 Klein: ComfyUI's Default vs the Recommended Setup | `workflows/tests-flux3-klein-base-vs-distilled/` | FLUX 3 Image Klein, klein-distilled, klein-distilled-edit: workflows from this Tests video. |
 
 ## Related notes
 

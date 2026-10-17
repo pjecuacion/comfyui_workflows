@@ -1,0 +1,263 @@
+# The 8 scene prompts from 'How I Make My AI Talking Head in ComfyUI (3 Ways)'.
+# Each is one 15-second MiniMax H3 reference-to-video scene. 'r34l1sm,' is the Realism LoRA's trigger word.
+# Scenes are separated by a line with three dashes (the format Story Studio and Scene Runner read).
+
+r34l1sm, SCENE 1 — CONCEPT 1 (THE BERRY LIE)
+
+
+<Picture 1>: A charismatic male influencer with short textured hair and an expressive, energetic face, looking directly at the camera.
+<Picture 2>: A pristine, modern home studio with blurred background elements: a neon purple sign, a wooden bookshelf with trailing plants, and a fancy broadcast microphone on a boom arm.
+<Picture 3>: A trendy oversized black graphic t-shirt with a subtle silver chain necklace.
+
+[Shot 1 — 0:00–0:07]
+
+Start with a medium-wide shot of the host sitting at his desk. 
+He slaps the desk with both hands, leaning in close to the lens. 
+
+HOST:
+<Audio 1> <d>[English, Neutral Filipino Male Voice] Welcome to mind-blowing facts that sound completely fake! Fact number one: Your entire childhood was a lie. Strawberries? Not berries. Bananas? One hundred percent berries.</d> 
+
+[Shot 2 — 0:07–0:12]
+
+Sharp jump cut (punch-in) to a tight close-up of the host's face. 
+A loud *BUZZER* sound effect plays as a realistic 3D strawberry drops on the left side of the screen with a giant red "X" over it. 
+A *DING* sound effect plays as a bright yellow 3D banana drops on the right side with green glowing text underneath reading: ACTUAL BERRY.
+
+HOST:
+<Audio 1> <d>[English, Neutral Filipino Male Voice] Botanically speaking, a berry needs to have seeds on the inside.</d> 
+
+[Shot 3 — 0:12–0:15]
+
+The host points his finger right at the camera lens. 
+With a loud *SWOOSH*, the yellow 3D banana rapidly expands, flying directly into the camera lens until the entire screen turns solid bright yellow.
+
+Hard cut.
+
+---
+
+r34l1sm, SCENE 2 — CONCEPT 2 (OCTOPUS HEARTS)
+
+
+<Picture 1>: A charismatic male influencer with short textured hair and wide, enthusiastic eyes.
+<Picture 2>: A pristine, modern home studio with blurred background elements: a neon purple sign, a wooden bookshelf with trailing plants, and a fancy broadcast microphone on a boom arm.
+<Picture 3>: A bright yellow hoodie with white drawstrings.
+
+[Shot 1 — 0:00–0:07]
+
+The bright yellow screen instantly shatters like glass, revealing the host standing behind his desk. He holds up three fingers on his right hand. 
+
+HOST:
+<Audio 1> <d>[English, Neutral Filipino Male Voice] Fact number two! Humans complain about having one broken heart, but an octopus has to deal with three!</d> 
+
+[Shot 2 — 0:07–0:12]
+
+The host tosses his hands into the air. 
+With a *SPLASH* sound effect, the studio background is replaced by an underwater blue gradient. 
+Three massive, glowing red cartoon hearts appear above the host's head, pumping in a rapid, rhythmic heartbeat animation. 
+Thick white text violently shakes on screen: 3 HEARTS!
+
+HOST:
+<Audio 1> <d>[English, Neutral Filipino Male Voice] Two hearts pump blood to the gills, and the third one pumps it to the rest of the body.</d> 
+
+[Shot 3 — 0:12–0:15]
+
+Jump cut to a dynamic low-angle shot of the host. He claps his hands together. 
+A massive animated burst of black octopus ink shoots out from his hands, completely covering the camera lens in pitch black. 
+
+Hard cut.
+
+---
+
+r34l1sm, SCENE 3 — CONCEPT 3 (HEAVY CLOUDS)
+
+
+<Picture 1>: A charismatic male influencer with short textured hair, wiping imaginary sweat from his forehead.
+<Picture 2>: A pristine, modern home studio with blurred background elements: a neon purple sign, a wooden bookshelf with trailing plants, and a fancy broadcast microphone on a boom arm.
+<Picture 3>: A light blue denim jacket over a plain white t-shirt.
+
+[Shot 1 — 0:00–0:07]
+
+The pitch-black screen dissolves into the host, sitting on the edge of his desk. He points aggressively up at the ceiling. 
+
+HOST:
+<Audio 1> <d>[English, Neutral Filipino Male Voice] Fact three! You look up at clouds and think they are light and fluffy like cotton candy, right? Wrong! They are incredibly heavy.</d>
+
+[Shot 2 — 0:07–0:12]
+
+A sharp jump cut (punch-in) to a close-up of the host. 
+A loud *THUD* sound effect plays. A 3D graphic of a fluffy white cloud drops from the top of the screen onto a digital scale next to his head. 
+The scale's digital readout spins rapidly and stops on massive, glowing red text: 1.1 MILLION LBS!
+
+HOST:
+<Audio 1> <d>[English, Neutral Filipino Male Voice] An average cumulus cloud weighs over one point one million pounds! That’s like one hundred elephants floating over your head!</d>
+
+[Shot 3 — 0:12–0:15]
+
+The host mimes an explosion with his hands near his head. 
+A bright white digital cloud *POOFS* outward from the center of the screen with a loud *WHOOSH*, completely whiting out the frame.
+
+Hard cut.
+
+---
+
+r34l1sm, SCENE 4 — CONCEPT 4 (CUBE POOP)
+
+
+<Picture 1>: A charismatic male influencer with short textured hair, holding his hands up in a box shape.
+<Picture 2>: A pristine, modern home studio with blurred background elements: a neon purple sign, a wooden bookshelf with trailing plants, and a fancy broadcast microphone on a boom arm.
+<Picture 3>: A dark green oversized sweatshirt.
+
+[Shot 1 — 0:00–0:07]
+
+The white screen aggressively shrinks into a small dot and disappears, revealing the host sitting closely at his microphone. He is leaning in, whispering as if sharing a secret.
+
+HOST:
+<Audio 1> <d>[English, Neutral Filipino Male Voice] Number four. Let’s talk about wombats. These cute little Australian marsupials have a superpower that defies all logic.</d> 
+
+[Shot 2 — 0:07–0:12]
+
+A sudden, jarring digital zoom-out (punch-out) to a wide shot. 
+An arcade *LEVEL UP* sound effect plays. 
+Hundreds of small, brown, 3D cubes start raining down from the top of the screen behind the host. 
+Giant, neon pink text flashes in the center: CUBE POOP!
+
+HOST:
+<Audio 1> <d>[English, Neutral Filipino Male Voice] They are the only animals in the world that poop in perfect cubes! It stops it from rolling away!</d>
+
+[Shot 3 — 0:12–0:15]
+
+The host grabs one of the digital brown cubes out of the air. He throws it directly at the camera. 
+The cube hits the "lens," creating a violent digital glitch effect that scrambles the entire video feed into rainbow static.
+
+Hard cut.
+
+---
+
+r34l1sm, SCENE 5 — CONCEPT 5 (VENUS TIME)
+
+
+<Picture 1>: A charismatic male influencer with short textured hair, spinning a small globe prop in his hands.
+<Picture 2>: A pristine, modern home studio with blurred background elements: a neon purple sign, a wooden bookshelf with trailing plants, and a fancy broadcast microphone on a boom arm.
+<Picture 3>: A black zip-up bomber jacket over a grey t-shirt.
+
+[Shot 1 — 0:00–0:07]
+
+The rainbow static sharply snaps away, dropping us back into the pristine studio. The host is spinning a small desk globe incredibly fast with one hand. 
+
+HOST:
+<Audio 1> <d>[English, Neutral Filipino Male Voice] Fact five will break your concept of time! On the planet Venus, a day is actually longer than a year.</d> 
+
+[Shot 2 — 0:07–0:12]
+
+The host stops the globe abruptly. 
+A loud *RECORD SCRATCH* sound effect plays. 
+The left half of the screen shows a 3D Venus rotating painfully slowly with text: 1 DAY = 243 EARTH DAYS. 
+The right half shows Venus zooming rapidly around a glowing sun with text: 1 YEAR = 225 EARTH DAYS.
+
+HOST:
+<Audio 1> <d>[English, Neutral Filipino Male Voice] It rotates on its axis so slowly that it orbits the entire sun before it even finishes one single spin!</d>
+
+[Shot 3 — 0:12–0:15]
+
+Jump cut to an extreme close-up of the host’s face. He points to the right. 
+The camera immediately whip-pans to the right with an aggressive motion blur, turning the entire screen into a smear of speed lines.
+
+Hard cut.
+
+---
+
+r34l1sm, SCENE 6 — CONCEPT 6 (IMMORTAL HONEY)
+
+
+<Picture 1>: A charismatic male influencer with short textured hair, pretending to dip a spoon into an invisible jar and tasting it.
+<Picture 2>: A pristine, modern home studio with blurred background elements: a neon purple sign, a wooden bookshelf with trailing plants, and a fancy broadcast microphone on a boom arm.
+<Picture 3>: A mustard yellow crewneck sweater.
+
+[Shot 1 — 0:00–0:07]
+
+The fast motion blur whips into a dead stop on the host, who is now standing with his arms crossed confidently. 
+
+HOST:
+<Audio 1> <d>[English, Neutral Filipino Male Voice] Number six! Honey is the only food that literally never goes bad. Ever.</d> 
+
+[Shot 2 — 0:07–0:12]
+
+The host snaps his fingers. 
+A *MAGIC CHIME* sound effect rings out. 
+A 3D graphic of an ancient Egyptian pyramid rises up from the bottom of the screen. A glowing jar of honey floats out of the pyramid's entrance. 
+Thick, gold drop-shadow text slams into the center: 3,000 YEARS OLD!
+
+HOST:
+<Audio 1> <d>[English, Neutral Filipino Male Voice] Archaeologists have found pots of honey in ancient Egyptian tombs that are over three thousand years old, and you could safely eat it right now!</d>
+
+[Shot 3 — 0:12–0:15]
+
+The host opens his mouth wide. 
+A giant CGI drop of golden liquid honey drops from the very top border of the frame, sliding down over the entire camera lens until the screen is completely gold. 
+
+Hard cut.
+
+---
+
+r34l1sm, SCENE 7 — CONCEPT 7 (SHARKS AND TREES)
+
+
+<Picture 1>: A charismatic male influencer with short textured hair, making a "shark fin" motion with his hand on top of his head.
+<Picture 2>: A pristine, modern home studio with blurred background elements: a neon purple sign, a wooden bookshelf with trailing plants, and a fancy broadcast microphone on a boom arm.
+<Picture 3>: A dark navy blue t-shirt with a small wave logo.
+
+[Shot 1 — 0:00–0:07]
+
+The golden honey screen wipes downward, revealing the host back at his desk, shaking his head in disbelief. 
+
+HOST:
+<Audio 1> <d>[English, Neutral Filipino Male Voice] Fact seven. Sharks are older than trees. Let me repeat that because it sounds insane. Sharks are older than trees!</d>
+
+[Shot 2 — 0:07–0:12]
+
+Sharp jump cut to a slightly wider angle. 
+An intense *SHARK BITE* sound effect plays. 
+A massive digital timeline appears across the bottom of the screen. A shark icon drops onto the 400-million-year mark. A tree icon drops much later, onto the 350-million-year mark. 
+Bright red text flashes: SHARKS WON!
+
+HOST:
+<Audio 1> <d>[English, Neutral Filipino Male Voice] Sharks have been swimming in the oceans for over four hundred million years. They survived four mass extinctions before the first tree even grew!</d>
+
+[Shot 3 — 0:12–0:15]
+
+Jump cut to a tight close-up. The host frames his face with both hands like a picture frame and smiles. 
+A bright white *CAMERA FLASH* sound effect pops, instantly turning the screen blinding white. 
+
+Hard cut.
+
+---
+
+r34l1sm, SCENE 8 — OUTRO (THE SUBSCRIBE SMASH)
+
+
+<Picture 1>: A charismatic male influencer with short textured hair, pointing two finger guns aggressively at the lens.
+<Picture 2>: A pristine, modern home studio with blurred background elements: a neon purple sign, a wooden bookshelf with trailing plants, and a fancy broadcast microphone on a boom arm.
+<Picture 3>: A white hoodie under a black unbuttoned flannel shirt.
+
+[Shot 1 — 0:00–0:07]
+
+The blinding white flash fades down, revealing the host standing up, leaning entirely over his desk directly into the camera. 
+
+HOST:
+<Audio 1> <d>[English, Neutral Filipino Male Voice] If your mind is blown, you know exactly what to do.</d> 
+
+[Shot 2 — 0:07–0:12]
+
+A massive, glowing red "SUBSCRIBE" button violently drops into the dead center of the screen with a loud *METAL CLANG* sound effect. 
+The host reels his right fist back in slow motion. 
+
+HOST:
+<Audio 1> <d>[English, Neutral Filipino Male Voice] Smash that subscribe button right now for more crazy facts, and I will see you guys in the next video!</d>
+
+[Shot 3 — 0:12–0:15]
+
+Speed-ramp back to real time as the host punches directly toward the camera. 
+His digital fist connects perfectly with the red SUBSCRIBE button graphic. 
+The button explodes into red sparks, and the screen instantly snaps to black with a final *BASS DROP* sound effect. 
+
+Hard cut.

@@ -120,6 +120,7 @@ Workflows behind the "Tests" videos (solo hard tests and versus matchups), one f
 | MiniMax H3: with vs without the Cartoon World LoRA | `workflows/tests-h3-cartoon-world-lora/` | MiniMax H3: workflows from this Tests video. |
 | MiniMax H3: with vs without the Stereoptical Process LoRA | `workflows/tests-h3-stereoptical-lora/` | MiniMax H3: workflows from this Tests video. |
 | MiniMax H3: with vs without the Clanimated LoRA | `workflows/tests-h3-clanimated-lora/` | MiniMax H3: workflows from this Tests video. |
+| MiniMax H3: with vs without the Creepy Cute Magical LoRA | `workflows/tests-h3-creepy-cute-lora/` | MiniMax H3: workflows from this Tests video. |
 
 ## Related notes
 

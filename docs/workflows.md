@@ -116,6 +116,7 @@ Workflows behind the "Tests" videos (solo hard tests and versus matchups), one f
 | FLUX 3 Klein: ComfyUI's Default vs the Recommended Setup | `workflows/tests-flux3-klein-base-vs-distilled/` | FLUX 3 Image Klein, klein-distilled, klein-distilled-edit: workflows from this Tests video. |
 | MiniMax H3: with vs without the Film Noir LoRA | `workflows/tests-h3-film-noir-lora/` | MiniMax H3: workflows from this Tests video. |
 | MiniMax H3: with vs without the Tiny Things LoRA | `workflows/tests-h3-tiny-things-lora/` | MiniMax H3: workflows from this Tests video. |
+| MiniMax H3: with vs without the Cartoon World LoRA | `workflows/tests-h3-cartoon-world-lora/` | MiniMax H3: workflows from this Tests video. |
 
 ## Related notes
 

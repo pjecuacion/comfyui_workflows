@@ -117,6 +117,7 @@ Workflows behind the "Tests" videos (solo hard tests and versus matchups), one f
 | MiniMax H3: with vs without the Film Noir LoRA | `workflows/tests-h3-film-noir-lora/` | MiniMax H3: workflows from this Tests video. |
 | MiniMax H3: with vs without the Tiny Things LoRA | `workflows/tests-h3-tiny-things-lora/` | MiniMax H3: workflows from this Tests video. |
 | MiniMax H3: with vs without the Cartoon World LoRA | `workflows/tests-h3-cartoon-world-lora/` | MiniMax H3: workflows from this Tests video. |
+| MiniMax H3: with vs without the Stereoptical Process LoRA | `workflows/tests-h3-stereoptical-lora/` | MiniMax H3: workflows from this Tests video. |
 
 ## Related notes
 

@@ -44,6 +44,7 @@ will run in a different ComfyUI installation.
 | MiniMax H3 T2V variants | `workflows/minimax-h3-t2v-11-variants/video_minimax_h3_t2v Prince Does AI Demo.json` | T2V demo graph containing multiple configured variants. |
 | MiniMax H3 realistic quiz | `workflows/minimax-h3-realistic-quiz-prince/realistic_quiz_prince_scene_01_canvas_grouped.json` | Grouped canvas export for realistic quiz scene 01. |
 | MiniMax H3 realistic quiz | `workflows/minimax-h3-realistic-quiz-prince/realistic_quiz_prince_scene_02_canvas_grouped.json` | Grouped canvas export for realistic quiz scene 02. |
+| MiniMax H3 AI talking head | `workflows/minimax-h3-ai-talking-head/ai_talking_head_r2v.json` | Reference-to-video talking head (face sheet, voice clip, studio and outfit references; Turbo + Realism LoRAs; RIFE + RTX output) from "How I Make My AI Talking Head in ComfyUI (3 Ways)". 8 scene prompts in `prompts_8_scenes.txt`. |
 
 ## MiniMax H3 caption-scene exports
 

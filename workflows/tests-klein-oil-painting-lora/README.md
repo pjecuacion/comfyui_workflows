@@ -11,7 +11,7 @@ Drag a `.json` file onto ComfyUI. These are API-format exports: ComfyUI lays the
 | File | Model | Settings used in the video |
 | --- | --- | --- |
 | `image_flux3_klein_lora.json` | FLUX 3 Image Klein | seed 20261019, aspect 16:9, strength 1.0 |
-| `image_flux3_klein_edit_lora.json` | klein-edit-lora | the saved defaults |
+| `image_flux3_klein_edit_lora.json` | FLUX 3 Image Klein (edit) | seed 20261019, LoRA strength 1.5 |
 
 ## Models you need
 
@@ -19,7 +19,7 @@ Drag a `.json` file onto ComfyUI. These are API-format exports: ComfyUI lays the
 - `flux3_image_klein_int8_convrot.safetensors`
 - `qwen3vl_4b_int8_convrot.safetensors`
 - `flux2-vae.safetensors`
-- `set-lora-by-recipe.safetensors`
+- `mnt_oil_klein3.safetensors` (my oil-painting style LoRA, trigger word `mnt_oil`, put it in `models/loras/`): https://huggingface.co/pjecuacion/flux3-klein-mnt-oil-monet-lora
 
 ## Nodes used
 

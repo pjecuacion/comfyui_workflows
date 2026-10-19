@@ -155,8 +155,8 @@
       "title": "LoRA 1 (comfyflows: lora, strength)"
     },
     "inputs": {
-      "lora_name": "set-lora-by-recipe.safetensors",
-      "strength_model": 1.0,
+      "lora_name": "mnt_oil_klein3.safetensors",
+      "strength_model": 1.5,
       "model": [
         "1",
         0
@@ -169,7 +169,7 @@
       "title": "LoRA 2 (comfyflows: lora2, strength2)"
     },
     "inputs": {
-      "lora_name": "set-lora-by-recipe.safetensors",
+      "lora_name": "mnt_oil_klein3.safetensors",
       "strength_model": 0.0,
       "model": [
         "200",

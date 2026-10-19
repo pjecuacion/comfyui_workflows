@@ -127,6 +127,7 @@ Workflows behind the "Tests" videos (solo hard tests and versus matchups), one f
 | MiniMax H3: with vs without the Crash Zoom LoRA | `workflows/tests-h3-crash-zoom-lora/` | MiniMax H3: workflows from this Tests video. |
 | Anime to Real Life: LTX 2.5 vs MiniMax H3, same anime start picture, 12 rounds | `workflows/tests-anime-to-real/` | Z-Image Turbo, LTX 2.5, MiniMax H3: workflows from this Tests video. |
 | FLUX 3 Klein: with vs without my own oil-painting LoRA | `workflows/tests-klein-oil-painting-lora/` | FLUX 3 Image Klein: workflows from this Tests video. |
+| LTX 2.5 vs MiniMax H3 REMATCH: each model prompted its own way, 10 rounds | `workflows/tests-ltx25-vs-h3-rematch/` | LTX 2.5, MiniMax H3: workflows from this Tests video. |
 
 ## Related notes
 

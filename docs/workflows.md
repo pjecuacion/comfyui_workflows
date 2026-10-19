@@ -124,6 +124,7 @@ Workflows behind the "Tests" videos (solo hard tests and versus matchups), one f
 | MiniMax H3: with vs without the 30s Technicolor Movie LoRA | `workflows/tests-h3-technicolor-lora/` | MiniMax H3: workflows from this Tests video. |
 | MiniMax H3: with vs without the Aziib Pixel Style LoRA | `workflows/tests-h3-aziib-pixel-lora/` | MiniMax H3: workflows from this Tests video. |
 | MiniMax H3: with vs without the SSS Smooth Slow Sync LoRA | `workflows/tests-h3-smooth-slow-sync-lora/` | MiniMax H3: workflows from this Tests video. |
+| MiniMax H3: with vs without the Crash Zoom LoRA | `workflows/tests-h3-crash-zoom-lora/` | MiniMax H3: workflows from this Tests video. |
 
 ## Related notes
 

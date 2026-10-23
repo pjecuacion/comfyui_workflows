@@ -133,6 +133,7 @@ Workflows behind the "Tests" videos (solo hard tests and versus matchups), one f
 | MiniMax H3: with vs without the Dutch Angle Slider LoRA | `workflows/tests-h3-dutch-angle-lora/` | MiniMax H3: workflows from this Tests video. |
 | MiniMax H3: with vs without the Zero Gravity LoRA | `workflows/tests-h3-zero-gravity-lora/` | MiniMax H3: workflows from this Tests video. |
 | FastH3 Omni vs FastVideo VSA 4-step: 18 same tests | `workflows/tests-fasth3-omni-vs-fastvideo/` | fastvideo-vsa4-ref: workflows from this Tests video. |
+| How to Use LoRA in ComfyUI: Wire It Right (Power Lora Loader) | `workflows/tests-power-lora-loader-wiring/` | MiniMax H3 template + Power Lora Loader (rgthree), wired the safe way (UI format). |
 
 ## Related notes
 

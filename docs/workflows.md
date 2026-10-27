@@ -135,6 +135,7 @@ Workflows behind the "Tests" videos (solo hard tests and versus matchups), one f
 | FastH3 Omni vs FastVideo VSA 4-step: 18 same tests | `workflows/tests-fasth3-omni-vs-fastvideo/` | fastvideo-vsa4-ref: workflows from this Tests video. |
 | How to Use LoRA in ComfyUI: Wire It Right (Power Lora Loader) | `workflows/tests-power-lora-loader-wiring/` | MiniMax H3 template + Power Lora Loader (rgthree), wired the safe way (UI format). |
 | FLUX 3 Klein vs Qwen Image 2.1: Same Hard Tests | `workflows/tests-klein-vs-qwen/` | FLUX 3 Image Klein, Qwen Image 2.1, Qwen Image 2.1 Edit: workflows from this Tests video. |
+| 10 MiniMax H3 LoRAs: With vs Without | `workflows/tests-h3-lora-roundup/` | MiniMax H3: workflows from this Tests video. |
 
 ## Related notes
 

@@ -139,6 +139,7 @@ Workflows behind the "Tests" videos (solo hard tests and versus matchups), one f
 | MiniMax H3 talking heads: 15 hard tests | `workflows/tests-h3-talking-heads/` | MiniMax H3: workflows from this Tests video. |
 | I Tested MOSS-Image: 24 Hard Tests | `workflows/tests-moss-image-24-hard-tests/` | moss: workflows from this Tests video. |
 | I Tested P-H3-Image: 30 Hard Tests | `workflows/tests-p-h3-image-30-hard-tests/` | p-h3-image: workflows from this Tests video. |
+| Pika H3 Flex talking heads: 15 hard tests | `workflows/tests-pika-h3-talking-heads/` | pika-t2v: workflows from this Tests video. |
 
 ## Related notes
 

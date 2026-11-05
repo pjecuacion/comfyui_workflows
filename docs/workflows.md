@@ -137,6 +137,7 @@ Workflows behind the "Tests" videos (solo hard tests and versus matchups), one f
 | FLUX 3 Klein vs Qwen Image 2.1: Same Hard Tests | `workflows/tests-klein-vs-qwen/` | FLUX 3 Image Klein, Qwen Image 2.1, Qwen Image 2.1 Edit: workflows from this Tests video. |
 | 10 MiniMax H3 LoRAs: With vs Without | `workflows/tests-h3-lora-roundup/` | MiniMax H3: workflows from this Tests video. |
 | MiniMax H3 talking heads: 15 hard tests | `workflows/tests-h3-talking-heads/` | MiniMax H3: workflows from this Tests video. |
+| I Tested MOSS-Image: 24 Hard Tests | `workflows/tests-moss-image-24-hard-tests/` | moss: workflows from this Tests video. |
 
 ## Related notes
 

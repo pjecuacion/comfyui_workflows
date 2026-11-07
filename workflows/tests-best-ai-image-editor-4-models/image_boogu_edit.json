@@ -1,0 +1,264 @@
+{
+ "32": {
+  "inputs": {
+   "image": "giant_tulip_wanderer.png"
+  },
+  "class_type": "LoadImage",
+  "_meta": {
+   "title": "Load Image",
+   "cnr_id": "comfy-core",
+   "ver": "0.25.0"
+  }
+ },
+ "46": {
+  "inputs": {
+   "image": [
+    "49",
+    0
+   ]
+  },
+  "class_type": "GetImageSize",
+  "_meta": {
+   "title": "Get Image Size",
+   "cnr_id": "comfy-core",
+   "ver": "0.25.0"
+  }
+ },
+ "49": {
+  "inputs": {
+   "resize_type": "scale total pixels",
+   "resize_type.megapixels": 1,
+   "scale_method": "lanczos",
+   "input": [
+    "32",
+    0
+   ]
+  },
+  "class_type": "ResizeImageMaskNode",
+  "_meta": {
+   "title": "Resize Image/Mask",
+   "cnr_id": "comfy-core",
+   "ver": "0.25.0"
+  }
+ },
+ "53": {
+  "inputs": {
+   "compare_view": {
+    "__value__": [
+     "",
+     ""
+    ]
+   },
+   "image_a": [
+    "32",
+    0
+   ],
+   "image_b": [
+    "55",
+    0
+   ]
+  },
+  "class_type": "ImageCompare",
+  "_meta": {
+   "title": "Compare Images",
+   "cnr_id": "comfy-core",
+   "ver": "0.25.0"
+  }
+ },
+ "55": {
+  "inputs": {
+   "filename_prefix": "Boogu_image_edit",
+   "format": "png",
+   "format.bit_depth": "8-bit",
+   "format.input_color_space": "sRGB",
+   "images": [
+    "45:3",
+    0
+   ]
+  },
+  "class_type": "SaveImageAdvanced",
+  "_meta": {
+   "title": "Save Image (Advanced)",
+   "cnr_id": "comfy-core",
+   "ver": "0.44.2"
+  }
+ },
+ "45:2": {
+  "inputs": {
+   "unet_name": "boogu_image_edit_int8_convrot.safetensors",
+   "weight_dtype": "default"
+  },
+  "class_type": "UNETLoader",
+  "_meta": {
+   "title": "Load Diffusion Model",
+   "cnr_id": "comfy-core",
+   "ver": "0.25.0"
+  }
+ },
+ "45:5": {
+  "inputs": {
+   "vae_name": "ae.safetensors"
+  },
+  "class_type": "VAELoader",
+  "_meta": {
+   "title": "Load VAE",
+   "cnr_id": "comfy-core",
+   "ver": "0.25.0"
+  }
+ },
+ "45:8": {
+  "inputs": {
+   "width": [
+    "46",
+    0
+   ],
+   "height": [
+    "46",
+    1
+   ],
+   "batch_size": 1
+  },
+  "class_type": "EmptyLatentImage",
+  "_meta": {
+   "title": "Empty Latent Image",
+   "cnr_id": "comfy-core",
+   "ver": "0.25.0"
+  }
+ },
+ "45:33": {
+  "inputs": {
+   "shift": 3.16,
+   "sampling": "flow",
+   "model": [
+    "45:2",
+    0
+   ]
+  },
+  "class_type": "ModelSamplingAuraFlow",
+  "_meta": {
+   "title": "ModelSamplingAuraFlow",
+   "cnr_id": "comfy-core",
+   "ver": "0.25.0"
+  }
+ },
+ "45:7": {
+  "inputs": {
+   "clip_name": "qwen3vl_8b_fp8_scaled.safetensors",
+   "type": "boogu",
+   "device": "default"
+  },
+  "class_type": "CLIPLoader",
+  "_meta": {
+   "title": "Load CLIP",
+   "cnr_id": "comfy-core",
+   "ver": "0.25.0"
+  }
+ },
+ "45:3": {
+  "inputs": {
+   "samples": [
+    "45:21",
+    0
+   ],
+   "vae": [
+    "45:5",
+    0
+   ]
+  },
+  "class_type": "VAEDecode",
+  "_meta": {
+   "title": "VAE Decode",
+   "cnr_id": "comfy-core",
+   "ver": "0.25.0"
+  }
+ },
+ "45:36": {
+  "inputs": {
+   "prompt": "Keep the character unchanged, replace the desert background and scene. The model is on the dune.",
+   "negative_prompt": "",
+   "clip": [
+    "45:7",
+    0
+   ],
+   "vae": [
+    "45:5",
+    0
+   ],
+   "images.image_1": [
+    "32",
+    0
+   ]
+  },
+  "class_type": "TextEncodeBooguEdit",
+  "_meta": {
+   "title": "TextEncodeBooguEdit",
+   "cnr_id": "comfy-core",
+   "ver": "0.25.0"
+  }
+ },
+ "45:21": {
+  "inputs": {
+   "add_noise": true,
+   "noise_seed": 22,
+   "cfg": 3.5,
+   "model": [
+    "45:2",
+    0
+   ],
+   "positive": [
+    "45:36",
+    0
+   ],
+   "negative": [
+    "45:36",
+    1
+   ],
+   "sampler": [
+    "45:22",
+    0
+   ],
+   "sigmas": [
+    "45:26",
+    0
+   ],
+   "latent_image": [
+    "45:8",
+    0
+   ]
+  },
+  "class_type": "SamplerCustom",
+  "_meta": {
+   "title": "SamplerCustom",
+   "cnr_id": "comfy-core",
+   "ver": "0.25.0"
+  }
+ },
+ "45:22": {
+  "inputs": {
+   "sampler_name": "dpmpp_2m"
+  },
+  "class_type": "KSamplerSelect",
+  "_meta": {
+   "title": "KSamplerSelect",
+   "cnr_id": "comfy-core",
+   "ver": "0.25.0"
+  }
+ },
+ "45:26": {
+  "inputs": {
+   "scheduler": "simple",
+   "steps": 25,
+   "denoise": 1,
+   "model": [
+    "45:33",
+    0
+   ]
+  },
+  "class_type": "BasicScheduler",
+  "_meta": {
+   "title": "BasicScheduler",
+   "cnr_id": "comfy-core",
+   "ver": "0.25.0"
+  }
+ }
+}

@@ -1,0 +1,253 @@
+{
+ "41": {
+  "inputs": {
+   "image": "perfume_bottle.png.png"
+  },
+  "class_type": "LoadImage",
+  "_meta": {
+   "title": "Reference image",
+   "cnr_id": "comfy-core",
+   "ver": "0.5.1"
+  }
+ },
+ "171": {
+  "inputs": {
+   "image": [
+    "173",
+    0
+   ]
+  },
+  "class_type": "GetImageSize",
+  "_meta": {
+   "title": "Get Image Size",
+   "cnr_id": "comfy-core",
+   "ver": "0.44.2"
+  }
+ },
+ "173": {
+  "inputs": {
+   "upscale_method": "nearest-exact",
+   "megapixels": 1,
+   "resolution_steps": 16,
+   "image": [
+    "41",
+    0
+   ]
+  },
+  "class_type": "ImageScaleToTotalPixels",
+  "_meta": {
+   "title": "Scale Image to Total Pixels",
+   "cnr_id": "comfy-core",
+   "ver": "0.44.2"
+  }
+ },
+ "181": {
+  "inputs": {
+   "compare_view": {
+    "__value__": [
+     "",
+     ""
+    ]
+   },
+   "image_a": [
+    "173",
+    0
+   ],
+   "image_b": [
+    "182",
+    0
+   ]
+  },
+  "class_type": "ImageCompare",
+  "_meta": {
+   "title": "Compare Images",
+   "cnr_id": "comfy-core",
+   "ver": "0.44.2"
+  }
+ },
+ "182": {
+  "inputs": {
+   "filename_prefix": "Joy_Image_Edit",
+   "format": "png",
+   "format.bit_depth": "8-bit",
+   "format.input_color_space": "sRGB",
+   "images": [
+    "170:11",
+    0
+   ]
+  },
+  "class_type": "SaveImageAdvanced",
+  "_meta": {
+   "title": "Save Image (Advanced)",
+   "cnr_id": "comfy-core",
+   "ver": "0.44.2"
+  }
+ },
+ "170:3": {
+  "inputs": {
+   "unet_name": "joyai_image_edit_int8_convrot.safetensors",
+   "weight_dtype": "default"
+  },
+  "class_type": "UNETLoader",
+  "_meta": {
+   "title": "Load Diffusion Model",
+   "cnr_id": "comfy-core",
+   "ver": "0.5.1"
+  }
+ },
+ "170:4": {
+  "inputs": {
+   "clip_name": "qwen3vl_8b_joyimage_edit_int8_convrot.safetensors",
+   "type": "joyimage",
+   "device": "default"
+  },
+  "class_type": "CLIPLoader",
+  "_meta": {
+   "title": "Load CLIP",
+   "cnr_id": "comfy-core",
+   "ver": "0.5.1"
+  }
+ },
+ "170:5": {
+  "inputs": {
+   "vae_name": "wan_2.1_vae.safetensors"
+  },
+  "class_type": "VAELoader",
+  "_meta": {
+   "title": "Load VAE",
+   "cnr_id": "comfy-core",
+   "ver": "0.5.1"
+  }
+ },
+ "170:10": {
+  "inputs": {
+   "seed": 42,
+   "steps": 40,
+   "cfg": 4,
+   "sampler_name": "euler",
+   "scheduler": "normal",
+   "denoise": 1,
+   "model": [
+    "170:12",
+    0
+   ],
+   "positive": [
+    "170:174",
+    0
+   ],
+   "negative": [
+    "170:177",
+    0
+   ],
+   "latent_image": [
+    "170:178",
+    0
+   ]
+  },
+  "class_type": "KSampler",
+  "_meta": {
+   "title": "KSampler",
+   "cnr_id": "comfy-core",
+   "ver": "0.5.1"
+  }
+ },
+ "170:11": {
+  "inputs": {
+   "samples": [
+    "170:10",
+    0
+   ],
+   "vae": [
+    "170:5",
+    0
+   ]
+  },
+  "class_type": "VAEDecode",
+  "_meta": {
+   "title": "VAE Decode",
+   "cnr_id": "comfy-core",
+   "ver": "0.5.1"
+  }
+ },
+ "170:12": {
+  "inputs": {
+   "strength": 1,
+   "pre_cfg": true,
+   "model": [
+    "170:3",
+    0
+   ]
+  },
+  "class_type": "CFGNorm",
+  "_meta": {
+   "title": "CFGNorm",
+   "cnr_id": "comfy-core",
+   "ver": "0.5.1"
+  }
+ },
+ "170:174": {
+  "inputs": {
+   "prompt": "Change the background to a glacial scene.",
+   "clip": [
+    "170:4",
+    0
+   ],
+   "vae": [
+    "170:5",
+    0
+   ],
+   "images.image0": [
+    "173",
+    0
+   ]
+  },
+  "class_type": "TextEncodeJoyImageEdit",
+  "_meta": {
+   "title": "TextEncodeJoyImageEdit (Positive)",
+   "cnr_id": "comfy-core",
+   "ver": "0.44.2"
+  }
+ },
+ "170:177": {
+  "inputs": {
+   "prompt": "",
+   "clip": [
+    "170:4",
+    0
+   ],
+   "vae": [
+    "170:5",
+    0
+   ],
+   "images.image0": [
+    "173",
+    0
+   ]
+  },
+  "class_type": "TextEncodeJoyImageEdit",
+  "_meta": {
+   "title": "TextEncodeJoyImageEdit (Positive)",
+   "cnr_id": "comfy-core",
+   "ver": "0.44.2"
+  }
+ },
+ "170:178": {
+  "inputs": {
+   "width": [
+    "171",
+    0
+   ],
+   "height": [
+    "171",
+    1
+   ],
+   "batch_size": 1
+  },
+  "class_type": "EmptySD3LatentImage",
+  "_meta": {
+   "title": "EmptySD3LatentImage",
+   "cnr_id": "comfy-core",
+   "ver": "0.44.2"
+  }
+ }
+}

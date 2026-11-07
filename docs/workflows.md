@@ -140,6 +140,7 @@ Workflows behind the "Tests" videos (solo hard tests and versus matchups), one f
 | I Tested MOSS-Image: 24 Hard Tests | `workflows/tests-moss-image-24-hard-tests/` | moss: workflows from this Tests video. |
 | I Tested P-H3-Image: 30 Hard Tests | `workflows/tests-p-h3-image-30-hard-tests/` | p-h3-image: workflows from this Tests video. |
 | Pika H3 Flex talking heads: 15 hard tests | `workflows/tests-pika-h3-talking-heads/` | pika-t2v: workflows from this Tests video. |
+| Which AI Can Spell? Ideogram 4 vs Z-Image vs MOSS vs P-H3-Image: 15 Text Tests | `workflows/tests-text-showdown-4-models/` | Ideogram 4, Z-Image Turbo, moss, p-h3-image: workflows from this Tests video. |
 
 ## Related notes
 

@@ -144,6 +144,7 @@ Workflows behind the "Tests" videos (solo hard tests and versus matchups), one f
 | Qwen Image Edit 2511 vs FLUX 3 Klein Edit: Same Character, 20 Hard Tests | `workflows/tests-qwen-edit-2511-vs-klein-edit/` | qwen-edit-2511, FLUX 3 Image Klein: workflows from this Tests video. |
 | I Tested Ming Image Edit: 20 Hard Design Edits | `workflows/tests-ming-image-edit-20-hard-tests/` | ming-edit: workflows from this Tests video. |
 | I Tested JoyAI Image Edit: 20 Hard Edits on Real Photos | `workflows/tests-joyai-image-edit-20-hard-tests/` | joyai-edit: workflows from this Tests video. |
+| I Tested Boogu Image Edit: 20 Hard Edits on Real Photos | `workflows/tests-boogu-image-edit-20-hard-tests/` | boogu-edit: workflows from this Tests video. |
 
 ## Related notes
 

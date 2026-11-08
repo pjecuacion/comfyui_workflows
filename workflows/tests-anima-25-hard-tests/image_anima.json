@@ -1,0 +1,308 @@
+{
+ "46": {
+  "inputs": {
+   "filename_prefix": "Anima",
+   "images": [
+    "90:73",
+    0
+   ]
+  },
+  "class_type": "SaveImage",
+  "_meta": {
+   "title": "Save Image",
+   "cnr_id": "comfy-core",
+   "ver": "0.11.1"
+  }
+ },
+ "91": {
+  "inputs": {
+   "aspect_ratio": "1:1 (Square)",
+   "megapixels": 1,
+   "multiple": 16
+  },
+  "class_type": "ResolutionSelector",
+  "_meta": {
+   "title": "Resolution Selector",
+   "cnr_id": "comfy-core",
+   "ver": "0.44.2"
+  }
+ },
+ "90:71": {
+  "inputs": {
+   "clip_name": "qwen_3_06b_base.safetensors",
+   "type": "stable_diffusion",
+   "device": "default"
+  },
+  "class_type": "CLIPLoader",
+  "_meta": {
+   "title": "Load CLIP",
+   "cnr_id": "comfy-core",
+   "ver": "0.11.0"
+  }
+ },
+ "90:72": {
+  "inputs": {
+   "vae_name": "qwen_image_vae.safetensors"
+  },
+  "class_type": "VAELoader",
+  "_meta": {
+   "title": "Load VAE",
+   "cnr_id": "comfy-core",
+   "ver": "0.3.40"
+  }
+ },
+ "90:73": {
+  "inputs": {
+   "samples": [
+    "90:76",
+    0
+   ],
+   "vae": [
+    "90:72",
+    0
+   ]
+  },
+  "class_type": "VAEDecode",
+  "_meta": {
+   "title": "VAE Decode",
+   "cnr_id": "comfy-core",
+   "ver": "0.3.40"
+  }
+ },
+ "90:74": {
+  "inputs": {
+   "width": [
+    "91",
+    0
+   ],
+   "height": [
+    "91",
+    1
+   ],
+   "batch_size": 1
+  },
+  "class_type": "EmptyLatentImage",
+  "_meta": {
+   "title": "Empty Latent Image",
+   "cnr_id": "comfy-core",
+   "ver": "0.3.40"
+  }
+ },
+ "90:75": {
+  "inputs": {
+   "text": "worst quality, low quality, score_1, score_2, score_3, blurry, jpeg artifacts, sepia",
+   "clip": [
+    "90:71",
+    0
+   ]
+  },
+  "class_type": "CLIPTextEncode",
+  "_meta": {
+   "title": "CLIP Text Encode (Negative Prompt)",
+   "cnr_id": "comfy-core",
+   "ver": "0.3.65"
+  }
+ },
+ "90:76": {
+  "inputs": {
+   "seed": 755918130909406,
+   "steps": [
+    "90:85",
+    0
+   ],
+   "cfg": [
+    "90:87",
+    0
+   ],
+   "sampler_name": "euler",
+   "scheduler": "simple",
+   "denoise": 1,
+   "model": [
+    "90:84",
+    0
+   ],
+   "positive": [
+    "90:77",
+    0
+   ],
+   "negative": [
+    "90:75",
+    0
+   ],
+   "latent_image": [
+    "90:74",
+    0
+   ]
+  },
+  "class_type": "KSampler",
+  "_meta": {
+   "title": "KSampler",
+   "cnr_id": "comfy-core",
+   "ver": "0.3.40"
+  }
+ },
+ "90:77": {
+  "inputs": {
+   "text": "Anime monochrome cyberpunk front portrait, male figure, sleek skin with delicate mechanical lines, piercing glowing eyes, partial exposed metallic mecha components and light cables, sharp domineering cool style, textured anime brushwork, faint circuit background, high contrast chiaroscuro lighting, immersive cinematic shadows, ultra fine details, 8K high-def render, futuristic dystopian mood",
+   "clip": [
+    "90:71",
+    0
+   ]
+  },
+  "class_type": "CLIPTextEncode",
+  "_meta": {
+   "title": "CLIP Text Encode (Positive Prompt)",
+   "cnr_id": "comfy-core",
+   "ver": "0.3.65"
+  }
+ },
+ "90:78": {
+  "inputs": {
+   "unet_name": "anima-base-v1.0.safetensors",
+   "weight_dtype": "default"
+  },
+  "class_type": "UNETLoader",
+  "_meta": {
+   "title": "Load Diffusion Model",
+   "cnr_id": "comfy-core",
+   "ver": "0.11.0"
+  }
+ },
+ "90:79": {
+  "inputs": {
+   "value": 30
+  },
+  "class_type": "PrimitiveInt",
+  "_meta": {
+   "title": "Int (Steps)",
+   "cnr_id": "comfy-core",
+   "ver": "0.44.2"
+  }
+ },
+ "90:81": {
+  "inputs": {
+   "value": 8
+  },
+  "class_type": "PrimitiveInt",
+  "_meta": {
+   "title": "Int (Steps)",
+   "cnr_id": "comfy-core",
+   "ver": "0.44.2"
+  }
+ },
+ "90:83": {
+  "inputs": {
+   "lora_name": "anima-turbo-lora-v0.2.safetensors",
+   "strength_model": 1,
+   "model": [
+    "90:78",
+    0
+   ]
+  },
+  "class_type": "LoraLoaderModelOnly",
+  "_meta": {
+   "title": "Load LoRA",
+   "cnr_id": "comfy-core",
+   "ver": "0.44.2"
+  }
+ },
+ "90:84": {
+  "inputs": {
+   "switch": [
+    "90:89",
+    0
+   ],
+   "on_false": [
+    "90:78",
+    0
+   ],
+   "on_true": [
+    "90:83",
+    0
+   ]
+  },
+  "class_type": "ComfySwitchNode",
+  "_meta": {
+   "title": "If/Else Switch",
+   "cnr_id": "comfy-core",
+   "ver": "0.44.2"
+  }
+ },
+ "90:85": {
+  "inputs": {
+   "switch": [
+    "90:89",
+    0
+   ],
+   "on_false": [
+    "90:79",
+    0
+   ],
+   "on_true": [
+    "90:81",
+    0
+   ]
+  },
+  "class_type": "ComfySwitchNode",
+  "_meta": {
+   "title": "If/Else Switch",
+   "cnr_id": "comfy-core",
+   "ver": "0.44.2"
+  }
+ },
+ "90:86": {
+  "inputs": {
+   "value": 4
+  },
+  "class_type": "PrimitiveFloat",
+  "_meta": {
+   "title": "Float (CFG)",
+   "cnr_id": "comfy-core",
+   "ver": "0.44.2"
+  }
+ },
+ "90:87": {
+  "inputs": {
+   "switch": [
+    "90:89",
+    0
+   ],
+   "on_false": [
+    "90:86",
+    0
+   ],
+   "on_true": [
+    "90:88",
+    0
+   ]
+  },
+  "class_type": "ComfySwitchNode",
+  "_meta": {
+   "title": "If/Else Switch",
+   "cnr_id": "comfy-core",
+   "ver": "0.44.2"
+  }
+ },
+ "90:88": {
+  "inputs": {
+   "value": 1
+  },
+  "class_type": "PrimitiveFloat",
+  "_meta": {
+   "title": "Float (CFG)",
+   "cnr_id": "comfy-core",
+   "ver": "0.44.2"
+  }
+ },
+ "90:89": {
+  "inputs": {
+   "value": false
+  },
+  "class_type": "PrimitiveBoolean",
+  "_meta": {
+   "title": "Boolean",
+   "cnr_id": "comfy-core",
+   "ver": "0.44.2"
+  }
+ }
+}

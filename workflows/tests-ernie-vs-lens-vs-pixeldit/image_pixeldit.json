@@ -1,0 +1,165 @@
+{
+ "43": {
+  "inputs": {
+   "filename_prefix": "PixelDiT",
+   "images": [
+    "44:15",
+    0
+   ]
+  },
+  "class_type": "SaveImage",
+  "_meta": {
+   "title": "Save Image",
+   "cnr_id": "comfy-core",
+   "ver": "0.22.0"
+  }
+ },
+ "46": {
+  "inputs": {
+   "aspect_ratio": "1:1 (Square)",
+   "megapixels": 1,
+   "multiple": 8
+  },
+  "class_type": "ResolutionSelector",
+  "_meta": {
+   "title": "Resolution Selector",
+   "cnr_id": "comfy-core",
+   "ver": "0.22.0"
+  }
+ },
+ "44:42": {
+  "inputs": {
+   "seed": 59233627785266,
+   "steps": 30,
+   "cfg": 4,
+   "sampler_name": "er_sde",
+   "scheduler": "simple",
+   "denoise": 1,
+   "model": [
+    "44:2",
+    0
+   ],
+   "positive": [
+    "44:6",
+    0
+   ],
+   "negative": [
+    "44:30",
+    0
+   ],
+   "latent_image": [
+    "44:31",
+    0
+   ]
+  },
+  "class_type": "KSampler",
+  "_meta": {
+   "title": "KSampler",
+   "cnr_id": "comfy-core",
+   "ver": "0.22.0"
+  }
+ },
+ "44:30": {
+  "inputs": {
+   "text": "low quality, worst quality, over-saturated, blurry, deformed, watermark",
+   "clip": [
+    "44:9",
+    0
+   ]
+  },
+  "class_type": "CLIPTextEncode",
+  "_meta": {
+   "title": "CLIP Text Encode (Prompt)",
+   "cnr_id": "comfy-core",
+   "ver": "0.22.0"
+  }
+ },
+ "44:15": {
+  "inputs": {
+   "samples": [
+    "44:42",
+    0
+   ],
+   "vae": [
+    "44:16",
+    0
+   ]
+  },
+  "class_type": "VAEDecode",
+  "_meta": {
+   "title": "VAE Decode",
+   "cnr_id": "comfy-core",
+   "ver": "0.22.0"
+  }
+ },
+ "44:16": {
+  "inputs": {
+   "vae_name": "pixel_space"
+  },
+  "class_type": "VAELoader",
+  "_meta": {
+   "title": "Load VAE",
+   "cnr_id": "comfy-core",
+   "ver": "0.22.0"
+  }
+ },
+ "44:9": {
+  "inputs": {
+   "clip_name": "gemma_2_2b_it_elm_bf16.safetensors",
+   "type": "pixeldit",
+   "device": "default"
+  },
+  "class_type": "CLIPLoader",
+  "_meta": {
+   "title": "Load CLIP",
+   "cnr_id": "comfy-core",
+   "ver": "0.22.0"
+  }
+ },
+ "44:2": {
+  "inputs": {
+   "unet_name": "pixeldit_1300m_1024px_bf16.safetensors",
+   "weight_dtype": "default"
+  },
+  "class_type": "UNETLoader",
+  "_meta": {
+   "title": "Load Diffusion Model",
+   "cnr_id": "comfy-core",
+   "ver": "0.22.0"
+  }
+ },
+ "44:31": {
+  "inputs": {
+   "width": [
+    "46",
+    0
+   ],
+   "height": [
+    "46",
+    1
+   ],
+   "batch_size": 1
+  },
+  "class_type": "EmptyChromaRadianceLatentImage",
+  "_meta": {
+   "title": "EmptyChromaRadianceLatentImage",
+   "cnr_id": "comfy-core",
+   "ver": "0.22.0"
+  }
+ },
+ "44:6": {
+  "inputs": {
+   "text": "A surreal architectural scene featuring a woman in a flowing white dress walking away from the viewer through a narrow canyon of smooth, organic beige rock formations. The architecture resembles fluid sandstone or sculpted clay with undulating curves and soft edges. Bright sunlight streams from above, casting sharp shadows on the ground and illuminating the textured surfaces of the walls. The sky is a clear, deep blue visible at the top of the frame. The composition uses leading lines formed by the canyon walls to draw the eye toward the figure in the distance. High-quality photorealistic rendering with 8k resolution, cinematic lighting, dramatic contrast between light and shadow, and a sense of scale emphasizing the grandeur of the environment.",
+   "clip": [
+    "44:9",
+    0
+   ]
+  },
+  "class_type": "CLIPTextEncode",
+  "_meta": {
+   "title": "CLIP Text Encode (Prompt)",
+   "cnr_id": "comfy-core",
+   "ver": "0.22.0"
+  }
+ }
+}

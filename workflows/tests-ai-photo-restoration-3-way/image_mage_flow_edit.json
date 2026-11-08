@@ -1,0 +1,291 @@
+{
+ "7": {
+  "inputs": {
+   "image": "calm_amid_ruin.png"
+  },
+  "class_type": "LoadImage",
+  "_meta": {
+   "title": "Load Image",
+   "cnr_id": "comfy-core",
+   "ver": "0.44.2"
+  }
+ },
+ "10": {
+  "inputs": {
+   "filename_prefix": "Mage_flow_edit",
+   "format": "png",
+   "format.bit_depth": "8-bit",
+   "format.input_color_space": "sRGB",
+   "images": [
+    "12:8",
+    0
+   ]
+  },
+  "class_type": "SaveImageAdvanced",
+  "_meta": {
+   "title": "Save Image (Advanced)",
+   "cnr_id": "comfy-core",
+   "ver": "0.44.2"
+  }
+ },
+ "12:1": {
+  "inputs": {
+   "unet_name": "mage_flow_edit_int8_convrot.safetensors",
+   "weight_dtype": "default"
+  },
+  "class_type": "UNETLoader",
+  "_meta": {
+   "title": "Load Diffusion Model",
+   "cnr_id": "comfy-core",
+   "ver": "0.44.2"
+  }
+ },
+ "12:3": {
+  "inputs": {
+   "clip_name": "qwen3vl_4b_bf16.safetensors",
+   "type": "mage",
+   "device": "default"
+  },
+  "class_type": "CLIPLoader",
+  "_meta": {
+   "title": "Load CLIP",
+   "cnr_id": "comfy-core",
+   "ver": "0.44.2"
+  }
+ },
+ "12:4": {
+  "inputs": {
+   "vae_name": "mage_flow_vae_bf16.safetensors"
+  },
+  "class_type": "VAELoader",
+  "_meta": {
+   "title": "Load VAE",
+   "cnr_id": "comfy-core",
+   "ver": "0.44.2"
+  }
+ },
+ "12:5": {
+  "inputs": {
+   "prompt": "Keep the woman, pose, pink dress, chair, and reading unchanged. Replace the background with a wide, flat grassland prairie under soft golden sunlight, open sky, endless green fields.",
+   "negative_prompt": "",
+   "width": [
+    "12:16",
+    0
+   ],
+   "height": [
+    "12:17",
+    0
+   ],
+   "batch_size": 1,
+   "clip": [
+    "12:3",
+    0
+   ],
+   "images.image_1": [
+    "12:14",
+    0
+   ],
+   "vae": [
+    "12:4",
+    0
+   ]
+  },
+  "class_type": "TextEncodeMageFlowEdit",
+  "_meta": {
+   "title": "TextEncodeMageFlowEdit",
+   "cnr_id": "comfy-core",
+   "ver": "0.44.2"
+  }
+ },
+ "12:6": {
+  "inputs": {
+   "seed": 1088076636138798,
+   "steps": 30,
+   "cfg": 5,
+   "sampler_name": "euler",
+   "scheduler": "simple",
+   "denoise": 1,
+   "model": [
+    "12:1",
+    0
+   ],
+   "positive": [
+    "12:5",
+    0
+   ],
+   "negative": [
+    "12:5",
+    1
+   ],
+   "latent_image": [
+    "12:5",
+    2
+   ]
+  },
+  "class_type": "KSampler",
+  "_meta": {
+   "title": "KSampler",
+   "cnr_id": "comfy-core",
+   "ver": "0.44.2"
+  }
+ },
+ "12:8": {
+  "inputs": {
+   "samples": [
+    "12:6",
+    0
+   ],
+   "vae": [
+    "12:4",
+    0
+   ]
+  },
+  "class_type": "VAEDecode",
+  "_meta": {
+   "title": "VAE Decode",
+   "cnr_id": "comfy-core",
+   "ver": "0.44.2"
+  }
+ },
+ "12:14": {
+  "inputs": {
+   "switch": [
+    "12:19",
+    0
+   ],
+   "on_false": [
+    "7",
+    0
+   ],
+   "on_true": [
+    "12:26",
+    0
+   ]
+  },
+  "class_type": "ComfySwitchNode",
+  "_meta": {
+   "title": "Switch (Input Source)",
+   "cnr_id": "comfy-core",
+   "ver": "0.44.2"
+  }
+ },
+ "12:15": {
+  "inputs": {
+   "image": [
+    "12:14",
+    0
+   ]
+  },
+  "class_type": "GetImageSize",
+  "_meta": {
+   "title": "Get Image Size",
+   "cnr_id": "comfy-core",
+   "ver": "0.44.2"
+  }
+ },
+ "12:16": {
+  "inputs": {
+   "switch": [
+    "12:18",
+    0
+   ],
+   "on_false": [
+    "12:20",
+    0
+   ],
+   "on_true": [
+    "12:15",
+    0
+   ]
+  },
+  "class_type": "ComfySwitchNode",
+  "_meta": {
+   "title": "Switch (Width)",
+   "cnr_id": "comfy-core",
+   "ver": "0.44.2"
+  }
+ },
+ "12:17": {
+  "inputs": {
+   "switch": [
+    "12:18",
+    0
+   ],
+   "on_false": [
+    "12:21",
+    0
+   ],
+   "on_true": [
+    "12:15",
+    1
+   ]
+  },
+  "class_type": "ComfySwitchNode",
+  "_meta": {
+   "title": "Switch (Height)",
+   "cnr_id": "comfy-core",
+   "ver": "0.44.2"
+  }
+ },
+ "12:18": {
+  "inputs": {
+   "value": true
+  },
+  "class_type": "PrimitiveBoolean",
+  "_meta": {
+   "title": "Boolean (Match Input Size)",
+   "cnr_id": "comfy-core",
+   "ver": "0.44.2"
+  }
+ },
+ "12:19": {
+  "inputs": {
+   "value": true
+  },
+  "class_type": "PrimitiveBoolean",
+  "_meta": {
+   "title": "Boolean (Resize Input Image)",
+   "cnr_id": "comfy-core",
+   "ver": "0.44.2"
+  }
+ },
+ "12:20": {
+  "inputs": {
+   "value": 1024
+  },
+  "class_type": "PrimitiveInt",
+  "_meta": {
+   "title": "Int (Width)",
+   "cnr_id": "comfy-core",
+   "ver": "0.44.2"
+  }
+ },
+ "12:21": {
+  "inputs": {
+   "value": 1024
+  },
+  "class_type": "PrimitiveInt",
+  "_meta": {
+   "title": "Int (Height)",
+   "cnr_id": "comfy-core",
+   "ver": "0.44.2"
+  }
+ },
+ "12:26": {
+  "inputs": {
+   "upscale_method": "lanczos",
+   "megapixels": 1,
+   "resolution_steps": 16,
+   "image": [
+    "7",
+    0
+   ]
+  },
+  "class_type": "ImageScaleToTotalPixels",
+  "_meta": {
+   "title": "Scale Image to Total Pixels",
+   "cnr_id": "comfy-core",
+   "ver": "0.44.2"
+  }
+ }
+}

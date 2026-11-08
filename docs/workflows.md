@@ -155,6 +155,7 @@ Workflows behind the "Tests" videos (solo hard tests and versus matchups), one f
 | Spelling Rematch: ERNIE-Image Turbo vs Ideogram 4: 20 Hard Text Tests | `workflows/tests-ernie-vs-ideogram-text-rematch/` | ernie-image, Ideogram 4: workflows from this Tests video. |
 | Fastest Local AI Image Model: Lens Turbo vs Z-Image Turbo vs FLUX 3 Klein Distilled vs P-H3-Image | `workflows/tests-fastest-image-model-4-way/` | lens, Z-Image Turbo, FLUX 3 Image Klein, p-h3-image: workflows from this Tests video. |
 | Best AI Anime Generator: Anima vs FLUX 3 Klein Distilled vs Z-Image Turbo vs ERNIE-Image Turbo | `workflows/tests-best-ai-anime-generator-4-way/` | anima, FLUX 3 Image Klein, Z-Image Turbo, ernie-image: workflows from this Tests video. |
+| AI Photo Restoration: Qwen Image Edit 2511 vs JoyAI vs Microsoft Mage-Flow | `workflows/tests-ai-photo-restoration-3-way/` | qwen-edit-2511, joyai-edit, mage-flow-edit: workflows from this Tests video. |
 
 ## Related notes
 

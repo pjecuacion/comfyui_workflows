@@ -149,6 +149,7 @@ Workflows behind the "Tests" videos (solo hard tests and versus matchups), one f
 | I Tested Microsoft Mage-Flow Edit: 20 Hard Edits on Real Photos | `workflows/tests-mage-flow-edit-20-hard-tests/` | mage-flow-edit: workflows from this Tests video. |
 | Wan Animate 2: 10 hard character-animation tests | `workflows/tests-wan-animate-2-10-hard-tests/` | wan-animate2: workflows from this Tests video. |
 | ERNIE-Image Turbo vs Lens Turbo vs PixelDiT: 20 Hard Prompts | `workflows/tests-ernie-vs-lens-vs-pixeldit/` | ernie-image, lens, pixeldit: workflows from this Tests video. |
+| I Tested Anima: 25 Hard Anime Tests | `workflows/tests-anima-25-hard-tests/` | anima: workflows from this Tests video. |
 
 ## Related notes
 

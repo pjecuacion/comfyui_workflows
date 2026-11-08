@@ -152,6 +152,7 @@ Workflows behind the "Tests" videos (solo hard tests and versus matchups), one f
 | I Tested Anima: 25 Hard Anime Tests | `workflows/tests-anima-25-hard-tests/` | anima: workflows from this Tests video. |
 | ERNIE-Image Turbo: 25 Hard Text Tests | `workflows/tests-ernie-image-25-text-tests/` | ernie-image: workflows from this Tests video. |
 | Microsoft Lens Turbo: 25 Hard Tests | `workflows/tests-lens-turbo-25-hard-tests/` | lens: workflows from this Tests video. |
+| Spelling Rematch: ERNIE-Image Turbo vs Ideogram 4: 20 Hard Text Tests | `workflows/tests-ernie-vs-ideogram-text-rematch/` | ernie-image, Ideogram 4: workflows from this Tests video. |
 
 ## Related notes
 

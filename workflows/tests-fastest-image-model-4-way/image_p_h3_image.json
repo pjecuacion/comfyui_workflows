@@ -1,0 +1,307 @@
+{
+ "16": {
+  "inputs": {
+   "filename_prefix": "image_p_h3_t2i",
+   "images": [
+    "29:15",
+    0
+   ]
+  },
+  "class_type": "SaveImage",
+  "_meta": {
+   "title": "Save Image",
+   "cnr_id": "comfy-core",
+   "ver": "0.43.0"
+  }
+ },
+ "32": {
+  "inputs": {
+   "aspect_ratio": "4:3 (Standard)",
+   "megapixels": 8,
+   "multiple": 32
+  },
+  "class_type": "ResolutionSelector",
+  "_meta": {
+   "title": "Resolution Selector",
+   "cnr_id": "comfy-core",
+   "ver": "0.44.0"
+  }
+ },
+ "29:1": {
+  "inputs": {
+   "unet_name": "minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+   "weight_dtype": "default"
+  },
+  "class_type": "UNETLoader",
+  "_meta": {
+   "title": "Load Diffusion Model",
+   "cnr_id": "comfy-core",
+   "ver": "0.43.0"
+  }
+ },
+ "29:2": {
+  "inputs": {
+   "clip_name": "p-h3-image_text_encoder_int8_convrot.safetensors",
+   "type": "minimax",
+   "device": "default"
+  },
+  "class_type": "CLIPLoader",
+  "_meta": {
+   "title": "Text encoder",
+   "cnr_id": "comfy-core",
+   "ver": "0.43.0"
+  }
+ },
+ "29:19": {
+  "inputs": {
+   "lora_name": "p-h3-image_lora_bf16.safetensors",
+   "strength_model": 1,
+   "model": [
+    "29:1",
+    0
+   ]
+  },
+  "class_type": "LoraLoaderModelOnly",
+  "_meta": {
+   "title": "Load LoRA",
+   "cnr_id": "comfy-core",
+   "ver": "0.44.0"
+  }
+ },
+ "29:24": {
+  "inputs": {
+   "value": "Aspect ratio: 4:3\nRequest: view through the spokes and rim of an out-of-focus bicycle wheel in extreme foreground, overlaying a sunlit courtyard, whitewashed wall and wooden gate in the midground, two children running past a line of drying sheets, terracotta pots and a lemon tree at the edge, blown-out hazy backlight with oversized golden bokeh orbs, rainbow light leaks across the upper corner, cinematic framing, natural daylight, vintage film aesthetic Absolutely no text, no typography, no letters, no words, no numbers, no logos, no watermark, no captions, pure imagery only."
+  },
+  "class_type": "PrimitiveStringMultiline",
+  "_meta": {
+   "title": "Text (Prompt)",
+   "cnr_id": "comfy-core",
+   "ver": "0.44.0"
+  }
+ },
+ "29:3": {
+  "inputs": {
+   "vae_name": "p-h3-image_vae_int8_convrot.safetensors"
+  },
+  "class_type": "VAELoader",
+  "_meta": {
+   "title": "Load VAE",
+   "cnr_id": "comfy-core",
+   "ver": "0.43.0"
+  }
+ },
+ "29:4": {
+  "inputs": {
+   "clip_name": "p-h3-image_prompt_upsampler_w4a8.safetensors",
+   "type": "minimax",
+   "device": "default"
+  },
+  "class_type": "CLIPLoader",
+  "_meta": {
+   "title": "Prompt upsampler model",
+   "cnr_id": "comfy-core",
+   "ver": "0.43.0"
+  }
+ },
+ "29:23": {
+  "inputs": {
+   "switch": true,
+   "on_false": [
+    "29:24",
+    0
+   ],
+   "on_true": [
+    "29:33",
+    0
+   ]
+  },
+  "class_type": "ComfySwitchNode",
+  "_meta": {
+   "title": "If/Else Switch",
+   "cnr_id": "comfy-core",
+   "ver": "0.44.0"
+  }
+ },
+ "29:8": {
+  "inputs": {
+   "source": [
+    "29:23",
+    0
+   ]
+  },
+  "class_type": "PreviewAny",
+  "_meta": {
+   "title": "Upsampled prompt",
+   "cnr_id": "comfy-core",
+   "ver": "0.43.0"
+  }
+ },
+ "29:9": {
+  "inputs": {
+   "prompt": [
+    "29:8",
+    0
+   ],
+   "width": [
+    "32",
+    0
+   ],
+   "height": [
+    "32",
+    1
+   ],
+   "clip": [
+    "29:2",
+    0
+   ],
+   "vae": [
+    "29:3",
+    0
+   ]
+  },
+  "class_type": "PH3ImageConditioning",
+  "_meta": {
+   "title": "p-h3-image Conditioning",
+   "cnr_id": "comfy-core",
+   "ver": "0.43.0"
+  }
+ },
+ "29:18": {
+  "inputs": {
+   "shift_video": 1,
+   "shift_audio": 1,
+   "model": [
+    "29:19",
+    0
+   ]
+  },
+  "class_type": "MiniMaxH3SigmaShift",
+  "_meta": {
+   "title": "ModelSamplingMiniMaxH3 (keep at 1.0)",
+   "cnr_id": "comfy-core",
+   "ver": "0.43.0"
+  }
+ },
+ "29:10": {
+  "inputs": {
+   "model": [
+    "29:18",
+    0
+   ],
+   "conditioning": [
+    "29:9",
+    0
+   ]
+  },
+  "class_type": "BasicGuider",
+  "_meta": {
+   "title": "Basic Guider",
+   "cnr_id": "comfy-core",
+   "ver": "0.43.0"
+  }
+ },
+ "29:11": {
+  "inputs": {
+   "sampler_name": "er_sde"
+  },
+  "class_type": "KSamplerSelect",
+  "_meta": {
+   "title": "KSamplerSelect",
+   "cnr_id": "comfy-core",
+   "ver": "0.43.0"
+  }
+ },
+ "29:12": {
+  "inputs": {
+   "noise_seed": 573653164445910
+  },
+  "class_type": "RandomNoise",
+  "_meta": {
+   "title": "RandomNoise",
+   "cnr_id": "comfy-core",
+   "ver": "0.43.0"
+  }
+ },
+ "29:13": {
+  "inputs": {
+   "sigmas": "1.0, 0.984753, 0.967905, 0.951688, 0.925372, 0.881923, 0.810083, 0.528718, 0.0"
+  },
+  "class_type": "ManualSigmas",
+  "_meta": {
+   "title": "ManualSigmas",
+   "cnr_id": "comfy-core",
+   "ver": "0.43.0"
+  }
+ },
+ "29:14": {
+  "inputs": {
+   "noise": [
+    "29:12",
+    0
+   ],
+   "guider": [
+    "29:10",
+    0
+   ],
+   "sampler": [
+    "29:11",
+    0
+   ],
+   "sigmas": [
+    "29:13",
+    0
+   ],
+   "latent_image": [
+    "29:9",
+    1
+   ]
+  },
+  "class_type": "SamplerCustomAdvanced",
+  "_meta": {
+   "title": "SamplerCustomAdvanced",
+   "cnr_id": "comfy-core",
+   "ver": "0.43.0"
+  }
+ },
+ "29:15": {
+  "inputs": {
+   "samples": [
+    "29:14",
+    0
+   ],
+   "vae": [
+    "29:3",
+    0
+   ]
+  },
+  "class_type": "VAEDecode",
+  "_meta": {
+   "title": "VAE Decode",
+   "cnr_id": "comfy-core",
+   "ver": "0.43.0"
+  }
+ },
+ "29:33": {
+  "inputs": {
+   "prompt": [
+    "29:24",
+    0
+   ],
+   "max_length": 1536,
+   "sampling_mode": "off",
+   "thinking": true,
+   "use_default_template": true,
+   "mtp": "auto",
+   "clip": [
+    "29:4",
+    0
+   ]
+  },
+  "class_type": "TextGenerateV2",
+  "_meta": {
+   "title": "Generate Text",
+   "cnr_id": "comfy-core",
+   "ver": "0.44.0"
+  }
+ }
+}

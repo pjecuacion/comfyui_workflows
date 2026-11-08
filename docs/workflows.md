@@ -146,6 +146,7 @@ Workflows behind the "Tests" videos (solo hard tests and versus matchups), one f
 | I Tested JoyAI Image Edit: 20 Hard Edits on Real Photos | `workflows/tests-joyai-image-edit-20-hard-tests/` | joyai-edit: workflows from this Tests video. |
 | I Tested Boogu Image Edit: 20 Hard Edits on Real Photos | `workflows/tests-boogu-image-edit-20-hard-tests/` | boogu-edit: workflows from this Tests video. |
 | Best AI Image Editor in ComfyUI: Qwen Edit 2511 vs JoyAI vs Boogu vs FLUX 3 Klein | `workflows/tests-best-ai-image-editor-4-models/` | qwen-edit-2511, joyai-edit, boogu-edit, FLUX 3 Image Klein: workflows from this Tests video. |
+| I Tested Microsoft Mage-Flow Edit: 20 Hard Edits on Real Photos | `workflows/tests-mage-flow-edit-20-hard-tests/` | mage-flow-edit: workflows from this Tests video. |
 
 ## Related notes
 

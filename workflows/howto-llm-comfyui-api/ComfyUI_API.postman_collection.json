@@ -1,0 +1,206 @@
+{
+  "info": {
+    "name": "ComfyUI API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "1. Is ComfyUI running?",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:8188/system_stats",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8188",
+          "path": [
+            "system_stats"
+          ]
+        }
+      }
+    },
+    {
+      "name": "2. Send the job",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "http://127.0.0.1:8188/prompt",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8188",
+          "path": [
+            "prompt"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"prompt\": PASTE_HERE\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.collectionVariables.set('prompt_id', pm.response.json().prompt_id);"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "3. Is it done?",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:8188/history/{{prompt_id}}",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8188",
+          "path": [
+            "history",
+            "{{prompt_id}}"
+          ]
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "const h = pm.response.json()[pm.collectionVariables.get('prompt_id')];",
+              "if (h) { const out = Object.values(h.outputs).find(o => o.images); if (out) pm.collectionVariables.set('filename', out.images[0].filename); }"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "4. Get the picture",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:8188/view?filename={{filename}}&type=output",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8188",
+          "path": [
+            "view"
+          ],
+          "query": [
+            {
+              "key": "filename",
+              "value": "{{filename}}"
+            },
+            {
+              "key": "type",
+              "value": "output"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "5. The menu of every node",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:8188/object_info",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8188",
+          "path": [
+            "object_info"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Oops: the normal workflow file",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "http://127.0.0.1:8188/prompt",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8188",
+          "path": [
+            "prompt"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"prompt\": {\n    \"id\": \"1f6311e4-50af-45f2-9a46-c418429c31d5\",\n    \"revision\": 0,\n    \"last_node_id\": 9,\n    \"last_link_id\": 10,\n    \"nodes\": [\n      {\n        \"id\": 9,\n        \"type\": \"SaveImage\",\n        \"pos\": [\n          1884.134765625,\n          130\n        ],\n        \"size\": [\n          270,\n          58\n        ],\n        \"flags\": {},\n        \"order\": 9,\n        \"mode\": 0,\n        \"inputs\": [\n          {\n            \"name\": \"images\",\n            \"type\": \"IMAGE\",\n            \"link\": 1\n          }\n        ],\n        \"outputs\": [\n          {\n            \"name\": \"images\",\n            \"type\": \"IMAGE\",\n            \"links\": null\n          }\n        ],\n        \"properties\": {\n          \"cnr_id\": \"comfy-core\",\n          \"ver\": \"0.44.2\"\n        },\n        \"widgets_values\": [\n          \"cat-astronaut\"\n        ],\n        \"widgets_values_named\": {\n          \"filename_prefix\": \"cat-astronaut\"\n        }\n      },\n      {\n        \"id\": \"57_30\",\n        \"type\": \"CLIPLoader\",\n        \"pos\": [\n          100,\n          130\n        ],\n        \"size\": [\n          270,\n          106\n        ],\n        \"flags\": {},\n        \"order\": 0,\n        \"mode\": 0,\n        \"inputs\": [],\n        \"outputs\": [\n          {\n            \"name\": \"CLIP\",\n            \"type\": \"CLIP\",\n            \"links\": [\n              5\n            ]\n          }\n        ],\n        \"properties\": {\n          \"cnr_id\": \"comfy-core\",\n          \"ver\": \"0.44.2\",\n          \"Node name for S&R\": \"CLIPLoader\"\n        },\n        \"widgets_values\": [\n          \"qwen_3_4b_fp8_mixed.safetensors\",\n          \"lumina2\",\n          \"default\"\n        ],\n        \"widgets_values_named\": {\n          \"clip_name\": \"qwen_3_4b_fp8_mixed.safetensors\",\n          \"type\": \"lumina2\",\n          \"device\": \"default\"\n        }\n      },\n      {\n        \"id\": \"57_29\",\n        \"type\": \"VAELoader\",\n        \"pos\": [\n          100,\n          366\n        ],\n        \"size\": [\n          270,\n          58\n        ],\n        \"flags\": {},\n        \"order\": 1,\n        \"mode\": 0,\n        \"inputs\": [],\n        \"outputs\": [\n          {\n            \"name\": \"VAE\",\n            \"type\": \"VAE\",\n            \"links\": [\n              4\n            ]\n          }\n        ],\n        \"properties\": {\n          \"cnr_id\": \"comfy-core\",\n          \"ver\": \"0.44.2\",\n          \"Node name for S&R\": \"VAELoader\"\n        },\n        \"widgets_values\": [\n          \"ae.safetensors\"\n        ],\n        \"widgets_values_named\": {\n          \"vae_name\": \"ae.safetensors\"\n        }\n      },\n      {\n        \"id\": \"57_33\",\n        \"type\": \"ConditioningZeroOut\",\n        \"pos\": [\n          970,\n          130\n        ],\n        \"size\": [\n          204.134765625,\n          26\n        ],\n        \"flags\": {},\n        \"order\": 6,\n        \"mode\": 0,\n        \"inputs\": [\n          {\n            \"name\": \"conditioning\",\n            \"type\": \"CONDITIONING\",\n            \"link\": 2\n          }\n        ],\n        \"outputs\": [\n          {\n            \"name\": \"CONDITIONING\",\n            \"type\": \"CONDITIONING\",\n            \"links\": [\n              9\n            ]\n          }\n        ],\n        \"properties\": {\n          \"cnr_id\": \"comfy-core\",\n          \"ver\": \"0.44.2\",\n          \"Node name for S&R\": \"ConditioningZeroOut\"\n        }\n      },\n      {\n        \"id\": \"57_8\",\n        \"type\": \"VAEDecode\",\n        \"pos\": [\n          1644.134765625,\n          130\n        ],\n        \"size\": [\n          140,\n          46\n        ],\n        \"flags\": {},\n        \"order\": 8,\n        \"mode\": 0,\n        \"inputs\": [\n          {\n            \"name\": \"samples\",\n            \"type\": \"LATENT\",\n            \"link\": 3\n          },\n          {\n            \"name\": \"vae\",\n            \"type\": \"VAE\",\n            \"link\": 4\n          }\n        ],\n        \"outputs\": [\n          {\n            \"name\": \"IMAGE\",\n            \"type\": \"IMAGE\",\n            \"links\": [\n              1\n            ]\n          }\n        ],\n        \"properties\": {\n          \"cnr_id\": \"comfy-core\",\n          \"ver\": \"0.44.2\",\n          \"Node name for S&R\": \"VAEDecode\"\n        }\n      },\n      {\n        \"id\": \"57_28\",\n        \"type\": \"UNETLoader\",\n        \"pos\": [\n          100,\n          554\n        ],\n        \"size\": [\n          270,\n          82\n        ],\n        \"flags\": {},\n        \"order\": 2,\n        \"mode\": 0,\n        \"inputs\": [],\n        \"outputs\": [\n          {\n            \"name\": \"MODEL\",\n            \"type\": \"MODEL\",\n            \"links\": [\n              6\n            ]\n          }\n        ],\n        \"properties\": {\n          \"cnr_id\": \"comfy-core\",\n          \"ver\": \"0.44.2\",\n          \"Node name for S&R\": \"UNETLoader\"\n        },\n        \"widgets_values\": [\n          \"z_image_turbo_int8_convrot.safetensors\",\n          \"default\"\n        ],\n        \"widgets_values_named\": {\n          \"unet_name\": \"z_image_turbo_int8_convrot.safetensors\",\n          \"weight_dtype\": \"default\"\n        }\n      },\n      {\n        \"id\": \"57_27\",\n        \"type\": \"CLIPTextEncode\",\n        \"pos\": [\n          470,\n          130\n        ],\n        \"size\": [\n          400,\n          200\n        ],\n        \"flags\": {},\n        \"order\": 4,\n        \"mode\": 0,\n        \"inputs\": [\n          {\n            \"name\": \"clip\",\n            \"type\": \"CLIP\",\n            \"link\": 5\n          }\n        ],\n        \"outputs\": [\n          {\n            \"name\": \"CONDITIONING\",\n            \"type\": \"CONDITIONING\",\n            \"links\": [\n              2,\n              8\n            ]\n          }\n        ],\n        \"properties\": {\n          \"cnr_id\": \"comfy-core\",\n          \"ver\": \"0.44.2\",\n          \"Node name for S&R\": \"CLIPTextEncode\"\n        },\n        \"widgets_values\": [\n          \"A retro 1960s travel poster of a cat astronaut floating above the moon, bold title text \\\"CAT ASTRONAUT\\\", teal and orange, clean vector style\"\n        ],\n        \"widgets_values_named\": {\n          \"text\": \"A retro 1960s travel poster of a cat astronaut floating above the moon, bold title text \\\"CAT ASTRONAUT\\\", teal and orange, clean vector style\"\n        }\n      },\n      {\n        \"id\": \"57_13\",\n        \"type\": \"EmptySD3LatentImage\",\n        \"pos\": [\n          100,\n          766\n        ],\n        \"size\": [\n          270,\n          106\n        ],\n        \"flags\": {},\n        \"order\": 3,\n        \"mode\": 0,\n        \"inputs\": [],\n        \"outputs\": [\n          {\n            \"name\": \"LATENT\",\n            \"type\": \"LATENT\",\n            \"links\": [\n              10\n            ]\n          }\n        ],\n        \"properties\": {\n          \"cnr_id\": \"comfy-core\",\n          \"ver\": \"0.44.2\",\n          \"Node name for S&R\": \"EmptySD3LatentImage\"\n        },\n        \"widgets_values\": [\n          1024,\n          1024,\n          1\n        ],\n        \"widgets_values_named\": {\n          \"width\": 1024,\n          \"height\": 1024,\n          \"batch_size\": 1\n        }\n      },\n      {\n        \"id\": \"57_11\",\n        \"type\": \"ModelSamplingAuraFlow\",\n        \"pos\": [\n          470,\n          460\n        ],\n        \"size\": [\n          270,\n          82\n        ],\n        \"flags\": {},\n        \"order\": 5,\n        \"mode\": 0,\n        \"inputs\": [\n          {\n            \"name\": \"model\",\n            \"type\": \"MODEL\",\n            \"link\": 6\n          }\n        ],\n        \"outputs\": [\n          {\n            \"name\": \"MODEL\",\n            \"type\": \"MODEL\",\n            \"links\": [\n              7\n            ]\n          }\n        ],\n        \"properties\": {\n          \"cnr_id\": \"comfy-core\",\n          \"ver\": \"0.44.2\",\n          \"Node name for S&R\": \"ModelSamplingAuraFlow\"\n        },\n        \"widgets_values\": [\n          3,\n          \"flow\"\n        ],\n        \"widgets_values_named\": {\n          \"shift\": 3,\n          \"sampling\": \"flow\"\n        }\n      },\n      {\n        \"id\": \"57_3\",\n        \"type\": \"KSampler\",\n        \"pos\": [\n          1274.134765625,\n          130\n        ],\n        \"size\": [\n          270,\n          262\n        ],\n        \"flags\": {},\n        \"order\": 7,\n        \"mode\": 0,\n        \"inputs\": [\n          {\n            \"name\": \"model\",\n            \"type\": \"MODEL\",\n            \"link\": 7\n          },\n          {\n            \"name\": \"positive\",\n            \"type\": \"CONDITIONING\",\n            \"link\": 8\n          },\n          {\n            \"name\": \"negative\",\n            \"type\": \"CONDITIONING\",\n            \"link\": 9\n          },\n          {\n            \"name\": \"latent_image\",\n            \"type\": \"LATENT\",\n            \"link\": 10\n          }\n        ],\n        \"outputs\": [\n          {\n            \"name\": \"LATENT\",\n            \"type\": \"LATENT\",\n            \"links\": [\n              3\n            ]\n          }\n        ],\n        \"properties\": {\n          \"cnr_id\": \"comfy-core\",\n          \"ver\": \"0.44.2\",\n          \"Node name for S&R\": \"KSampler\"\n        },\n        \"widgets_values\": [\n          1001,\n          \"fixed\",\n          8,\n          1,\n          \"res_multistep\",\n          \"simple\",\n          1\n        ],\n        \"widgets_values_named\": {\n          \"seed\": 1001,\n          \"control_after_generate\": \"fixed\",\n          \"steps\": 8,\n          \"cfg\": 1,\n          \"sampler_name\": \"res_multistep\",\n          \"scheduler\": \"simple\",\n          \"denoise\": 1\n        }\n      }\n    ],\n    \"links\": [\n      [\n        1,\n        \"57_8\",\n        0,\n        9,\n        0,\n        \"IMAGE\"\n      ],\n      [\n        2,\n        \"57_27\",\n        0,\n        \"57_33\",\n        0,\n        \"CONDITIONING\"\n      ],\n      [\n        3,\n        \"57_3\",\n        0,\n        \"57_8\",\n        0,\n        \"LATENT\"\n      ],\n      [\n        4,\n        \"57_29\",\n        0,\n        \"57_8\",\n        1,\n        \"VAE\"\n      ],\n      [\n        5,\n        \"57_30\",\n        0,\n        \"57_27\",\n        0,\n        \"CLIP\"\n      ],\n      [\n        6,\n        \"57_28\",\n        0,\n        \"57_11\",\n        0,\n        \"MODEL\"\n      ],\n      [\n        7,\n        \"57_11\",\n        0,\n        \"57_3\",\n        0,\n        \"MODEL\"\n      ],\n      [\n        8,\n        \"57_27\",\n        0,\n        \"57_3\",\n        1,\n        \"CONDITIONING\"\n      ],\n      [\n        9,\n        \"57_33\",\n        0,\n        \"57_3\",\n        2,\n        \"CONDITIONING\"\n      ],\n      [\n        10,\n        \"57_13\",\n        0,\n        \"57_3\",\n        3,\n        \"LATENT\"\n      ]\n    ],\n    \"groups\": [],\n    \"config\": {},\n    \"extra\": {\n      \"ds\": {\n        \"scale\": 0.9,\n        \"offset\": [\n          416,\n          110\n        ]\n      },\n      \"frontendVersion\": \"1.57.6\",\n      \"VHS_latentpreview\": false,\n      \"VHS_latentpreviewrate\": 0,\n      \"VHS_MetadataImage\": true,\n      \"VHS_KeepIntermediate\": true\n    },\n    \"version\": 0.4\n  }\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "prompt_id",
+      "value": ""
+    },
+    {
+      "key": "filename",
+      "value": ""
+    }
+  ]
+}

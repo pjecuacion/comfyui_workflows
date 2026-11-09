@@ -1,0 +1,161 @@
+{
+  "9": {
+    "inputs": {
+      "filename_prefix": "cat-astronaut",
+      "images": [
+        "57_8",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image",
+      "cnr_id": "comfy-core",
+      "ver": "0.44.2"
+    }
+  },
+  "57_30": {
+    "inputs": {
+      "clip_name": "qwen_3_4b_fp8_mixed.safetensors",
+      "type": "lumina2",
+      "device": "default"
+    },
+    "class_type": "CLIPLoader",
+    "_meta": {
+      "title": "Load CLIP",
+      "cnr_id": "comfy-core",
+      "ver": "0.44.2"
+    }
+  },
+  "57_29": {
+    "inputs": {
+      "vae_name": "ae.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "Load VAE",
+      "cnr_id": "comfy-core",
+      "ver": "0.44.2"
+    }
+  },
+  "57_28": {
+    "inputs": {
+      "unet_name": "z_image_turbo_int8_convrot.safetensors",
+      "weight_dtype": "default"
+    },
+    "class_type": "UNETLoader",
+    "_meta": {
+      "title": "Load Diffusion Model",
+      "cnr_id": "comfy-core",
+      "ver": "0.44.2"
+    }
+  },
+  "57_13": {
+    "inputs": {
+      "width": 1024,
+      "height": 1024,
+      "batch_size": 1
+    },
+    "class_type": "EmptySD3LatentImage",
+    "_meta": {
+      "title": "EmptySD3LatentImage",
+      "cnr_id": "comfy-core",
+      "ver": "0.44.2"
+    }
+  },
+  "57_27": {
+    "inputs": {
+      "text": "A retro 1960s travel poster of a cat astronaut floating above the moon, bold title text \"CAT ASTRONAUT\", teal and orange, clean vector style",
+      "clip": [
+        "57_30",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)",
+      "cnr_id": "comfy-core",
+      "ver": "0.44.2"
+    }
+  },
+  "57_11": {
+    "inputs": {
+      "shift": 3,
+      "sampling": "flow",
+      "model": [
+        "57_28",
+        0
+      ]
+    },
+    "class_type": "ModelSamplingAuraFlow",
+    "_meta": {
+      "title": "ModelSamplingAuraFlow",
+      "cnr_id": "comfy-core",
+      "ver": "0.44.2"
+    }
+  },
+  "57_33": {
+    "inputs": {
+      "conditioning": [
+        "57_27",
+        0
+      ]
+    },
+    "class_type": "ConditioningZeroOut",
+    "_meta": {
+      "title": "Conditioning Zero Out",
+      "cnr_id": "comfy-core",
+      "ver": "0.44.2"
+    }
+  },
+  "57_3": {
+    "inputs": {
+      "seed": 1001,
+      "steps": 8,
+      "cfg": 1,
+      "sampler_name": "res_multistep",
+      "scheduler": "simple",
+      "denoise": 1,
+      "model": [
+        "57_11",
+        0
+      ],
+      "positive": [
+        "57_27",
+        0
+      ],
+      "negative": [
+        "57_33",
+        0
+      ],
+      "latent_image": [
+        "57_13",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler",
+      "cnr_id": "comfy-core",
+      "ver": "0.44.2"
+    }
+  },
+  "57_8": {
+    "inputs": {
+      "samples": [
+        "57_3",
+        0
+      ],
+      "vae": [
+        "57_29",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode",
+      "cnr_id": "comfy-core",
+      "ver": "0.44.2"
+    }
+  }
+}

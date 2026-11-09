@@ -1,0 +1,1 @@
+Here's my ComfyUI API workflow, cat_poster_api.json. ComfyUI is running on port 8188. Make four posters of a cat astronaut, each in a different colour, and save them in this folder.

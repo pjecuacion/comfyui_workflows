@@ -1,7 +1,7 @@
 {
   "9": {
     "inputs": {
-      "filename_prefix": "image_flux3_klein_t2i",
+      "filename_prefix": "image_flux3_klein_base_t2i",
       "images": [
         "18:8",
         0
@@ -23,6 +23,47 @@
       "title": "Resolution Selector"
     }
   },
+  "25": {
+    "inputs": {
+      "width": 1024,
+      "height": 1024,
+      "editor_state": {
+        "__value__": []
+      },
+      "last_incoming": {
+        "__value__": []
+      }
+    },
+    "class_type": "CreateBoundingBoxes",
+    "_meta": {
+      "title": "Create Bounding Boxes"
+    }
+  },
+  "26": {
+    "inputs": {
+      "source": [
+        "27",
+        0
+      ]
+    },
+    "class_type": "PreviewAny",
+    "_meta": {
+      "title": "Preview as Text"
+    }
+  },
+  "27": {
+    "inputs": {
+      "prompt": "",
+      "element": [
+        "25",
+        2
+      ]
+    },
+    "class_type": "Flux3LayoutPrompt",
+    "_meta": {
+      "title": "FLUX 3 Image Layout Prompt"
+    }
+  },
   "18:17": {
     "inputs": {
       "value": "close up profile of a young male athlete with closed eyes pressing his sweaty forehead against a soccer ball, right hand gripping the ball, stark white background, athletic jacket, white ball with jagged red graphic patterns, high contrast studio lighting, highly detailed skin texture, sharp focus Absolutely no text, no typography, no letters, no words, no numbers, no logos, no watermark, no captions, pure imagery only."
@@ -34,7 +75,7 @@
   },
   "18:12": {
     "inputs": {
-      "clip_name": "qwen3.5_9b_flux3_prompt_upsampler_int8_convrot.safetensors",
+      "clip_name": "qwen3.5_9b_flux3_prompt_upsampler_w4a8.safetensors",
       "type": "flux3",
       "device": "default"
     },
@@ -64,12 +105,12 @@
       "sampling_mode.top_k": 1,
       "sampling_mode.top_p": 0.95,
       "sampling_mode.min_p": 0,
-      "sampling_mode.repetition_penalty": 1.05,
-      "sampling_mode.seed": 1019858593127716,
+      "sampling_mode.repetition_penalty": 1,
+      "sampling_mode.seed": 0,
       "sampling_mode.presence_penalty": 1.5,
       "thinking": false,
       "use_default_template": true,
-      "mtp": "auto",
+      "mtp": "off",
       "clip": [
         "18:12",
         0
@@ -86,7 +127,7 @@
   },
   "18:1": {
     "inputs": {
-      "unet_name": "flux3_image_klein_int8_convrot.safetensors",
+      "unet_name": "flux3-image-klein-base-int8-convrot.safetensors",
       "weight_dtype": "default"
     },
     "class_type": "UNETLoader",
@@ -123,8 +164,8 @@
   },
   "18:7": {
     "inputs": {
-      "seed": 1019858593127716,
-      "steps": 25,
+      "seed": 758781618552631,
+      "steps": 50,
       "cfg": 3.5,
       "sampler_name": "euler",
       "scheduler": "simple",
@@ -174,7 +215,7 @@
   },
   "18:16": {
     "inputs": {
-      "switch": false,
+      "switch": true,
       "on_false": [
         "18:17",
         0
@@ -233,34 +274,6 @@
     "class_type": "VAEDecode",
     "_meta": {
       "title": "VAE Decode"
-    }
-  },
-  "22": {
-    "inputs": {
-      "source": [
-        "23",
-        2
-      ]
-    },
-    "class_type": "PreviewAny",
-    "_meta": {
-      "title": "Preview as Text"
-    }
-  },
-  "23": {
-    "inputs": {
-      "width": 1024,
-      "height": 1024,
-      "editor_state": {
-        "__value__": []
-      },
-      "last_incoming": {
-        "__value__": []
-      }
-    },
-    "class_type": "CreateBoundingBoxes",
-    "_meta": {
-      "title": "Create Bounding Boxes"
     }
   }
 }

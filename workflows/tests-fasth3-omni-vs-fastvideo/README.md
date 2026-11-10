@@ -30,6 +30,4 @@ Missing ones: ComfyUI-Manager > Install Missing Custom Nodes.
 
 Each model has its own licence. Check its page before any commercial use.
 
-- Model licence: MiniMax-H3 Community License (https://huggingface.co/FastVideo/FastH3-Omni-Comfy)
-
 Results depend on seed, settings and hardware: yours can differ. Prompts are in the video.

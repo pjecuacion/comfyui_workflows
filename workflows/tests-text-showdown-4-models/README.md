@@ -43,7 +43,6 @@ Missing ones: ComfyUI-Manager > Install Missing Custom Nodes.
 
 Each model has its own licence. Check its page before any commercial use.
 
-- Model licence: other (https://huggingface.co/MiniMaxAI/MiniMax-H3/blob/main/LICENSE)
-- Model licence: other (https://huggingface.co/Pika-Labs/Pika-H3-Flex/blob/main/LICENSE)
+- Model licence (p-h3-image): other (https://huggingface.co/MiniMaxAI/MiniMax-H3/blob/main/LICENSE)
 
 Results depend on seed, settings and hardware: yours can differ. Prompts are in the video.

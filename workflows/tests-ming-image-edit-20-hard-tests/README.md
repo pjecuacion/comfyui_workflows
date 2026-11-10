@@ -29,6 +29,5 @@ Missing ones: ComfyUI-Manager > Install Missing Custom Nodes.
 Each model has its own licence. Check its page before any commercial use.
 
 - Model licence: mit (https://huggingface.co/inclusionAI/Ming-Image-0.1-Design)
-- Model licence: mit
 
 Results depend on seed, settings and hardware: yours can differ. Prompts are in the video.

@@ -95,7 +95,6 @@ Workflows behind the "Tests" videos (solo hard tests and versus matchups), one f
 | MiniMax H3: with vs without the 1980s Fantasy Movies LoRA | `workflows/tests-h3-80s-fantasy-lora/` | MiniMax H3: workflows from this Tests video. |
 | MiniMax H3: with vs without the Sketch IRL LoRA | `workflows/tests-h3-sketch-irl-lora/` | MiniMax H3: workflows from this Tests video. |
 | MiniMax H3: with vs without the Modern PS2 Style LoRA | `workflows/tests-h3-modern-ps2-lora/` | MiniMax H3: workflows from this Tests video. |
-| FLUX 3 Klein: ComfyUI's Default vs the Recommended Setup | `workflows/tests-flux3-klein-base-vs-distilled/` | FLUX 3 Image Klein, klein-distilled, klein-distilled-edit: workflows from this Tests video. |
 | MiniMax H3: with vs without the Film Noir LoRA | `workflows/tests-h3-film-noir-lora/` | MiniMax H3: workflows from this Tests video. |
 | MiniMax H3: with vs without the Tiny Things LoRA | `workflows/tests-h3-tiny-things-lora/` | MiniMax H3: workflows from this Tests video. |
 | MiniMax H3: with vs without the Cartoon World LoRA | `workflows/tests-h3-cartoon-world-lora/` | MiniMax H3: workflows from this Tests video. |
@@ -157,6 +156,7 @@ Workflows behind the "Tests" videos (solo hard tests and versus matchups), one f
 | MiniMax H3: with vs without the 70s Retro Toon LoRA | `workflows/tests-h3-70s-retro-toon-lora/` | MiniMax H3: workflows from this Tests video. |
 | MiniMax H3: with vs without the AnimateDiff Style LoRA | `workflows/tests-h3-animatediff-lora/` | MiniMax H3: workflows from this Tests video. |
 | I Tested FLUX 3 Klein: 30 Hard Tests | `workflows/tests-flux3-klein-30-hard-tests/` | FLUX 3 Image Klein: workflows from this Tests video. |
+| FLUX 3 Klein: ComfyUI's Default vs the Recommended Setup | `workflows/tests-flux3-klein-base-vs-distilled/` | FLUX 3 Image Klein: workflows from this Tests video. |
 
 ## Related notes
 

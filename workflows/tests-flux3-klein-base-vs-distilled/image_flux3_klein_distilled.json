@@ -42,13 +42,26 @@
   "24": {
     "inputs": {
       "source": [
-        "23",
-        2
+        "25",
+        0
       ]
     },
     "class_type": "PreviewAny",
     "_meta": {
       "title": "Preview as Text"
+    }
+  },
+  "25": {
+    "inputs": {
+      "prompt": "",
+      "element": [
+        "23",
+        2
+      ]
+    },
+    "class_type": "Flux3LayoutPrompt",
+    "_meta": {
+      "title": "FLUX 3 Image Layout Prompt"
     }
   },
   "18:17": {
@@ -62,7 +75,7 @@
   },
   "18:12": {
     "inputs": {
-      "clip_name": "qwen3.5_9b_flux3_prompt_upsampler_int8_convrot.safetensors",
+      "clip_name": "qwen3.5_9b_flux3_prompt_upsampler_w4a8.safetensors",
       "type": "flux3",
       "device": "default"
     },
@@ -93,11 +106,11 @@
       "sampling_mode.top_p": 0.95,
       "sampling_mode.min_p": 0,
       "sampling_mode.repetition_penalty": 1.05,
-      "sampling_mode.seed": 605452029419059,
+      "sampling_mode.seed": 0,
       "sampling_mode.presence_penalty": 1.5,
       "thinking": false,
       "use_default_template": true,
-      "mtp": "auto",
+      "mtp": "off",
       "clip": [
         "18:12",
         0
@@ -114,7 +127,7 @@
   },
   "18:1": {
     "inputs": {
-      "unet_name": "flux3_image_klein_sd_int8_convrot.safetensors",
+      "unet_name": "flux3-image-klein-int8-convrot.safetensors",
       "weight_dtype": "default"
     },
     "class_type": "UNETLoader",
@@ -152,7 +165,7 @@
   "18:7": {
     "inputs": {
       "seed": 605452029419059,
-      "steps": 15,
+      "steps": 16,
       "cfg": 1,
       "sampler_name": "euler",
       "scheduler": "simple",

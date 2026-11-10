@@ -101,7 +101,6 @@ Workflows behind the "Tests" videos (solo hard tests and versus matchups), one f
 | I Tested Microsoft Mage-Flow Edit: 20 Hard Edits on Real Photos | `workflows/tests-mage-flow-edit-20-hard-tests/` | mage-flow-edit: workflows from this Tests video. |
 | Wan Animate 2: 10 hard character-animation tests | `workflows/tests-wan-animate-2-10-hard-tests/` | wan-animate2: workflows from this Tests video. |
 | ERNIE-Image Turbo vs Lens Turbo vs PixelDiT: 20 Hard Prompts | `workflows/tests-ernie-vs-lens-vs-pixeldit/` | ernie-image, lens, pixeldit: workflows from this Tests video. |
-| I Tested Anima: 25 Hard Anime Tests | `workflows/tests-anima-25-hard-tests/` | anima: workflows from this Tests video. |
 | ERNIE-Image Turbo: 25 Hard Text Tests | `workflows/tests-ernie-image-25-text-tests/` | ernie-image: workflows from this Tests video. |
 | Microsoft Lens Turbo: 25 Hard Tests | `workflows/tests-lens-turbo-25-hard-tests/` | lens: workflows from this Tests video. |
 | Spelling Rematch: ERNIE-Image Turbo vs Ideogram 4: 20 Hard Text Tests | `workflows/tests-ernie-vs-ideogram-text-rematch/` | ernie-image, Ideogram 4: workflows from this Tests video. |
@@ -157,6 +156,7 @@ Workflows behind the "Tests" videos (solo hard tests and versus matchups), one f
 | I Tested P-H3-Image: 30 Hard Tests | `workflows/tests-p-h3-image-30-hard-tests/` | p-h3-image: workflows from this Tests video. |
 | Pika H3 Flex talking heads: 15 hard tests | `workflows/tests-pika-h3-talking-heads/` | pika-t2v: workflows from this Tests video. |
 | Which AI Can Spell? Ideogram 4 vs Z-Image vs MOSS vs P-H3-Image: 15 Text Tests | `workflows/tests-text-showdown-4-models/` | Ideogram 4, Z-Image Turbo, moss, p-h3-image: workflows from this Tests video. |
+| I Tested Anima: 25 Hard Anime Tests | `workflows/tests-anima-25-hard-tests/` | anima: workflows from this Tests video. |
 
 ## Related notes
 

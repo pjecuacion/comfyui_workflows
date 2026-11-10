@@ -93,7 +93,6 @@ Workflows behind the "Tests" videos (solo hard tests and versus matchups), one f
 | --- | --- | --- |
 | FLUX 3 Klein: with vs without my own oil-painting LoRA | `workflows/tests-klein-oil-painting-lora/` | FLUX 3 Image Klein: workflows from this Tests video. |
 | How to Use LoRA in ComfyUI: Wire It Right (Power Lora Loader) | `workflows/tests-power-lora-loader-wiring/` | MiniMax H3 template + Power Lora Loader (rgthree), wired the safe way (UI format). |
-| Wan Animate 2: 10 hard character-animation tests | `workflows/tests-wan-animate-2-10-hard-tests/` | wan-animate2: workflows from this Tests video. |
 | Microsoft Lens Turbo: 25 Hard Tests | `workflows/tests-lens-turbo-25-hard-tests/` | lens: workflows from this Tests video. |
 | Spelling Rematch: ERNIE-Image Turbo vs Ideogram 4: 20 Hard Text Tests | `workflows/tests-ernie-vs-ideogram-text-rematch/` | ernie-image, Ideogram 4: workflows from this Tests video. |
 | Fastest Local AI Image Model: Lens Turbo vs Z-Image Turbo vs FLUX 3 Klein Distilled vs P-H3-Image | `workflows/tests-fastest-image-model-4-way/` | lens, Z-Image Turbo, FLUX 3 Image Klein, p-h3-image: workflows from this Tests video. |
@@ -157,6 +156,7 @@ Workflows behind the "Tests" videos (solo hard tests and versus matchups), one f
 | I Tested Microsoft Mage-Flow Edit: 20 Hard Edits on Real Photos | `workflows/tests-mage-flow-edit-20-hard-tests/` | mage-flow-edit: workflows from this Tests video. |
 | I Tested Ming Image Edit: 20 Hard Design Edits | `workflows/tests-ming-image-edit-20-hard-tests/` | ming-edit: workflows from this Tests video. |
 | Qwen Image Edit 2511 vs FLUX 3 Klein Edit: Same Character, 20 Hard Tests | `workflows/tests-qwen-edit-2511-vs-klein-edit/` | qwen-edit-2511, FLUX 3 Image Klein: workflows from this Tests video. |
+| Wan Animate 2: 10 hard character-animation tests | `workflows/tests-wan-animate-2-10-hard-tests/` | wan-animate2: workflows from this Tests video. |
 
 ## Related notes
 

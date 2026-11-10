@@ -43,9 +43,6 @@ Missing ones: ComfyUI-Manager > Install Missing Custom Nodes.
 Each model has its own licence. Check its page before any commercial use.
 
 - Model licence (anima): CircleStone Labs Non-Commercial License (https://huggingface.co/circlestone-labs/Anima/blob/main/LICENSE.md)
-- Model licence (anima): apache-2.0 (https://huggingface.co/Qwen/Qwen-Image-Edit-2511)
-- Model licence (FLUX 3 Image Klein): apache-2.0 (https://huggingface.co/baidu/ERNIE-Image-Turbo)
-- Model licence (Z-Image Turbo): apache-2.0 (https://huggingface.co/Boogu/Boogu-Image-0.1-Edit)
 - Model licence (ernie-image): apache-2.0 (https://huggingface.co/baidu/ERNIE-Image-Turbo)
 
 Results depend on seed, settings and hardware: yours can differ. Prompts are in the video.

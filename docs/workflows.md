@@ -92,7 +92,6 @@ Workflows behind the "Tests" videos (solo hard tests and versus matchups), one f
 | Video | Folder | Models |
 | --- | --- | --- |
 | MiniMax H3: with vs without the 1920s Silent Horror LoRA | `workflows/tests-h3-1920s-horror-lora/` | MiniMax H3: workflows from this Tests video. |
-| MiniMax H3: with vs without the 16-bit Pixel LoRA | `workflows/tests-h3-16bit-pixel-lora/` | MiniMax H3: workflows from this Tests video. |
 | MiniMax H3: with vs without the 70s Retro Toon LoRA | `workflows/tests-h3-70s-retro-toon-lora/` | MiniMax H3: workflows from this Tests video. |
 | MiniMax H3: with vs without the AnimateDiff Style LoRA | `workflows/tests-h3-animatediff-lora/` | MiniMax H3: workflows from this Tests video. |
 | MiniMax H3: with vs without the Crayon Drawings LoRA | `workflows/tests-h3-crayon-lora/` | MiniMax H3: workflows from this Tests video. |
@@ -157,6 +156,7 @@ Workflows behind the "Tests" videos (solo hard tests and versus matchups), one f
 | I Tested Qwen Image 2.1 Edit: 20 Hard Tests With Real Photos | `workflows/tests-qwen-edit-20-hard-tests/` | Qwen Image 2.1 Edit: workflows from this Tests video. |
 | Qwen Image 2.1 Edit: Same Character, 20 Hard Consistency Tests | `workflows/tests-qwen-edit-consistent-character/` | Qwen Image 2.1 Edit: workflows from this Tests video. |
 | I Tested Z-Image Turbo: 25 Hard Tests | `workflows/tests-zimage-turbo-25-hard-tests/` | Z-Image Turbo: workflows from this Tests video. |
+| MiniMax H3: with vs without the 16-bit Pixel LoRA | `workflows/tests-h3-16bit-pixel-lora/` | MiniMax H3: workflows from this Tests video. |
 
 ## Related notes
 

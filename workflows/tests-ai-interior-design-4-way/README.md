@@ -45,6 +45,5 @@ Each model has its own licence. Check its page before any commercial use.
 - Model licence (qwen-edit-2511): apache-2.0 (https://huggingface.co/Qwen/Qwen-Image-Edit-2511)
 - Model licence (joyai-edit): apache-2.0 (https://huggingface.co/jdopensource/JoyAI-Image-Edit)
 - Model licence (mage-flow-edit): mit (https://github.com/microsoft/Mage/blob/main/LICENSE)
-- Model licence (FLUX 3 Image Klein): apache-2.0 (https://huggingface.co/baidu/ERNIE-Image-Turbo)
 
 Results depend on seed, settings and hardware: yours can differ. Prompts are in the video.

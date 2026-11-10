@@ -43,10 +43,6 @@ Missing ones: ComfyUI-Manager > Install Missing Custom Nodes.
 Each model has its own licence. Check its page before any commercial use.
 
 - Model licence (lens): mit (https://huggingface.co/Comfy-Org/Lens)
-- Model licence (lens): apache-2.0 (https://huggingface.co/baidu/ERNIE-Image-Turbo)
-- Model licence (Z-Image Turbo): apache-2.0 (https://huggingface.co/Boogu/Boogu-Image-0.1-Edit)
-- Model licence (FLUX 3 Image Klein): apache-2.0 (https://huggingface.co/baidu/ERNIE-Image-Turbo)
 - Model licence (p-h3-image): other (https://huggingface.co/MiniMaxAI/MiniMax-H3/blob/main/LICENSE)
-- Model licence (p-h3-image): other (https://huggingface.co/Pika-Labs/Pika-H3-Flex/blob/main/LICENSE)
 
 Results depend on seed, settings and hardware: yours can differ. Prompts are in the video.

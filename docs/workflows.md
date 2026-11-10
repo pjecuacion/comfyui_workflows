@@ -93,7 +93,6 @@ Workflows behind the "Tests" videos (solo hard tests and versus matchups), one f
 | --- | --- | --- |
 | FLUX 3 Klein: with vs without my own oil-painting LoRA | `workflows/tests-klein-oil-painting-lora/` | FLUX 3 Image Klein: workflows from this Tests video. |
 | How to Use LoRA in ComfyUI: Wire It Right (Power Lora Loader) | `workflows/tests-power-lora-loader-wiring/` | MiniMax H3 template + Power Lora Loader (rgthree), wired the safe way (UI format). |
-| Which AI Can Spell? Ideogram 4 vs Z-Image vs MOSS vs P-H3-Image: 15 Text Tests | `workflows/tests-text-showdown-4-models/` | Ideogram 4, Z-Image Turbo, moss, p-h3-image: workflows from this Tests video. |
 | Qwen Image Edit 2511 vs FLUX 3 Klein Edit: Same Character, 20 Hard Tests | `workflows/tests-qwen-edit-2511-vs-klein-edit/` | qwen-edit-2511, FLUX 3 Image Klein: workflows from this Tests video. |
 | I Tested Ming Image Edit: 20 Hard Design Edits | `workflows/tests-ming-image-edit-20-hard-tests/` | ming-edit: workflows from this Tests video. |
 | I Tested JoyAI Image Edit: 20 Hard Edits on Real Photos | `workflows/tests-joyai-image-edit-20-hard-tests/` | joyai-edit: workflows from this Tests video. |
@@ -157,6 +156,7 @@ Workflows behind the "Tests" videos (solo hard tests and versus matchups), one f
 | I Tested MOSS-Image: 24 Hard Tests | `workflows/tests-moss-image-24-hard-tests/` | moss: workflows from this Tests video. |
 | I Tested P-H3-Image: 30 Hard Tests | `workflows/tests-p-h3-image-30-hard-tests/` | p-h3-image: workflows from this Tests video. |
 | Pika H3 Flex talking heads: 15 hard tests | `workflows/tests-pika-h3-talking-heads/` | pika-t2v: workflows from this Tests video. |
+| Which AI Can Spell? Ideogram 4 vs Z-Image vs MOSS vs P-H3-Image: 15 Text Tests | `workflows/tests-text-showdown-4-models/` | Ideogram 4, Z-Image Turbo, moss, p-h3-image: workflows from this Tests video. |
 
 ## Related notes
 

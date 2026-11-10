@@ -91,7 +91,6 @@ Workflows behind the "Tests" videos (solo hard tests and versus matchups), one f
 
 | Video | Folder | Models |
 | --- | --- | --- |
-| Z-Image Turbo vs Qwen Image 2.1 | `workflows/tests-zimage-vs-qwen/` | Z-Image Turbo, Qwen Image 2.1: workflows from this Tests video. |
 | I Tested Qwen Image 2.1 Edit: 20 Hard Tests With Real Photos | `workflows/tests-qwen-edit-20-hard-tests/` | Qwen Image 2.1 Edit: workflows from this Tests video. |
 | Qwen Image 2.1 Edit: Same Character, 20 Hard Consistency Tests | `workflows/tests-qwen-edit-consistent-character/` | Qwen Image 2.1 Edit: workflows from this Tests video. |
 | AI character sheets: Qwen Image 2.1 vs Krea 2 Turbo vs Z-Image Turbo | `workflows/tests-character-sheets-3-models/` | Qwen Image 2.1, Krea 2 Turbo, Z-Image Turbo: workflows from this Tests video. |
@@ -157,6 +156,7 @@ Workflows behind the "Tests" videos (solo hard tests and versus matchups), one f
 | I Tested Krea 2 Turbo: 20 Hard Tests | `workflows/tests-krea2-20-hard-tests/` | Krea 2 Turbo: workflows from this Tests video. |
 | MiniMax H3: 15 hard video tests | `workflows/tests-h3-15-hard-tests/` | MiniMax H3: workflows from this Tests video. |
 | LTX 2.5 vs MiniMax H3: same start picture, 10 rounds | `workflows/tests-ltx25-vs-h3/` | Z-Image Turbo, LTX 2.5, MiniMax H3: workflows from this Tests video. |
+| Z-Image Turbo vs Qwen Image 2.1 | `workflows/tests-zimage-vs-qwen/` | Z-Image Turbo, Qwen Image 2.1: workflows from this Tests video. |
 
 ## Related notes
 

@@ -30,6 +30,5 @@ Missing ones: ComfyUI-Manager > Install Missing Custom Nodes.
 Each model has its own licence. Check its page before any commercial use.
 
 - Model licence: CircleStone Labs Non-Commercial License (https://huggingface.co/circlestone-labs/Anima/blob/main/LICENSE.md)
-- Model licence: apache-2.0 (https://huggingface.co/Qwen/Qwen-Image-Edit-2511)
 
 Results depend on seed, settings and hardware: yours can differ. Prompts are in the video.

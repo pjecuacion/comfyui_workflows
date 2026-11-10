@@ -93,7 +93,6 @@ Workflows behind the "Tests" videos (solo hard tests and versus matchups), one f
 | --- | --- | --- |
 | FLUX 3 Klein: with vs without my own oil-painting LoRA | `workflows/tests-klein-oil-painting-lora/` | FLUX 3 Image Klein: workflows from this Tests video. |
 | How to Use LoRA in ComfyUI: Wire It Right (Power Lora Loader) | `workflows/tests-power-lora-loader-wiring/` | MiniMax H3 template + Power Lora Loader (rgthree), wired the safe way (UI format). |
-| 10 MiniMax H3 LoRAs: With vs Without | `workflows/tests-h3-lora-roundup/` | MiniMax H3: workflows from this Tests video. |
 | MiniMax H3 talking heads: 15 hard tests | `workflows/tests-h3-talking-heads/` | MiniMax H3: workflows from this Tests video. |
 | I Tested MOSS-Image: 24 Hard Tests | `workflows/tests-moss-image-24-hard-tests/` | moss: workflows from this Tests video. |
 | I Tested P-H3-Image: 30 Hard Tests | `workflows/tests-p-h3-image-30-hard-tests/` | p-h3-image: workflows from this Tests video. |
@@ -157,6 +156,7 @@ Workflows behind the "Tests" videos (solo hard tests and versus matchups), one f
 | FastH3 Omni vs FastVideo VSA 4-step: 18 same tests | `workflows/tests-fasth3-omni-vs-fastvideo/` | fastvideo-vsa4-ref: workflows from this Tests video. |
 | MiniMax H3: with vs without the Zero Gravity LoRA | `workflows/tests-h3-zero-gravity-lora/` | MiniMax H3: workflows from this Tests video. |
 | FLUX 3 Klein vs Qwen Image 2.1: Same Hard Tests | `workflows/tests-klein-vs-qwen/` | FLUX 3 Image Klein, Qwen Image 2.1, Qwen Image 2.1 Edit: workflows from this Tests video. |
+| 10 MiniMax H3 LoRAs: With vs Without | `workflows/tests-h3-lora-roundup/` | MiniMax H3: workflows from this Tests video. |
 
 ## Related notes
 

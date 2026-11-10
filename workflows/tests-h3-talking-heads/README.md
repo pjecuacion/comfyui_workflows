@@ -29,9 +29,6 @@ Missing ones: ComfyUI-Manager > Install Missing Custom Nodes.
 
 Each model has its own licence. Check its page before any commercial use.
 
-- Model licence: MiniMax-H3 Community License (https://huggingface.co/FastVideo/FastH3-Omni-Comfy)
-- Model licence: other (https://huggingface.co/Pika-Labs/Pika-H3-Flex/blob/main/LICENSE)
-
 MiniMax H3 is under the MiniMax H3 Community License: its outputs must carry a clear "machine-generated" label, and the licence does not cover every country. Read it before you use the videos.
 
 Results depend on seed, settings and hardware: yours can differ. Prompts are in the video.

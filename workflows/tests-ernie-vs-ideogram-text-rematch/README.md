@@ -34,7 +34,5 @@ Missing ones: ComfyUI-Manager > Install Missing Custom Nodes.
 Each model has its own licence. Check its page before any commercial use.
 
 - Model licence (ernie-image): apache-2.0 (https://huggingface.co/baidu/ERNIE-Image-Turbo)
-- Model licence (Ideogram 4): apache-2.0 (https://huggingface.co/Boogu/Boogu-Image-0.1-Edit)
-- Model licence (Ideogram 4): apache-2.0 (https://huggingface.co/baidu/ERNIE-Image-Turbo)
 
 Results depend on seed, settings and hardware: yours can differ. Prompts are in the video.

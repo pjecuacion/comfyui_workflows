@@ -103,7 +103,6 @@ Workflows behind the "Tests" videos (solo hard tests and versus matchups), one f
 | MiniMax H3 image-to-video: one character, 12 hard tests | `workflows/tests-minimax-h3-i2v-12-tests/` | MiniMax H3: workflows from this Tests video. |
 | LTX 2.5 image-to-video: 12 hard tests | `workflows/tests-ltx25-12-hard-tests/` | LTX 2.5: workflows from this Tests video. |
 | I Tested Z-Image Turbo: 25 Hard Tests | `workflows/tests-zimage-turbo-25-hard-tests/` | Z-Image Turbo: workflows from this Tests video. |
-| Krea 2 vs Qwen Image 2.1 | `workflows/tests-krea2-vs-qwen/` | Krea 2 Turbo, Qwen Image 2.1, Qwen Image 2.1 Edit: workflows from this Tests video. |
 | MiniMax H3: with vs without the 1920s Silent Horror LoRA | `workflows/tests-h3-1920s-horror-lora/` | MiniMax H3: workflows from this Tests video. |
 | MiniMax H3: with vs without the 16-bit Pixel LoRA | `workflows/tests-h3-16bit-pixel-lora/` | MiniMax H3: workflows from this Tests video. |
 | MiniMax H3: with vs without the 70s Retro Toon LoRA | `workflows/tests-h3-70s-retro-toon-lora/` | MiniMax H3: workflows from this Tests video. |
@@ -157,6 +156,7 @@ Workflows behind the "Tests" videos (solo hard tests and versus matchups), one f
 | AI Photo Restoration: Qwen Image Edit 2511 vs JoyAI vs Microsoft Mage-Flow | `workflows/tests-ai-photo-restoration-3-way/` | qwen-edit-2511, joyai-edit, mage-flow-edit: workflows from this Tests video. |
 | AI Interior Design in ComfyUI: Qwen Edit 2511 vs JoyAI vs Microsoft Mage-Flow vs FLUX 3 Klein | `workflows/tests-ai-interior-design-4-way/` | qwen-edit-2511, joyai-edit, mage-flow-edit, FLUX 3 Image Klein: workflows from this Tests video. |
 | 10 MiniMax H3 LoRAs: with vs without | `workflows/tests-h3-loras/` | MiniMax H3: workflows from this Tests video. |
+| Krea 2 vs Qwen Image 2.1 | `workflows/tests-krea2-vs-qwen/` | Krea 2 Turbo, Qwen Image 2.1, Qwen Image 2.1 Edit: workflows from this Tests video. |
 
 ## Related notes
 

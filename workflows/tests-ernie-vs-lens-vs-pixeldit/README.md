@@ -37,7 +37,6 @@ Each model has its own licence. Check its page before any commercial use.
 
 - Model licence (ernie-image): apache-2.0 (https://huggingface.co/baidu/ERNIE-Image-Turbo)
 - Model licence (lens): mit (https://huggingface.co/Comfy-Org/Lens)
-- Model licence (lens): apache-2.0 (https://huggingface.co/baidu/ERNIE-Image-Turbo)
 - Model licence (pixeldit): NVIDIA Source Code License v1 (non-commercial) (https://huggingface.co/nvidia/PixelDiT-1300M-1024px/blob/main/LICENSE)
 
 Results depend on seed, settings and hardware: yours can differ. Prompts are in the video.

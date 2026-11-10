@@ -1,6 +1,6 @@
-# FastH3 Omni: 10 hard tests + 8 styles
+# FastH3 Omni: 18 hard tests + 24 styles
 
-Workflows from the Prince Does AI video "FastH3 Omni: 10 hard tests + 8 styles" (YouTube: [Prince Does AI](https://www.youtube.com/@princedoesai)). Everything ran locally in ComfyUI on one RTX 5090.
+Workflows from the Prince Does AI video "FastH3 Omni: 18 hard tests + 24 styles" (YouTube: [Prince Does AI](https://www.youtube.com/@princedoesai)). Everything ran locally in ComfyUI on one RTX 5090.
 
 ## How to use
 

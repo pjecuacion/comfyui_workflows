@@ -93,7 +93,6 @@ Workflows behind the "Tests" videos (solo hard tests and versus matchups), one f
 | --- | --- | --- |
 | FLUX 3 Klein: with vs without my own oil-painting LoRA | `workflows/tests-klein-oil-painting-lora/` | FLUX 3 Image Klein: workflows from this Tests video. |
 | How to Use LoRA in ComfyUI: Wire It Right (Power Lora Loader) | `workflows/tests-power-lora-loader-wiring/` | MiniMax H3 template + Power Lora Loader (rgthree), wired the safe way (UI format). |
-| Microsoft Lens Turbo: 25 Hard Tests | `workflows/tests-lens-turbo-25-hard-tests/` | lens: workflows from this Tests video. |
 | 10 MiniMax H3 LoRAs: with vs without | `workflows/tests-h3-loras/` | MiniMax H3: workflows from this Tests video. |
 | Krea 2 vs Qwen Image 2.1 | `workflows/tests-krea2-vs-qwen/` | Krea 2 Turbo, Qwen Image 2.1, Qwen Image 2.1 Edit: workflows from this Tests video. |
 | One fox, 50 styles: Qwen Image 2.1 vs Krea 2 Turbo vs Ideogram 4 | `workflows/tests-styles-50/` | Qwen Image 2.1, Krea 2 Turbo, Ideogram 4: workflows from this Tests video. |
@@ -157,6 +156,7 @@ Workflows behind the "Tests" videos (solo hard tests and versus matchups), one f
 | Best AI Anime Generator: Anima vs FLUX 3 Klein Distilled vs Z-Image Turbo vs ERNIE-Image Turbo | `workflows/tests-best-ai-anime-generator-4-way/` | anima, FLUX 3 Image Klein, Z-Image Turbo, ernie-image: workflows from this Tests video. |
 | Spelling Rematch: ERNIE-Image Turbo vs Ideogram 4: 20 Hard Text Tests | `workflows/tests-ernie-vs-ideogram-text-rematch/` | ernie-image, Ideogram 4: workflows from this Tests video. |
 | Fastest Local AI Image Model: Lens Turbo vs Z-Image Turbo vs FLUX 3 Klein Distilled vs P-H3-Image | `workflows/tests-fastest-image-model-4-way/` | lens, Z-Image Turbo, FLUX 3 Image Klein, p-h3-image: workflows from this Tests video. |
+| Microsoft Lens Turbo: 25 Hard Tests | `workflows/tests-lens-turbo-25-hard-tests/` | lens: workflows from this Tests video. |
 
 ## Related notes
 

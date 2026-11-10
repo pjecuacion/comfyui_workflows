@@ -91,7 +91,6 @@ Workflows behind the "Tests" videos (solo hard tests and versus matchups), one f
 
 | Video | Folder | Models |
 | --- | --- | --- |
-| MiniMax H3: with vs without the Sketch IRL LoRA | `workflows/tests-h3-sketch-irl-lora/` | MiniMax H3: workflows from this Tests video. |
 | MiniMax H3: with vs without the Film Noir LoRA | `workflows/tests-h3-film-noir-lora/` | MiniMax H3: workflows from this Tests video. |
 | MiniMax H3: with vs without the Tiny Things LoRA | `workflows/tests-h3-tiny-things-lora/` | MiniMax H3: workflows from this Tests video. |
 | MiniMax H3: with vs without the Cartoon World LoRA | `workflows/tests-h3-cartoon-world-lora/` | MiniMax H3: workflows from this Tests video. |
@@ -157,6 +156,7 @@ Workflows behind the "Tests" videos (solo hard tests and versus matchups), one f
 | MiniMax H3: with vs without the 1980s Fantasy Movies LoRA | `workflows/tests-h3-80s-fantasy-lora/` | MiniMax H3: workflows from this Tests video. |
 | MiniMax H3: with vs without the Crayon Drawings LoRA | `workflows/tests-h3-crayon-lora/` | MiniMax H3: workflows from this Tests video. |
 | MiniMax H3: with vs without the Modern PS2 Style LoRA | `workflows/tests-h3-modern-ps2-lora/` | MiniMax H3: workflows from this Tests video. |
+| MiniMax H3: with vs without the Sketch IRL LoRA | `workflows/tests-h3-sketch-irl-lora/` | MiniMax H3: workflows from this Tests video. |
 
 ## Related notes
 

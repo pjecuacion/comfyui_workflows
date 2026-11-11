@@ -9,3 +9,4 @@
 | BUG-005 | README workflow table rendered as one garbled row | Fixed | Low | 2026-08-23 |
 | BUG-007 | Face-detail widget serialization | Fixed | Medium | 2026-09-05 |
 | BUG-008 | Windows clone fails on long Taomate workflow paths | Fixed | High | 2026-09-30 |
+| BUG-009 | PS2 Tests workflow published with a placeholder LoRA name, so viewers can't reproduce the look | Fixed | High | 2026-11-11 |

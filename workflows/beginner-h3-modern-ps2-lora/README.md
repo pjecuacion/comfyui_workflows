@@ -32,8 +32,18 @@ prompt, seed and 4:3 size as scene 1 of the video.
 ## Step 2: Get the LoRA into ComfyUI
 
 **On RunningHub (cloud):** RunningHub can't see files on your computer. The LoRA has to be uploaded to your
-RunningHub account first. Use RunningHub's upload for your own models/LoRAs, then wait until it shows in your
-list. (RunningHub changes its screens often, so check their help page if you can't find the upload button.)
+RunningHub account first:
+
+1. Click **Models** in the top bar, then **Upload Model**.
+2. **Model Type:** `LoRA` (pick the wrong type and it won't show in the LoRA list). **Basic Model:** `minimax-h3`.
+   **Model Source:** `Imported`. **Trigger Words:** `modern ps2 style`.
+3. **Publish Range:** there is no "private" choice. `Link Access` is the closest (only people with the link see it).
+   This puts a copy of someone else's LoRA on RunningHub, so check the LoRA's permissions on its Civitai page first.
+4. Fill the other required boxes (name, tags, description, version, a cover picture), click **Upload LoRA**, pick
+   the file, then **Confirm**. It shows up after about 2 minutes, in the editor's **Models** panel under
+   **My Models** (not under Workspace > My Models, which is only for training).
+
+(RunningHub's screens as of November 2026. They change often.)
 
 **On your own PC:** put the file in `ComfyUI/models/loras/`. Then press `R` in ComfyUI (or restart it) so the
 new file shows up.
@@ -41,11 +51,9 @@ new file shows up.
 ## Step 3: Open the workflow
 
 1. Download `minimax_h3_modern_ps2_lora_beginner.json` from this folder (click the file, then the download button).
-2. Drag it onto the ComfyUI canvas (on RunningHub: open a new ComfyUI workspace and drag it in, or use its
-   import/upload workflow button).
-3. If you see a red "missing nodes" message: this workflow needs one extra node pack, **rgthree-comfy**
-   (for the "Power Lora Loader" box). On your PC: ComfyUI Manager > Custom Nodes Manager > search "rgthree" >
-   Install > restart. On RunningHub, rgthree is usually already there. If it isn't, see "No rgthree?" below.
+2. On your PC: drag it onto the ComfyUI canvas. On RunningHub: click **Workspace**, then **Import** on the
+   My Workflows tab, pick the `.json` file, and click the new workflow in the list to open it.
+3. It only uses ComfyUI's built-in boxes, so there's no extra node pack to install.
 
 ## Step 4: Check the models (the big files)
 
@@ -66,9 +74,10 @@ If a model box shows a red name, click the name and pick the file you have.
 
 1. The real nodes are inside the big "MiniMax H3 + Modern PS2 Style LoRA" box. Click the small icon at its top
    right to open it.
-2. Find the box called **Power Lora Loader (rgthree)**. It sits right after **Load Diffusion Model**.
-3. Click the LoRA name in it and pick your PS2 file (on RunningHub it may have a slightly different name).
-4. Make sure the row's switch is **on** and strength is **1.00**.
+2. Find the box called **Load LoRA (PS2 style)**. It sits right after **Load Diffusion Model**.
+3. Click its `lora_name` and pick your PS2 file. On RunningHub this opens their model picker: choose the
+   **My Models** tab and pick the LoRA you uploaded.
+4. Make sure `strength_model` is **1.00**.
 5. Go back out of the box (the arrow/breadcrumb at the top left).
 
 ## Step 6: Write the prompt (trigger words first)
@@ -103,13 +112,11 @@ In the official H3 template there are **two** wires leaving Load Diffusion Model
 default) the switch skips that path. Your LoRA is ignored and **you get no error**, just a normal-looking video.
 This file is already wired the right way. Full walkthrough video: https://www.youtube.com/watch?v=TNgXU0AmfnM
 
-## No rgthree? Use the normal "Load LoRA" node
+## Why not Power Lora Loader?
 
-1. Delete the Power Lora Loader box.
-2. Double-click the empty canvas, search **Load LoRA** (the model-only one), and add it.
-3. Wire **Load Diffusion Model → MODEL** into the new Load LoRA's **model** input.
-4. Take **both** wires that went out of the old box and plug them into the new Load LoRA's **MODEL** output.
-5. Pick the PS2 file, strength `1.0`.
+An earlier copy of this file used rgthree's **Power Lora Loader**. It works on a PC, but on RunningHub it opened
+broken (strength `NaN`, LoRA name `[object Object]`), because RunningHub's version of that box is different.
+This file uses ComfyUI's built-in **Load LoRA** (model only) instead. At strength 1.0 it gives the same result.
 
 ## Still not working? Quick checks
 
@@ -118,7 +125,8 @@ This file is already wired the right way. Full walkthrough video: https://www.yo
 | Video looks real/photo, not like a game | The LoRA isn't on the model path (see the trap), or the row is off, or strength is 0. |
 | "PS2" written as text in the video | Normal: it happened in my test too. Try another seed. |
 | Red box: "value not in list" | That model or LoRA file isn't there. Click the name and pick the one you have. |
-| "Missing nodes" | Install rgthree-comfy, or use the plain Load LoRA steps above. |
+| `NaN` or `[object Object]` in a LoRA box | You have the old copy with Power Lora Loader. Download this file again. |
+| LoRA isn't in the list on RunningHub | Check it was uploaded as Model Type `LoRA` and wait 2 minutes. |
 | Wrong LoRA version error / no effect | Make sure you downloaded the **MiniMax H3** version from Civitai, not Krea 2 or Anima. |
 | Extra hands or odd faces | Same for me (1 in 13 scenes). Try a new seed. |
 

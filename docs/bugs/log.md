@@ -10,3 +10,4 @@
 | BUG-007 | Face-detail widget serialization | Fixed | Medium | 2026-09-05 |
 | BUG-008 | Windows clone fails on long Taomate workflow paths | Fixed | High | 2026-09-30 |
 | BUG-009 | PS2 Tests workflow published with a placeholder LoRA name, so viewers can't reproduce the look | Fixed | High | 2026-11-11 |
+| BUG-010 | PS2 beginner workflow opens broken on RunningHub (rgthree Power Lora Loader) | Fixed | High | 2026-11-11 |

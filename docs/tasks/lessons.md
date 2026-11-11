@@ -177,3 +177,21 @@ When a node schema changes, rebuild its complete ordered widget array from the r
 ### Correct Behavior
 
 The detailer array is `[512, true, 768, 123456789, "fixed", 6, 8.0, "euler", "normal", 0.3, 8, 0.0, 20]`. The generated seed-control widget is included even though it is absent from the backend function signature.
+
+## LESSON-009 - Beginner and cloud workflows use core nodes only
+
+### What Went Wrong
+
+The PS2 beginner workflow used rgthree's Power Lora Loader. On RunningHub it opened with `NaN` and `[object Object]` (BUG-010).
+
+### Why It Happened
+
+Hosted ComfyUI services ship their own versions of custom node packs. Saved widget values from one version don't map onto another.
+
+### New Rule
+
+A workflow meant for beginners or for cloud ComfyUI (RunningHub and similar) uses core nodes only, unless the custom node is the point of the workflow. Test: `tests/bugs/BUG-010-ps2-beginner-core-lora.test.ps1`.
+
+### Correct Behavior
+
+One LoRA on the model path = core `LoraLoaderModelOnly` right after Load Diffusion Model, with every old outgoing wire moved to its MODEL output.

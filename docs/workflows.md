@@ -116,7 +116,7 @@ Workflows behind the "Tests" videos (solo hard tests and versus matchups), one f
 | MiniMax H3: with vs without the 1980s Fantasy Movies LoRA | `workflows/tests-h3-80s-fantasy-lora/` | MiniMax H3: workflows from this Tests video. |
 | MiniMax H3: with vs without the Crayon Drawings LoRA | `workflows/tests-h3-crayon-lora/` | MiniMax H3: workflows from this Tests video. |
 | MiniMax H3: with vs without the Modern PS2 Style LoRA | `workflows/tests-h3-modern-ps2-lora/` | MiniMax H3: test record only (placeholder LoRA name). To make the look, use `beginner-h3-modern-ps2-lora`. |
-| Beginner: the Modern PS2 Style LoRA on MiniMax H3, step by step | `workflows/beginner-h3-modern-ps2-lora/` | Official H3 template + Power Lora Loader with the PS2 LoRA, 4:3, scene 1 prompt; plain-English guide incl. RunningHub. |
+| Beginner: the Modern PS2 Style LoRA on MiniMax H3, step by step | `workflows/beginner-h3-modern-ps2-lora/` | Official H3 template + built-in Load LoRA with the PS2 LoRA (works on RunningHub), 4:3, scene 1 prompt; plain-English guide incl. RunningHub. |
 | MiniMax H3: with vs without the Sketch IRL LoRA | `workflows/tests-h3-sketch-irl-lora/` | MiniMax H3: workflows from this Tests video. |
 | MiniMax H3: with vs without the Cartoon World LoRA | `workflows/tests-h3-cartoon-world-lora/` | MiniMax H3: workflows from this Tests video. |
 | MiniMax H3: with vs without the Film Noir LoRA | `workflows/tests-h3-film-noir-lora/` | MiniMax H3: workflows from this Tests video. |

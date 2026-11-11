@@ -1771,84 +1771,67 @@
           },
           {
             "id": 141,
-            "type": "Power Lora Loader (rgthree)",
+            "type": "LoraLoaderModelOnly",
             "pos": [
               -1700,
               4300
             ],
             "size": [
-              340.519921875,
-              166
+              400,
+              130
             ],
             "flags": {},
             "order": 2,
             "mode": 0,
+            "title": "Load LoRA (PS2 style)",
             "inputs": [
               {
-                "dir": 3,
+                "localized_name": "model",
                 "name": "model",
                 "type": "MODEL",
                 "link": 249
               },
               {
-                "dir": 3,
-                "name": "clip",
-                "type": "CLIP",
+                "localized_name": "lora_name",
+                "name": "lora_name",
+                "type": "COMBO",
+                "widget": {
+                  "name": "lora_name"
+                },
+                "link": null
+              },
+              {
+                "localized_name": "strength_model",
+                "name": "strength_model",
+                "type": "FLOAT",
+                "widget": {
+                  "name": "strength_model"
+                },
                 "link": null
               }
             ],
             "outputs": [
               {
-                "dir": 4,
+                "localized_name": "MODEL",
                 "name": "MODEL",
-                "shape": 3,
                 "type": "MODEL",
                 "links": [
                   250,
                   251
                 ]
-              },
-              {
-                "dir": 4,
-                "name": "CLIP",
-                "shape": 3,
-                "type": "CLIP",
-                "links": null
               }
             ],
             "properties": {
-              "cnr_id": "rgthree-comfy",
-              "ver": "d7297b42f0fa78bec1c0411478f887423c249502",
-              "Show Strengths": "Single Strength",
-              "Match": ""
+              "cnr_id": "comfy-core",
+              "Node name for S&R": "LoraLoaderModelOnly"
             },
             "widgets_values": [
-              {},
-              {
-                "type": "PowerLoraLoaderHeaderWidget"
-              },
-              {
-                "on": true,
-                "lora": "modern ps2 style h3.safetensors",
-                "strength": 1,
-                "strengthTwo": null
-              },
-              {},
-              ""
+              "modern ps2 style h3.safetensors",
+              1
             ],
             "widgets_values_named": {
-              "divider": {},
-              "PowerLoraLoaderHeaderWidget": {
-                "type": "PowerLoraLoaderHeaderWidget"
-              },
-              "lora_1": {
-                "on": true,
-                "lora": "modern ps2 style h3.safetensors",
-                "strength": 1,
-                "strengthTwo": null
-              },
-              "divider#1": {},
-              "➕ Add Lora": ""
+              "lora_name": "modern ps2 style h3.safetensors",
+              "strength_model": 1
             }
           }
         ],

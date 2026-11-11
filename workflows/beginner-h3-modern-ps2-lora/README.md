@@ -78,7 +78,9 @@ If a model box shows a red name, click the name and pick the file you have.
 3. Click its `lora_name` and pick your PS2 file. On RunningHub this opens their model picker: choose the
    **My Models** tab and pick the LoRA you uploaded.
 4. Make sure `strength_model` is **1.00**.
-5. Go back out of the box (the arrow/breadcrumb at the top left).
+5. Go back out of the box (the arrow/breadcrumb at the top left; on RunningHub press Escape, because the "<" there
+   closes the editor).
+6. Leave the `lora_name` on the big outer box alone: that one is the turbo (speed) LoRA, not the PS2 one.
 
 ## Step 6: Write the prompt (trigger words first)
 
@@ -122,7 +124,7 @@ This file uses ComfyUI's built-in **Load LoRA** (model only) instead. At strengt
 
 | What you see | Most likely fix |
 | --- | --- |
-| Video looks real/photo, not like a game | The LoRA isn't on the model path (see the trap), or the row is off, or strength is 0. |
+| Video looks real/photo, not like a game | The LoRA isn't on the model path (see the trap), the PS2 file isn't picked, or strength is 0. |
 | "PS2" written as text in the video | Normal: it happened in my test too. Try another seed. |
 | Red box: "value not in list" | That model or LoRA file isn't there. Click the name and pick the one you have. |
 | `NaN` or `[object Object]` in a LoRA box | You have the old copy with Power Lora Loader. Download this file again. |

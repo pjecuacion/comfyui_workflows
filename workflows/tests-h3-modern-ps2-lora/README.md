@@ -2,6 +2,8 @@
 
 Workflows from the Prince Does AI video "MiniMax H3: with vs without the Modern PS2 Style LoRA" (YouTube: [Prince Does AI](https://www.youtube.com/@princedoesai)). Everything ran locally in ComfyUI on one RTX 5090.
 
+> **Want to make this look yourself? Use [`../beginner-h3-modern-ps2-lora/`](../beginner-h3-modern-ps2-lora/)** instead. It has a ready-to-run workflow and a beginner's step-by-step guide. The file below is a record of the test setup: its LoRA name `set-lora-by-recipe.safetensors` is a placeholder, and it is not set to the 4:3 size or prompts used in the video.
+
 ## How to use
 
 Drag a `.json` file onto ComfyUI. These are API-format exports: ComfyUI lays the nodes out for you. Put the models below in the matching `ComfyUI/models/` folders first.

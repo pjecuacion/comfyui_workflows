@@ -159,6 +159,7 @@ Workflows behind the "Tests" videos (solo hard tests and versus matchups), one f
 | Fastest Local AI Image Model: Lens Turbo vs Z-Image Turbo vs FLUX 3 Klein Distilled vs P-H3-Image | `workflows/tests-fastest-image-model-4-way/` | lens, Z-Image Turbo, FLUX 3 Image Klein, p-h3-image: workflows from this Tests video. |
 | Microsoft Lens Turbo: 25 Hard Tests | `workflows/tests-lens-turbo-25-hard-tests/` | lens: workflows from this Tests video. |
 | HyperFlow H3 Flash vs Pika H3 Flex: text to video, 12 hard tests | `workflows/tests-hyperflow-vs-pika/` | hyperflow-t2v, pika-t2v: workflows from this Tests video. |
+| H3 mega | `workflows/tests-h3-mega-9-models/` | MiniMax H3, pika-ref2va, hyperflow-ref2v, fasth3-omni, fastvideo-vsa4-ref: workflows from this Tests video. |
 
 ## Related notes
 

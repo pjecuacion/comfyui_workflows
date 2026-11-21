@@ -1,0 +1,181 @@
+{
+  "1": {
+    "inputs": {
+      "file": "utility_relayvsr_video_x2_upscale_input.mp4",
+      "video-preview": ""
+    },
+    "class_type": "LoadVideo",
+    "_meta": {
+      "title": "Load Video",
+      "cnr_id": "comfy-core",
+      "ver": "0.45.0"
+    }
+  },
+  "106": {
+    "inputs": {
+      "filename_prefix": "video/RelayVSR",
+      "format": "auto",
+      "format.codec": "auto",
+      "codec": "auto",
+      "video": [
+        "108:105",
+        0
+      ]
+    },
+    "class_type": "SaveVideo",
+    "_meta": {
+      "title": "Save Video",
+      "cnr_id": "comfy-core",
+      "ver": "0.45.0"
+    }
+  },
+  "202": {
+    "inputs": {
+      "start_time": 0,
+      "duration": 5,
+      "strict_duration": false
+    },
+    "class_type": "Video Slice",
+    "_meta": {
+      "title": "Trim Video",
+      "cnr_id": "comfy-core",
+      "ver": "0.45.0"
+    }
+  },
+  "108:4": {
+    "inputs": {
+      "unet_name": "relayvsr_x2_lightx2v_int8_convrot.safetensors",
+      "weight_dtype": "default"
+    },
+    "class_type": "UNETLoader",
+    "_meta": {
+      "title": "Load Diffusion Model",
+      "cnr_id": "comfy-core",
+      "ver": "0.45.0"
+    }
+  },
+  "108:5": {
+    "inputs": {
+      "model": [
+        "108:4",
+        0
+      ],
+      "images": [
+        "108:2",
+        0
+      ]
+    },
+    "class_type": "RelayVSRConditioning",
+    "_meta": {
+      "title": "RelayVSRConditioning",
+      "cnr_id": "comfy-core",
+      "ver": "0.45.0"
+    }
+  },
+  "108:7": {
+    "inputs": {
+      "vae_name": "relayvsr_flash_vae_x2_fp32.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "Load VAE",
+      "cnr_id": "comfy-core",
+      "ver": "0.45.0"
+    }
+  },
+  "108:6": {
+    "inputs": {
+      "seed": 42,
+      "steps": 1,
+      "cfg": 1,
+      "sampler_name": "euler",
+      "scheduler": "simple",
+      "denoise": 1,
+      "model": [
+        "108:4",
+        0
+      ],
+      "positive": [
+        "108:5",
+        0
+      ],
+      "negative": [
+        "108:5",
+        0
+      ],
+      "latent_image": [
+        "108:5",
+        1
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler",
+      "cnr_id": "comfy-core",
+      "ver": "0.45.0"
+    }
+  },
+  "108:2": {
+    "inputs": {
+      "video": [
+        "1",
+        0
+      ]
+    },
+    "class_type": "GetVideoComponents",
+    "_meta": {
+      "title": "Get Video Components",
+      "cnr_id": "comfy-core",
+      "ver": "0.45.0"
+    }
+  },
+  "108:104": {
+    "inputs": {
+      "detail": 1,
+      "vae": [
+        "108:7",
+        0
+      ],
+      "samples": [
+        "108:6",
+        0
+      ],
+      "images": [
+        "108:2",
+        0
+      ]
+    },
+    "class_type": "VSRDecode",
+    "_meta": {
+      "title": "VSR Decode",
+      "cnr_id": "comfy-core",
+      "ver": "0.45.0"
+    }
+  },
+  "108:105": {
+    "inputs": {
+      "fps": [
+        "108:2",
+        2
+      ],
+      "bit_depth": "auto",
+      "color_space": "sRGB",
+      "chroma_subsampling": "auto",
+      "codec": "none",
+      "images": [
+        "108:104",
+        0
+      ],
+      "audio": [
+        "108:2",
+        1
+      ]
+    },
+    "class_type": "CreateVideo",
+    "_meta": {
+      "title": "Create Video",
+      "cnr_id": "comfy-core",
+      "ver": "0.45.0"
+    }
+  }
+}

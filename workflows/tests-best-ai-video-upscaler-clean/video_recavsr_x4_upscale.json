@@ -1,0 +1,46 @@
+{
+ "1": {
+  "class_type": "LoadVideo",
+  "inputs": {
+   "file": "recavsr_demo.mp4"
+  }
+ },
+ "3": {
+  "class_type": "ReCaVSRLoader",
+  "inputs": {
+   "transformer": "transformer_int8_convrot.safetensors"
+  }
+ },
+ "4": {
+  "class_type": "ReCaVSRUpscale",
+  "inputs": {
+   "model": [
+    "3",
+    0
+   ],
+   "video": [
+    "1",
+    0
+   ],
+   "scale": 4.0,
+   "color_fix": "none",
+   "seed": 42,
+   "decoder": "flashdecoder",
+   "kernels": "fast",
+   "kv_offload": false,
+   "encoder": "auto"
+  }
+ },
+ "6": {
+  "class_type": "SaveVideo",
+  "inputs": {
+   "video": [
+    "4",
+    0
+   ],
+   "filename_prefix": "recavsr/video",
+   "format": "auto",
+   "codec": "auto"
+  }
+ }
+}

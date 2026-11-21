@@ -163,6 +163,7 @@ Workflows behind the "Tests" videos (solo hard tests and versus matchups), one f
 | Best AI Video Upscaler in ComfyUI: SeedVR2 vs RelayVSR vs ReCaVSR vs NVIDIA RTX VSR (all 2x, with an answer key) | `workflows/tests-best-ai-video-upscaler-clean/` | seedvr2-upscale-video, relayvsr-upscale-video, recavsr-upscale-video: workflows from this Tests video. |
 | ComfyUI FaceDetailer: Does It Really Fix AI Faces? 20 Hard Tests | `workflows/tests-comfyui-facedetailer-20-tests/` | Z-Image Turbo, zimage-facedetailer: workflows from this Tests video. |
 | Wan Animate 2: 20 hard character-animation tests | `workflows/tests-wan-animate-2-20-hard-tests/` | wan-animate2: workflows from this Tests video. |
+| LTX 2.5 depth control: 20 hard tests | `workflows/tests-ltx-depth-control-20-hard-tests/` | ltx-depth-control, MiniMax H3: workflows from this Tests video. |
 
 ## Related notes
 

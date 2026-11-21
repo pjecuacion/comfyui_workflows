@@ -1,0 +1,176 @@
+{
+ "1": {
+  "inputs": {
+   "model_name": "minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+   "activation_reserve_gb": 0
+  },
+  "class_type": "H3ModelLoaderAny",
+  "_meta": {
+   "title": "H3 Model (safetensors or GGUF)",
+   "cnr_id": "comfyui_fearnworksnodes",
+   "ver": "0.1.2"
+  }
+ },
+ "3": {
+  "inputs": {
+   "vae_name": "minimax_h3_video_vae_fp16.safetensors"
+  },
+  "class_type": "VAELoader",
+  "_meta": {
+   "title": "Video VAE",
+   "cnr_id": "comfy-core",
+   "ver": "0.30.0"
+  }
+ },
+ "4": {
+  "inputs": {
+   "vae_name": "minimax_h3_audio_vae_fp32.safetensors"
+  },
+  "class_type": "VAELoader",
+  "_meta": {
+   "title": "Audio VAE",
+   "cnr_id": "comfy-core",
+   "ver": "0.30.0"
+  }
+ },
+ "5": {
+  "inputs": {
+   "script": "Shot 1: A cinematic medium shot of the same presenter in a bright studio. She looks into the camera and says, \"This is the first Turbo multishot test.\" Clean synchronized speech and quiet room tone.\n---\nShot 2: Continue from the previous frame with the same presenter, clothes, lighting, and studio. She smiles and says, \"And this is shot two, generated in four steps.\" Clean synchronized speech and quiet room tone.",
+   "shot_count": 2,
+   "width": 960,
+   "height": 544,
+   "frames_per_shot": 73,
+   "seed": 157987240705331,
+   "steps": 4,
+   "seed_per_shot": true,
+   "sampler_name": "res_multistep",
+   "scheduler": "simple",
+   "self_anchor_voice": true,
+   "output_scale": 1,
+   "save_every_shot": false,
+   "model": [
+    "18",
+    0
+   ],
+   "clip": [
+    "11",
+    0
+   ],
+   "video_vae": [
+    "3",
+    0
+   ],
+   "audio_vae": [
+    "4",
+    0
+   ],
+   "start_image": [
+    "17",
+    0
+   ]
+  },
+  "class_type": "H3MultishotSampler",
+  "_meta": {
+   "title": "H3 Multishot Sampler",
+   "cnr_id": "comfyui_fearnworksnodes",
+   "ver": "0.1.2"
+  }
+ },
+ "6": {
+  "inputs": {
+   "fps": 24,
+   "bit_depth": 8,
+   "color_space": "sRGB",
+   "chroma_subsampling": "auto",
+   "codec": "none",
+   "images": [
+    "5",
+    0
+   ],
+   "audio": [
+    "5",
+    1
+   ]
+  },
+  "class_type": "CreateVideo",
+  "_meta": {
+   "title": "Create Video",
+   "cnr_id": "comfy-core",
+   "ver": "0.30.0"
+  }
+ },
+ "7": {
+  "inputs": {
+   "filename_prefix": "video/H3MULTI_TURBO/MASTER_NATIVE_24FPS",
+   "format": "auto",
+   "format.codec": "auto",
+   "codec": "auto",
+   "video": [
+    "6",
+    0
+   ]
+  },
+  "class_type": "SaveVideo",
+  "_meta": {
+   "title": "SAVE MASTER",
+   "cnr_id": "comfy-core",
+   "ver": "0.30.0"
+  }
+ },
+ "11": {
+  "inputs": {
+   "clip_name": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+   "type": "minimax",
+   "mmproj_name": "(auto)"
+  },
+  "class_type": "H3ClipLoaderAny",
+  "_meta": {
+   "title": "H3 CLIP Loader (safetensors + GGUF)",
+   "cnr_id": "comfyui_fearnworksnodes",
+   "ver": "0.1.2"
+  }
+ },
+ "12": {
+  "inputs": {
+   "image": "example.png"
+  },
+  "class_type": "LoadImage",
+  "_meta": {
+   "title": "Load Image",
+   "cnr_id": "comfy-core",
+   "ver": "0.30.0"
+  }
+ },
+ "17": {
+  "inputs": {
+   "enabled": true,
+   "image": [
+    "12",
+    0
+   ]
+  },
+  "class_type": "H3OptionalImage",
+  "_meta": {
+   "title": "H3 Optional Image (I2V on/off)",
+   "cnr_id": "comfyui_fearnworksnodes",
+   "ver": "0.1.2"
+  }
+ },
+ "18": {
+  "inputs": {
+   "lora_name": "minimax_h3_turbo_4step_ckpt500.safetensors",
+   "strength": 1,
+   "low_vram": false,
+   "model": [
+    "1",
+    0
+   ]
+  },
+  "class_type": "MiniMaxH3TurboLoRA",
+  "_meta": {
+   "title": "MiniMax-H3 Turbo LoRA",
+   "cnr_id": "comfyui_fearnworksnodes",
+   "ver": "0.1.2"
+  }
+ }
+}

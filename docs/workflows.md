@@ -169,6 +169,7 @@ Workflows behind the "Tests" videos (solo hard tests and versus matchups), one f
 | Video Depth Anything: 15 hard clips | `workflows/tests-video-depth-anything-15-hard-clips/` | ltx-t2v, video-depth: workflows from this Tests video. |
 | Remove people from video with AI: LTX 2.3 clean plate, 15 hard tests | `workflows/tests-ltx23-clean-plate-15-hard-tests/` | ltx23-clean-plate: workflows from this Tests video. |
 | RIFE frame interpolation: 12 hard tests | `workflows/tests-comfyui-frame-interpolation-12-tests/` | interpolate-video: workflows from this Tests video. |
+| LTX 2.5 lip sync (ia2v): 15 hard tests | `workflows/tests-ai-lip-sync-ltx-15-hard-tests/` | ltx-ia2v: workflows from this Tests video. |
 
 ## Related notes
 

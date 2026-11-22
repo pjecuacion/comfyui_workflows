@@ -165,6 +165,7 @@ Workflows behind the "Tests" videos (solo hard tests and versus matchups), one f
 | Wan Animate 2: 20 hard character-animation tests | `workflows/tests-wan-animate-2-20-hard-tests/` | wan-animate2: workflows from this Tests video. |
 | LTX 2.5 depth control: 20 hard tests | `workflows/tests-ltx-depth-control-20-hard-tests/` | ltx-depth-control, MiniMax H3: workflows from this Tests video. |
 | MiniMax H3 Multishot Turbo: 15 hard tests | `workflows/tests-minimax-h3-multishot-15-hard-tests/` | MiniMax H3: workflows from this Tests video. |
+| ComfyUI GGUF: Do Smaller Model Files Make Worse Pictures? | `workflows/tests-comfyui-gguf-4-way/` | Z-Image Turbo, zimage-gguf: workflows from this Tests video. |
 
 ## Related notes
 

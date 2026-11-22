@@ -168,6 +168,7 @@ Workflows behind the "Tests" videos (solo hard tests and versus matchups), one f
 | ComfyUI GGUF: Do Smaller Model Files Make Worse Pictures? | `workflows/tests-comfyui-gguf-4-way/` | Z-Image Turbo, zimage-gguf: workflows from this Tests video. |
 | Video Depth Anything: 15 hard clips | `workflows/tests-video-depth-anything-15-hard-clips/` | ltx-t2v, video-depth: workflows from this Tests video. |
 | Remove people from video with AI: LTX 2.3 clean plate, 15 hard tests | `workflows/tests-ltx23-clean-plate-15-hard-tests/` | ltx23-clean-plate: workflows from this Tests video. |
+| RIFE frame interpolation: 12 hard tests | `workflows/tests-comfyui-frame-interpolation-12-tests/` | interpolate-video: workflows from this Tests video. |
 
 ## Related notes
 

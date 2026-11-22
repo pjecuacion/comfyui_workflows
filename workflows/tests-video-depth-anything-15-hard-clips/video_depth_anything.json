@@ -1,0 +1,83 @@
+{
+  "1": {
+    "class_type": "LoadVideo",
+    "inputs": {
+      "file": "utility_relayvsr_video_x2_upscale_input.mp4"
+    }
+  },
+  "2": {
+    "class_type": "GetVideoComponents",
+    "inputs": {
+      "video": [
+        "1",
+        0
+      ]
+    }
+  },
+  "3": {
+    "class_type": "LoadVideoDepthAnythingModel",
+    "inputs": {
+      "model": "video_depth_anything_vitl.pth"
+    }
+  },
+  "4": {
+    "class_type": "VideoDepthAnythingProcess",
+    "inputs": {
+      "vda_model": [
+        "3",
+        0
+      ],
+      "images": [
+        "2",
+        0
+      ],
+      "input_size": 518,
+      "max_res": 1280,
+      "precision": "fp16"
+    }
+  },
+  "5": {
+    "class_type": "VideoDepthAnythingOutput",
+    "inputs": {
+      "depths": [
+        "4",
+        0
+      ],
+      "colormap": "inferno"
+    }
+  },
+  "6": {
+    "class_type": "CreateVideo",
+    "inputs": {
+      "fps": [
+        "2",
+        2
+      ],
+      "bit_depth": "auto",
+      "color_space": "sRGB",
+      "chroma_subsampling": "auto",
+      "codec": "none",
+      "images": [
+        "5",
+        0
+      ],
+      "audio": [
+        "2",
+        1
+      ]
+    }
+  },
+  "7": {
+    "class_type": "SaveVideo",
+    "inputs": {
+      "filename_prefix": "video/VDA",
+      "format": "auto",
+      "format.codec": "auto",
+      "codec": "auto",
+      "video": [
+        "6",
+        0
+      ]
+    }
+  }
+}

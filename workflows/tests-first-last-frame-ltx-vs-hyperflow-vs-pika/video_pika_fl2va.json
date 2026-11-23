@@ -1,0 +1,382 @@
+{
+ "92": {
+  "inputs": {
+   "filename_prefix": "video/Pika_H3_Flex_FL2VA",
+   "format": "auto",
+   "format.codec": "auto",
+   "codec": "auto",
+   "video": [
+    "140:130",
+    0
+   ]
+  },
+  "class_type": "SaveVideo",
+  "_meta": {
+   "title": "Save Video",
+   "cnr_id": "comfy-core",
+   "ver": "0.33.0"
+  }
+ },
+ "147": {
+  "inputs": {
+   "image": "lastP_spin_jump_hole.png"
+  },
+  "class_type": "LoadImage",
+  "_meta": {
+   "title": "Last frame (Picture 2)",
+   "cnr_id": "comfy-core",
+   "ver": "0.43.1"
+  }
+ },
+ "148": {
+  "inputs": {
+   "image": "ref_popart_woman.png"
+  },
+  "class_type": "LoadImage",
+  "_meta": {
+   "title": "First frame",
+   "cnr_id": "comfy-core",
+   "ver": "0.43.1"
+  }
+ },
+ "149": {
+  "inputs": {
+   "image": [
+    "148",
+    0
+   ]
+  },
+  "class_type": "GetImageSize",
+  "_meta": {
+   "title": "Get Image Size",
+   "cnr_id": "comfy-core",
+   "ver": "0.43.1"
+  }
+ },
+ "140:119": {
+  "inputs": {
+   "vae_name": "minimax_h3_video_vae_int8_convrot.safetensors"
+  },
+  "class_type": "VAELoader",
+  "_meta": {
+   "title": "Load VAE",
+   "cnr_id": "comfy-core",
+   "ver": "0.33.0"
+  }
+ },
+ "140:120": {
+  "inputs": {
+   "vae_name": "minimax_h3_audio_vae_fp32.safetensors"
+  },
+  "class_type": "VAELoader",
+  "_meta": {
+   "title": "Load VAE",
+   "cnr_id": "comfy-core",
+   "ver": "0.33.0"
+  }
+ },
+ "140:121": {
+  "inputs": {
+   "samples": [
+    "140:125",
+    0
+   ],
+   "vae": [
+    "140:120",
+    0
+   ]
+  },
+  "class_type": "VAEDecodeAudio",
+  "_meta": {
+   "title": "VAE Decode Audio",
+   "cnr_id": "comfy-core",
+   "ver": "0.33.0"
+  }
+ },
+ "140:122": {
+  "inputs": {
+   "samples": [
+    "140:125",
+    0
+   ],
+   "vae": [
+    "140:119",
+    0
+   ]
+  },
+  "class_type": "VAEDecode",
+  "_meta": {
+   "title": "VAE Decode",
+   "cnr_id": "comfy-core",
+   "ver": "0.33.0"
+  }
+ },
+ "140:123": {
+  "inputs": {
+   "sampler_name": "lcm"
+  },
+  "class_type": "KSamplerSelect",
+  "_meta": {
+   "title": "KSamplerSelect",
+   "cnr_id": "comfy-core",
+   "ver": "0.33.0"
+  }
+ },
+ "140:125": {
+  "inputs": {
+   "noise": [
+    "140:129",
+    0
+   ],
+   "guider": [
+    "140:126",
+    0
+   ],
+   "sampler": [
+    "140:123",
+    0
+   ],
+   "sigmas": [
+    "140:143",
+    0
+   ],
+   "latent_image": [
+    "140:131",
+    1
+   ]
+  },
+  "class_type": "SamplerCustomAdvanced",
+  "_meta": {
+   "title": "SamplerCustomAdvanced",
+   "cnr_id": "comfy-core",
+   "ver": "0.33.0"
+  }
+ },
+ "140:126": {
+  "inputs": {
+   "model": [
+    "140:134",
+    0
+   ],
+   "conditioning": [
+    "140:131",
+    0
+   ]
+  },
+  "class_type": "BasicGuider",
+  "_meta": {
+   "title": "Basic Guider",
+   "cnr_id": "comfy-core",
+   "ver": "0.33.0"
+  }
+ },
+ "140:127": {
+  "inputs": {
+   "unet_name": "minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+   "weight_dtype": "default"
+  },
+  "class_type": "UNETLoader",
+  "_meta": {
+   "title": "Load Diffusion Model",
+   "cnr_id": "comfy-core",
+   "ver": "0.33.0"
+  }
+ },
+ "140:128": {
+  "inputs": {
+   "clip_name": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+   "type": "minimax",
+   "device": "default"
+  },
+  "class_type": "CLIPLoader",
+  "_meta": {
+   "title": "Load CLIP",
+   "cnr_id": "comfy-core",
+   "ver": "0.33.0"
+  }
+ },
+ "140:129": {
+  "inputs": {
+   "noise_seed": 915756813683825
+  },
+  "class_type": "RandomNoise",
+  "_meta": {
+   "title": "RandomNoise",
+   "cnr_id": "comfy-core",
+   "ver": "0.33.0"
+  }
+ },
+ "140:130": {
+  "inputs": {
+   "fps": 24,
+   "bit_depth": "auto",
+   "color_space": "sRGB",
+   "codec": "none",
+   "images": [
+    "140:122",
+    0
+   ],
+   "audio": [
+    "140:121",
+    0
+   ],
+   "chroma_subsampling": "auto"
+  },
+  "class_type": "CreateVideo",
+  "_meta": {
+   "title": "Create Video",
+   "cnr_id": "comfy-core",
+   "ver": "0.33.0"
+  }
+ },
+ "140:131": {
+  "inputs": {
+   "prompt": "How the reference pictures align with the target video — Picture 1 (from Shot 1) aligns with the 0.00-second mark of the target video; Picture 2 (from Shot 1) aligns with the 5.17-second mark of the target video.\n\nintegrated_multimodal_description: [Shot 1] Editorial pop-art photography and printed-graphic hybrid: the woman and her clothing stay photographic with real skin texture, while everything printed — the sticker pizza, the stars, the halftone dots, the sticker tiles on the floor — stays flat printed card with heavy black outlines and no thickness. Flat hard frontal light, seamless process-red field, no gloss on the red. The shot begins exactly on Picture 1: tight portrait framing, red cat-eye sunglasses on her face, black and white checkerboard top, lips just touching the tip of the flat sticker pizza held at chin height, deadpan behind the dark lenses. At about half a second she bites the sticker and pulls her head back, and the red field behind her behaves like printed paper: a ragged tear opens behind her shoulders and curls at its edges. At about one and a half seconds she spins a full turn on the spot, clockwise, the sticker turning with her so its black outline draws a full circle against the red. At about two and a half seconds she jumps up through the tear toward the lens, and the camera pulls back with small amplitude at slow speed, coming to rest exactly when her raised arms fit inside the frame. At about three and a half seconds she lands facing the lens in the pose of Picture 2: arms overhead holding the sticker pizza, its bitten edge toward camera, the red cat-eye sunglasses airborne above and to her left, tumbling end over end with one lens catching the light, her face breaking into a wide open laugh. Flat yellow stars and small sticker pizza tiles populate the red field exactly as in Picture 2, and the halftone dot pattern resolves into visible print grain. The shot settles into the final composition of Picture 2 and holds, with only the sunglasses still turning in the air.\n\noverall_soundscape: A crisp papery bite, then the dry rasping tear of thick printed stock splitting and curling, one short airy whoosh for the spin, a light thump of her landing, the plastic clatter of sunglasses tumbling above her, and her open laugh arriving on the landing over a dry studio room with no reverb.\n\nnon_diegetic_music: A fast bright brass-and-clarinet figure that hits on the spin, cuts to a single sustained note through the jump, and lands on one resolved chord with her laugh.",
+   "width": [
+    "140:150",
+    1
+   ],
+   "height": [
+    "140:151",
+    1
+   ],
+   "length": [
+    "140:132",
+    1
+   ],
+   "clip": [
+    "140:128",
+    0
+   ],
+   "vae": [
+    "140:119",
+    0
+   ],
+   "first_frame": [
+    "148",
+    0
+   ],
+   "last_frame": [
+    "147",
+    0
+   ]
+  },
+  "class_type": "MiniMaxH3ImageToVideo",
+  "_meta": {
+   "title": "MiniMax H3 Image to Video",
+   "cnr_id": "comfy-core",
+   "ver": "0.33.0"
+  }
+ },
+ "140:132": {
+  "inputs": {
+   "expression": "max(5, round(a * 24)) + (5 - (max(5, round(a * 24)) % 17)) % 17",
+   "values.a": [
+    "140:133",
+    0
+   ]
+  },
+  "class_type": "ComfyMathExpression",
+  "_meta": {
+   "title": "Math Expression",
+   "cnr_id": "comfy-core",
+   "ver": "0.33.0"
+  }
+ },
+ "140:133": {
+  "inputs": {
+   "value": 5
+  },
+  "class_type": "PrimitiveFloat",
+  "_meta": {
+   "title": "Float (duration)",
+   "cnr_id": "comfy-core",
+   "ver": "0.33.0"
+  }
+ },
+ "140:134": {
+  "inputs": {
+   "lora_name": "pika_h3_flex_fl2va_v1_bf16.safetensors",
+   "strength_model": 1,
+   "model": [
+    "140:127",
+    0
+   ]
+  },
+  "class_type": "LoraLoaderModelOnly",
+  "_meta": {
+   "title": "Load LoRA",
+   "cnr_id": "comfy-core",
+   "ver": "0.33.0"
+  }
+ },
+ "140:143": {
+  "inputs": {
+   "sigmas": "1.0, 0.972973, 0.923077, 0.8, 0.571429, 0.333333, 0.0"
+  },
+  "class_type": "ManualSigmas",
+  "_meta": {
+   "title": "ManualSigmas",
+   "cnr_id": "comfy-core",
+   "ver": "0.43.1"
+  }
+ },
+ "140:150": {
+  "inputs": {
+   "expression": "round(a/32)*32",
+   "values.a": [
+    "140:152",
+    0
+   ]
+  },
+  "class_type": "ComfyMathExpression",
+  "_meta": {
+   "title": "Math Expression",
+   "cnr_id": "comfy-core",
+   "ver": "0.43.1"
+  }
+ },
+ "140:151": {
+  "inputs": {
+   "expression": "round(a/32)*32",
+   "values.a": [
+    "140:153",
+    0
+   ]
+  },
+  "class_type": "ComfyMathExpression",
+  "_meta": {
+   "title": "Math Expression",
+   "cnr_id": "comfy-core",
+   "ver": "0.43.1"
+  }
+ },
+ "140:152": {
+  "inputs": {
+   "value": [
+    "149",
+    0
+   ]
+  },
+  "class_type": "PrimitiveInt",
+  "_meta": {
+   "title": "Int",
+   "cnr_id": "comfy-core",
+   "ver": "0.43.1"
+  }
+ },
+ "140:153": {
+  "inputs": {
+   "value": [
+    "149",
+    1
+   ]
+  },
+  "class_type": "PrimitiveInt",
+  "_meta": {
+   "title": "Int",
+   "cnr_id": "comfy-core",
+   "ver": "0.43.1"
+  }
+ }
+}

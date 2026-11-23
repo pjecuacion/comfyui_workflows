@@ -172,6 +172,7 @@ Workflows behind the "Tests" videos (solo hard tests and versus matchups), one f
 | LTX 2.5 lip sync (ia2v): 15 hard tests | `workflows/tests-ai-lip-sync-ltx-15-hard-tests/` | ltx-ia2v: workflows from this Tests video. |
 | FastVideo VSA 4-step MiniMax H3: 20 hard tests | `workflows/tests-fastvideo-minimax-h3-20-hard-tests/` | fastvideo-vsa4-ref: workflows from this Tests video. |
 | MiniMax H3 Ref2VA: normal run vs VDN | `workflows/tests-minimax-h3-vdn-vs-ref2va/` | MiniMax H3: workflows from this Tests video. |
+| First + last frame to video: LTX 2.5 vs HyperFlow H3 Flash vs Pika H3 Flex, 12 hard tests | `workflows/tests-first-last-frame-ltx-vs-hyperflow-vs-pika/` | ltx-flf, hyperflow-flf2v, pika-fl2va: workflows from this Tests video. |
 
 ## Related notes
 

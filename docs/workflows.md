@@ -178,6 +178,7 @@ Workflows behind the "Tests" videos (solo hard tests and versus matchups), one f
 | MOSS-Image Layout Boxes: 15 Hard Placement Tests | `workflows/tests-moss-image-layout-15-hard-tests/` | moss-layout: workflows from this Tests video. |
 | SeedVR2 AI Image Upscaler: 15 Hard Tests (4x) | `workflows/tests-seedvr2-image-upscaler-15-hard-tests/` | seedvr2-upscale: workflows from this Tests video. |
 | pi-H3 (2 steps) vs HyperFlow H3 Flash (6 steps): text to video, 18 hard tests | `workflows/tests-pi-h3-vs-hyperflow/` | pi-h3, hyperflow-t2v: workflows from this Tests video. |
+| MOSS-Image Base vs SFT: Is the Fine-Tune Really Better? | `workflows/tests-moss-image-base-vs-sft/` | moss-base, moss: workflows from this Tests video. |
 
 ## Related notes
 

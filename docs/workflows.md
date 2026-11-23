@@ -176,6 +176,7 @@ Workflows behind the "Tests" videos (solo hard tests and versus matchups), one f
 | AI reference to video: HyperFlow H3 Flash vs Pika H3 Flex, 12 hard tests | `workflows/tests-ai-reference-to-video-hyperflow-vs-pika/` | hyperflow-ref2v, pika-ref2va: workflows from this Tests video. |
 | Best AI Image Editor Rematch: Qwen Edit 2511 vs MiniMax H3 Image Edit vs FLUX 3 Klein Distilled Edit, 15 Hard Edits | `workflows/tests-best-ai-image-editor-rematch/` | qwen-edit-2511, MiniMax H3, FLUX 3 Image Klein: workflows from this Tests video. |
 | MOSS-Image Layout Boxes: 15 Hard Placement Tests | `workflows/tests-moss-image-layout-15-hard-tests/` | moss-layout: workflows from this Tests video. |
+| SeedVR2 AI Image Upscaler: 15 Hard Tests (4x) | `workflows/tests-seedvr2-image-upscaler-15-hard-tests/` | seedvr2-upscale: workflows from this Tests video. |
 
 ## Related notes
 

@@ -1,0 +1,342 @@
+{
+ "92": {
+  "inputs": {
+   "filename_prefix": "video/Pika_H3_Flex_REF2V",
+   "format": "auto",
+   "format.codec": "auto",
+   "codec": "auto",
+   "video": [
+    "130",
+    0
+   ]
+  },
+  "class_type": "SaveVideo",
+  "_meta": {
+   "title": "Save Video",
+   "cnr_id": "comfy-core",
+   "ver": "0.33.0"
+  }
+ },
+ "115": {
+  "inputs": {
+   "aspect_ratio": "16:9 (Widescreen)",
+   "megapixels": 0.98,
+   "multiple": 32
+  },
+  "class_type": "ResolutionSelector",
+  "_meta": {
+   "title": "Resolution Selector (Size)",
+   "cnr_id": "comfy-core",
+   "ver": "0.33.0"
+  }
+ },
+ "119": {
+  "inputs": {
+   "vae_name": "minimax_h3_video_vae_int8_convrot.safetensors"
+  },
+  "class_type": "VAELoader",
+  "_meta": {
+   "title": "Load VAE",
+   "cnr_id": "comfy-core",
+   "ver": "0.33.0"
+  }
+ },
+ "120": {
+  "inputs": {
+   "vae_name": "minimax_h3_audio_vae_fp32.safetensors"
+  },
+  "class_type": "VAELoader",
+  "_meta": {
+   "title": "Load VAE",
+   "cnr_id": "comfy-core",
+   "ver": "0.33.0"
+  }
+ },
+ "121": {
+  "inputs": {
+   "samples": [
+    "125",
+    0
+   ],
+   "vae": [
+    "120",
+    0
+   ]
+  },
+  "class_type": "VAEDecodeAudio",
+  "_meta": {
+   "title": "VAE Decode Audio",
+   "cnr_id": "comfy-core",
+   "ver": "0.33.0"
+  }
+ },
+ "122": {
+  "inputs": {
+   "samples": [
+    "125",
+    0
+   ],
+   "vae": [
+    "119",
+    0
+   ]
+  },
+  "class_type": "VAEDecode",
+  "_meta": {
+   "title": "VAE Decode",
+   "cnr_id": "comfy-core",
+   "ver": "0.33.0"
+  }
+ },
+ "123": {
+  "inputs": {
+   "sampler_name": "lcm"
+  },
+  "class_type": "KSamplerSelect",
+  "_meta": {
+   "title": "KSamplerSelect",
+   "cnr_id": "comfy-core",
+   "ver": "0.33.0"
+  }
+ },
+ "125": {
+  "inputs": {
+   "noise": [
+    "129",
+    0
+   ],
+   "guider": [
+    "126",
+    0
+   ],
+   "sampler": [
+    "123",
+    0
+   ],
+   "sigmas": [
+    "147",
+    0
+   ],
+   "latent_image": [
+    "136",
+    1
+   ]
+  },
+  "class_type": "SamplerCustomAdvanced",
+  "_meta": {
+   "title": "SamplerCustomAdvanced",
+   "cnr_id": "comfy-core",
+   "ver": "0.33.0"
+  }
+ },
+ "126": {
+  "inputs": {
+   "model": [
+    "145",
+    0
+   ],
+   "conditioning": [
+    "136",
+    0
+   ]
+  },
+  "class_type": "BasicGuider",
+  "_meta": {
+   "title": "Basic Guider",
+   "cnr_id": "comfy-core",
+   "ver": "0.33.0"
+  }
+ },
+ "127": {
+  "inputs": {
+   "unet_name": "minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+   "weight_dtype": "default"
+  },
+  "class_type": "UNETLoader",
+  "_meta": {
+   "title": "Load Diffusion Model",
+   "cnr_id": "comfy-core",
+   "ver": "0.33.0"
+  }
+ },
+ "128": {
+  "inputs": {
+   "clip_name": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+   "type": "minimax",
+   "device": "default"
+  },
+  "class_type": "CLIPLoader",
+  "_meta": {
+   "title": "Load CLIP",
+   "cnr_id": "comfy-core",
+   "ver": "0.33.0"
+  }
+ },
+ "129": {
+  "inputs": {
+   "noise_seed": 261662374822964
+  },
+  "class_type": "RandomNoise",
+  "_meta": {
+   "title": "RandomNoise",
+   "cnr_id": "comfy-core",
+   "ver": "0.33.0"
+  }
+ },
+ "130": {
+  "inputs": {
+   "fps": 24,
+   "bit_depth": 8,
+   "color_space": "sRGB",
+   "codec": "none",
+   "images": [
+    "122",
+    0
+   ],
+   "audio": [
+    "121",
+    0
+   ],
+   "chroma_subsampling": "auto"
+  },
+  "class_type": "CreateVideo",
+  "_meta": {
+   "title": "Create Video",
+   "cnr_id": "comfy-core",
+   "ver": "0.33.0"
+  }
+ },
+ "131": {
+  "inputs": {
+   "expression": "max(5, round(a * 24)) + (5 - (max(5, round(a * 24)) % 17)) % 17",
+   "values.a": [
+    "132",
+    0
+   ]
+  },
+  "class_type": "ComfyMathExpression",
+  "_meta": {
+   "title": "Math Expression",
+   "cnr_id": "comfy-core",
+   "ver": "0.33.0"
+  }
+ },
+ "132": {
+  "inputs": {
+   "value": 5
+  },
+  "class_type": "PrimitiveFloat",
+  "_meta": {
+   "title": "Float (Duration)",
+   "cnr_id": "comfy-core",
+   "ver": "0.33.0"
+  }
+ },
+ "136": {
+  "inputs": {
+   "prompt": [
+    "138",
+    0
+   ],
+   "width": [
+    "115",
+    0
+   ],
+   "height": [
+    "115",
+    1
+   ],
+   "length": [
+    "131",
+    1
+   ],
+   "ref_image_size": "match",
+   "clip": [
+    "128",
+    0
+   ],
+   "vae": [
+    "119",
+    0
+   ],
+   "audio_vae": [
+    "120",
+    0
+   ],
+   "ref_images.ref_image_0": [
+    "149",
+    0
+   ],
+   "ref_images.ref_image_1": [
+    "150",
+    0
+   ]
+  },
+  "class_type": "MiniMaxH3ReferenceToVideo",
+  "_meta": {
+   "title": "MiniMax H3 Reference to Video",
+   "cnr_id": "comfy-core",
+   "ver": "0.33.0"
+  }
+ },
+ "138": {
+  "inputs": {
+   "value": "subject_definitions:\n<Subject 1> is the station exterior in <Picture 2>. Reference role: form and material anchor. Features to follow exactly: a wide white saucer-shaped upper hull with visible panel seams and small antennas on top, a lit yellow-orange window band running around the rim, a cluster of white cylindrical modules hanging beneath the saucer with thin antenna spars at the bottom, weathered white paint with dark seams between plates, and the blue limb of a planet with white cloud bands behind it.\n<Subject 2> is the pilot in <Picture 1>. Reference role: identity and gear anchor. Features to follow exactly: a dark matte flight helmet with a wide glossy black visor, one thin orange glowing ring on the left side of the visor and two horizontal orange glowing bars on the right side, a segmented metal collar ring under the jaw, and a bulky dark flight suit with a soft padded cowl. Do not carry over the light grey studio background of <Picture 1>.\n<Subject 3> is the station interior, invented to match <Subject 1>: a dark rectangular hangar bay with ribbed white-metal walls, deep structural ribs, a grated catwalk running across the middle distance, small cargo clamps along the walls, and orange strip lights recessed between the ribs that match the colour of the pilot's visor glow.\n\nsummary:\n[reference generation] A five-second single continuous shot: the station of <Picture 2> hangs in orbit, the camera pushes in toward its saucer rim, the bay mouth opens and the camera travels inside, where the hangar lights come up to reveal the pilot of <Picture 1> standing on the catwalk. Exterior and interior are one move, no cut.\n\nretention_analysis:\n<Subject 1> (appears in [Shot 1]): fully_preserved - saucer hull, panel seams, yellow-orange rim band, hanging module cluster, antenna spars.\n<Subject 2> (appears at the end of [Shot 1]): fully_preserved - helmet silhouette, glossy visor, the orange ring and two orange bars, collar ring and padded cowl.\n<Subject 3> (appears at the end of [Shot 1]): attribute_transfer - the ribbed white-metal language and window-band orange of <Subject 1> are carried inside as hull ribs and strip lights; the bay layout itself is new.\n<Picture 1> background: weak_reference only - its light grey studio backdrop is discarded entirely.\nNo audio reference is used in this generation.\n\ndetailed_description:\nRefined retro-futurist cinematography in a single unbroken move, cold blue ambient outside against warm orange interior light, deep blacks in both halves, fine grain and no lens flares; the camera is the only thing that travels and it never cuts.\n\n[Shot 1] Wide establishing frame: the station of <Subject 1> hangs in the black, centred and slightly below eye level, the planet's blue limb and white cloud bands filling the lower third behind it. The saucer's rim band glows a soft orange, the hanging module cluster underneath reads as a dense white cylinder mass with thin spars, and the hull plates are weathered white with dark seams. The camera pushes in with small amplitude at slow speed, straight toward the saucer rim, and the station grows until the window band fills the upper half of the frame.\n\nAt about one and a half seconds a rectangular bay mouth opens in the rim below the band: two armour plates slide apart, spilling a warm orange rectangle of light into the vacuum, and a faint haze of vented gas drifts out of it. The camera does not stop and does not slow down; it continues into the opening, the frame going completely black for a beat as it crosses the threshold, then the interior lights of <Subject 3> come up in rows from the far end toward the lens, stripping in along the ribs one section at a time.\n\nAt about three seconds the camera is inside, gliding down the length of the ribbed hangar at chest height, the grated catwalk beneath it, cargo clamps and rib shadows sliding past on both sides, and the orange strip lights drawing long converging lines toward the far bulkhead. The camera decelerates and comes to rest at about four and a half seconds, framing <Subject 2> standing on the catwalk in three-quarter profile: dark helmet, glossy black visor with the orange ring and the two orange bars lit, padded cowl, suit reading as a soft dark mass against the white ribs. The last beat holds completely still while the pilot turns their head a few degrees toward the lens and the visor glow spills a thin orange edge onto the nearest rib.\n\noverall_soundscape:\nDeep vacuum silence outside with only a low sub-bass hum from the station's structure, then a hard change as the camera crosses the threshold: pressurised air rushing past the lens, the hydraulic whine of the bay plates closing behind, distant bulkhead clanks, the hum of the hangar settling into a steady tone, and one soft suit life-support hiss from the pilot at the end.\n\nnon_diegetic_music:\nA slow retro synthwave pad that holds one low chord through the exterior, drops to near silence for the threshold crossing, and returns as a warm rising two-note figure as the hangar lights come up, ending on the held final frame."
+  },
+  "class_type": "PrimitiveStringMultiline",
+  "_meta": {
+   "title": "Input Text (Prompt)",
+   "cnr_id": "comfy-core",
+   "ver": "0.33.0"
+  }
+ },
+ "145": {
+  "inputs": {
+   "lora_name": "pika_h3_flex_ref2va_v1_bf16.safetensors",
+   "strength_model": 1,
+   "model": [
+    "127",
+    0
+   ]
+  },
+  "class_type": "LoraLoaderModelOnly",
+  "_meta": {
+   "title": "Load LoRA",
+   "cnr_id": "comfy-core",
+   "ver": "0.33.0"
+  }
+ },
+ "147": {
+  "inputs": {
+   "sigmas": "1.0, 0.972973, 0.923077, 0.8, 0.571429, 0.333333, 0.0"
+  },
+  "class_type": "ManualSigmas",
+  "_meta": {
+   "title": "ManualSigmas",
+   "cnr_id": "comfy-core",
+   "ver": "0.43.1"
+  }
+ },
+ "149": {
+  "inputs": {
+   "image": "ref_pilot_profile.png"
+  },
+  "class_type": "LoadImage",
+  "_meta": {
+   "title": "LoadImage (Picture 1 — pilot)",
+   "cnr_id": "comfy-core",
+   "ver": "0.43.1"
+  }
+ },
+ "150": {
+  "inputs": {
+   "image": "ref_subject_station.png"
+  },
+  "class_type": "LoadImage",
+  "_meta": {
+   "title": "LoadImage (Picture 2 — station)",
+   "cnr_id": "comfy-core",
+   "ver": "0.43.1"
+  }
+ }
+}

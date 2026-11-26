@@ -180,6 +180,7 @@ Workflows behind the "Tests" videos (solo hard tests and versus matchups), one f
 | pi-H3 (2 steps) vs HyperFlow H3 Flash (6 steps): text to video, 18 hard tests | `workflows/tests-pi-h3-vs-hyperflow/` | pi-h3, hyperflow-t2v: workflows from this Tests video. |
 | MOSS-Image Base vs SFT: Is the Fine-Tune Really Better? | `workflows/tests-moss-image-base-vs-sft/` | moss-base, moss: workflows from this Tests video. |
 | pi-H3 reference to video: 12 swap tests | `workflows/tests-pi-h3-reference-swap-12-tests/` | Z-Image Turbo, qwen-edit-2511, pi-h3-ref: workflows from this Tests video. |
+| Sketch to Anime with FLUX 3 Klein Edit: 15 Hard Tests | `workflows/tests-sketch-to-anime-klein-15-hard-tests/` | FLUX 3 Image Klein: workflows from this Tests video. |
 
 ## Related notes
 

@@ -1,0 +1,440 @@
+{
+ "1": {
+  "inputs": {
+   "unet_name": "minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+   "weight_dtype": "default"
+  },
+  "class_type": "UNETLoader",
+  "_meta": {
+   "title": "Load Diffusion Model",
+   "cnr_id": "comfy-core",
+   "ver": "0.46.0"
+  }
+ },
+ "3": {
+  "inputs": {
+   "clip_name": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+   "type": "minimax",
+   "device": "default"
+  },
+  "class_type": "CLIPLoader",
+  "_meta": {
+   "title": "Load CLIP",
+   "cnr_id": "comfy-core",
+   "ver": "0.46.0"
+  }
+ },
+ "4": {
+  "inputs": {
+   "vae_name": "minimax_h3_video_vae_int8_convrot.safetensors"
+  },
+  "class_type": "VAELoader",
+  "_meta": {
+   "title": "Load VAE (video)",
+   "cnr_id": "comfy-core",
+   "ver": "0.46.0"
+  }
+ },
+ "5": {
+  "inputs": {
+   "vae_name": "minimax_h3_audio_vae_fp32.safetensors"
+  },
+  "class_type": "VAELoader",
+  "_meta": {
+   "title": "Load VAE (audio)",
+   "cnr_id": "comfy-core",
+   "ver": "0.46.0"
+  }
+ },
+ "6": {
+  "class_type": "MiniMaxH3ReferenceToVideo",
+  "inputs": {
+   "clip": [
+    "3",
+    0
+   ],
+   "prompt": "<SCENE TEXT>",
+   "width": [
+    "30",
+    0
+   ],
+   "height": [
+    "30",
+    1
+   ],
+   "length": [
+    "40:32",
+    1
+   ],
+   "ref_image_size": "match",
+   "vae": [
+    "4",
+    0
+   ],
+   "audio_vae": [
+    "5",
+    0
+   ],
+   "ref_images.ref_image_0": [
+    "50",
+    0
+   ],
+   "ref_audios.ref_audio_0": [
+    "51",
+    0
+   ]
+  }
+ },
+ "7": {
+  "inputs": {
+   "sampler_name": "euler"
+  },
+  "class_type": "KSamplerSelect",
+  "_meta": {
+   "title": "KSamplerSelect",
+   "cnr_id": "comfy-core",
+   "ver": "0.46.0"
+  }
+ },
+ "8": {
+  "inputs": {
+   "steps": [
+    "39:36",
+    0
+   ],
+   "min_raw_t": 0,
+   "max_raw_t": [
+    "39:38",
+    0
+   ],
+   "final_step_size_scale": 0.6,
+   "model": [
+    "20",
+    0
+   ]
+  },
+  "class_type": "pi-Flow Scheduler",
+  "_meta": {
+   "title": "pi-Flow Scheduler",
+   "cnr_id": "comfyui_fearnworksnodes",
+   "ver": "0.1.2"
+  }
+ },
+ "9": {
+  "inputs": {
+   "model": [
+    "20",
+    0
+   ],
+   "conditioning": [
+    "6",
+    0
+   ]
+  },
+  "class_type": "BasicGuider",
+  "_meta": {
+   "title": "Basic Guider",
+   "cnr_id": "comfy-core",
+   "ver": "0.46.0"
+  }
+ },
+ "10": {
+  "inputs": {
+   "noise_seed": 42
+  },
+  "class_type": "RandomNoise",
+  "_meta": {
+   "title": "RandomNoise",
+   "cnr_id": "comfy-core",
+   "ver": "0.46.0"
+  }
+ },
+ "11": {
+  "inputs": {
+   "noise": [
+    "10",
+    0
+   ],
+   "guider": [
+    "9",
+    0
+   ],
+   "sampler": [
+    "7",
+    0
+   ],
+   "sigmas": [
+    "8",
+    0
+   ],
+   "latent_image": [
+    "6",
+    1
+   ]
+  },
+  "class_type": "SamplerCustomAdvanced",
+  "_meta": {
+   "title": "SamplerCustomAdvanced",
+   "cnr_id": "comfy-core",
+   "ver": "0.46.0"
+  }
+ },
+ "12": {
+  "inputs": {
+   "samples": [
+    "11",
+    0
+   ]
+  },
+  "class_type": "DWD Decode",
+  "_meta": {
+   "title": "DWD Decode",
+   "cnr_id": "comfyui_fearnworksnodes",
+   "ver": "0.1.2"
+  }
+ },
+ "13": {
+  "inputs": {
+   "samples": [
+    "11",
+    0
+   ],
+   "vae": [
+    "5",
+    0
+   ]
+  },
+  "class_type": "VAEDecodeAudio",
+  "_meta": {
+   "title": "VAE Decode Audio",
+   "cnr_id": "comfy-core",
+   "ver": "0.46.0"
+  }
+ },
+ "14": {
+  "inputs": {
+   "fps": 24,
+   "bit_depth": "auto",
+   "color_space": "sRGB",
+   "chroma_subsampling": "auto",
+   "codec": "none",
+   "images": [
+    "12",
+    0
+   ],
+   "audio": [
+    "13",
+    0
+   ]
+  },
+  "class_type": "CreateVideo",
+  "_meta": {
+   "title": "Create Video",
+   "cnr_id": "comfy-core",
+   "ver": "0.46.0"
+  }
+ },
+ "15": {
+  "inputs": {
+   "filename_prefix": "video/pi-h3-ref",
+   "format": "auto",
+   "format.codec": "auto",
+   "codec": "auto",
+   "video": [
+    "14",
+    0
+   ]
+  },
+  "class_type": "SaveVideo",
+  "_meta": {
+   "title": "Save Video",
+   "cnr_id": "comfy-core",
+   "ver": "0.46.0"
+  }
+ },
+ "19": {
+  "inputs": {
+   "shift_video": 12,
+   "shift_audio": 3,
+   "model": [
+    "39:35",
+    0
+   ]
+  },
+  "class_type": "MiniMaxH3SigmaShift",
+  "_meta": {
+   "title": "ModelSamplingMiniMaxH3",
+   "cnr_id": "comfy-core",
+   "ver": "0.46.0"
+  }
+ },
+ "20": {
+  "inputs": {
+   "selection": "sol-attn",
+   "selection.tau": 1,
+   "start_percent": 0,
+   "end_percent": 1,
+   "dense_blocks": "0, 1",
+   "min_tokens": 12288,
+   "extra_tokens": 0,
+   "sink_conditioning": "exact_kv_and_rows",
+   "verbose": false,
+   "model": [
+    "19",
+    0
+   ]
+  },
+  "class_type": "BlockSparseAttention",
+  "_meta": {
+   "title": "Model Sparse Attention",
+   "cnr_id": "comfy-core",
+   "ver": "0.46.0"
+  }
+ },
+ "30": {
+  "inputs": {
+   "aspect_ratio": "16:9 (Widescreen)",
+   "megapixels": 0.97,
+   "multiple": 32
+  },
+  "class_type": "ResolutionSelector",
+  "_meta": {
+   "title": "Resolution Selector",
+   "cnr_id": "comfy-core",
+   "ver": "0.46.0"
+  }
+ },
+ "40:31": {
+  "inputs": {
+   "value": 5.0
+  },
+  "class_type": "PrimitiveFloat",
+  "_meta": {
+   "title": "Duration (seconds)",
+   "cnr_id": "comfy-core",
+   "ver": "0.46.0"
+  }
+ },
+ "40:32": {
+  "inputs": {
+   "expression": "max(5, round(a * 24)) + (5 - (max(5, round(a * 24)) % 17)) % 17",
+   "values.a": [
+    "40:31",
+    0
+   ]
+  },
+  "class_type": "ComfyMathExpression",
+  "_meta": {
+   "title": "Frame count",
+   "cnr_id": "comfy-core",
+   "ver": "0.46.0"
+  }
+ },
+ "39:36": {
+  "inputs": {
+   "value": 2
+  },
+  "class_type": "PrimitiveInt",
+  "_meta": {
+   "title": "Steps (2 or 4)",
+   "cnr_id": "comfy-core",
+   "ver": "0.46.0"
+  }
+ },
+ "39:37": {
+  "inputs": {
+   "expression": "a > 2",
+   "values.a": [
+    "39:36",
+    0
+   ]
+  },
+  "class_type": "ComfyMathExpression",
+  "_meta": {
+   "title": "4-step adapter?",
+   "cnr_id": "comfy-core",
+   "ver": "0.46.0"
+  }
+ },
+ "39:38": {
+  "inputs": {
+   "expression": "0.96 if a > 2 else 0.93",
+   "values.a": [
+    "39:36",
+    0
+   ]
+  },
+  "class_type": "ComfyMathExpression",
+  "_meta": {
+   "title": "max_raw_t",
+   "cnr_id": "comfy-core",
+   "ver": "0.46.0"
+  }
+ },
+ "39:2": {
+  "inputs": {
+   "adapter_name": "pi_h3_2step_dwd_adapter_int8_convrot.safetensors",
+   "adapter_strength": 1,
+   "model": [
+    "1",
+    0
+   ]
+  },
+  "class_type": "Load LakonLab Adapter",
+  "_meta": {
+   "title": "Load 2-step adapter",
+   "cnr_id": "comfyui_fearnworksnodes",
+   "ver": "0.1.2"
+  }
+ },
+ "39:34": {
+  "inputs": {
+   "adapter_name": "pi_h3_4step_dwd_adapter_int8_convrot.safetensors",
+   "adapter_strength": 1,
+   "model": [
+    "1",
+    0
+   ]
+  },
+  "class_type": "Load LakonLab Adapter",
+  "_meta": {
+   "title": "Load 4-step adapter",
+   "cnr_id": "comfyui_fearnworksnodes",
+   "ver": "0.1.2"
+  }
+ },
+ "39:35": {
+  "inputs": {
+   "switch": [
+    "39:37",
+    2
+   ],
+   "on_false": [
+    "39:2",
+    0
+   ],
+   "on_true": [
+    "39:34",
+    0
+   ]
+  },
+  "class_type": "ComfySwitchNode",
+  "_meta": {
+   "title": "Adapter for the steps",
+   "cnr_id": "comfy-core",
+   "ver": "0.46.0"
+  }
+ },
+ "50": {
+  "class_type": "LoadImage",
+  "inputs": {
+   "image": "example.png"
+  }
+ },
+ "51": {
+  "class_type": "LoadAudio",
+  "inputs": {
+   "audio": "example.wav"
+  }
+ }
+}
